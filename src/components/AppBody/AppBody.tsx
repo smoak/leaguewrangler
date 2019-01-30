@@ -1,6 +1,6 @@
 import React, { SFC } from 'react';
 
-import Routes from 'components/Routes';
+import Routes from '../Routes';
 
 const AppBody: SFC = () => {
   return (

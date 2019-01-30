@@ -1,7 +1,7 @@
 import React, { SFC } from 'react';
 import { BrowserRouter, Redirect, Route, Switch } from 'react-router-dom';
 
-import PageHome from 'components/PageHome';
+import PageHome from '../PageHome';
 
 const Routes: SFC = () => {
   return (
