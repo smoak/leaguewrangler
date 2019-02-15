@@ -3,10 +3,7 @@
     "outDir": "./dist",
     "module": "esnext",
     "target": "es5",
-    "lib": [
-      "dom",
-      "es2015"
-    ],
+    "lib": ["dom", "es2015.core", "es5", "es2015.collection", "es2015.promise"],
     "sourceMap": true,
     "jsx": "preserve",
     "moduleResolution": "node",
@@ -26,9 +23,8 @@
     "noEmit": true,
     "allowJs": true,
     "skipLibCheck": true,
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "strictFunctionTypes": false
   },
-  "include": [
-    "src"
-  ]
+  "include": ["src"]
 }

@@ -9,7 +9,7 @@ const initialState: Session = {
   userToken: '',
 };
 
-const reducer: Reducer<Session, SessionAction> = (state = initialState, action) => {
+const reducer: Reducer<Session> = (state = initialState, action: SessionAction) => {
   switch (action.type) {
     case 'SESSION.SET_USER_TOKEN':
       return {

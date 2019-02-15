@@ -1,10 +1,6 @@
 {
-  "extends": ["tslint:recommended", "tslint-react", "tslint-config-prettier"],
+  "extends": ["tslint:latest", "tslint-react", "tslint-microsoft-contrib", "tslint-consistent-codestyle"],
   "linterOptions": {
-    "exclude": [
-      "config/**/*.js",
-      "node_modules/**/*.ts",
-      "coverage/lcov-report/*.js"
-    ]
+    "exclude": ["config/**/*.js", "node_modules/**/*.ts", "coverage/lcov-report/*.js"]
   }
 }
