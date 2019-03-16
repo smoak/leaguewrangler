@@ -12,7 +12,7 @@ const styles = createStyles({
   },
 });
 
-const AppHeader: SFC<WithStyles<typeof styles>> = ({ classes }) => {
+export const AppHeader: SFC<WithStyles<typeof styles>> = ({ classes }) => {
   return (
     <header className="AppHeader y-hc-border-bottom" role="banner">
       <AppBar position="static">

@@ -1,15 +1,12 @@
 import { shallow, ShallowWrapper } from 'enzyme';
+import { AppHeader } from './AppHeader';
 import React from 'react';
 
-import { Login } from './Login';
-
-describe('Login', () => {
+describe('AppHeader', () => {
   let component: ShallowWrapper;
 
   beforeEach(() => {
-    component = shallow(
-      <Login classes={{ main: 'main', avatar: 'avatar', form: 'form', submit: 'submit', paper: 'paper' }} />
-    );
+    component = shallow(<AppHeader classes={{ menuButton: 'styles' }} />);
   });
 
   it('renders', () => {

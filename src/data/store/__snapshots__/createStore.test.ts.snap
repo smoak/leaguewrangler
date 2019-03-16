@@ -2,8 +2,6 @@
 
 exports[`createStore creates a store with no additional reducers 1`] = `
 Object {
-  "session": Object {
-    "userToken": "",
-  },
+  "session": Object {},
 }
 `;

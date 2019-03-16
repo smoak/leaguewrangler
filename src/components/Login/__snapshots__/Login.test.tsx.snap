@@ -1,15 +1,79 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Login renders 1`] = `
-<Login
-  classes={
-    Object {
-      "avatar": "Login-avatar-3",
-      "form": "Login-form-4",
-      "main": "Login-main-1",
-      "paper": "Login-paper-2",
-      "submit": "Login-submit-5",
-    }
-  }
-/>
+<div
+  className="main"
+>
+  <WithStyles(Paper)
+    className="paper"
+  >
+    <WithStyles(Avatar)
+      className="avatar"
+    >
+      <pure(LockOutlinedIcon) />
+    </WithStyles(Avatar)>
+    <WithStyles(Typography)
+      component="h1"
+      variant="h5"
+    >
+      Sign in
+    </WithStyles(Typography)>
+    <form
+      className="form"
+    >
+      <WithStyles(FormControl)
+        fullWidth={true}
+        margin="normal"
+        required={true}
+      >
+        <WithStyles(InputLabel)
+          htmlFor="username"
+        >
+          Username
+        </WithStyles(InputLabel)>
+        <WithStyles(Input)
+          autoComplete="username"
+          autoFocus={true}
+          id="username"
+          name="username"
+        />
+      </WithStyles(FormControl)>
+      <WithStyles(FormControl)
+        fullWidth={true}
+        margin="normal"
+        required={true}
+      >
+        <WithStyles(InputLabel)
+          htmlFor="password"
+        >
+          Password
+        </WithStyles(InputLabel)>
+        <WithStyles(Input)
+          autoComplete="current-password"
+          id="password"
+          name="password"
+          type="password"
+        />
+      </WithStyles(FormControl)>
+      <WithStyles(FormControlLabel)
+        control={
+          <WithStyles(Checkbox)
+            color="primary"
+            value="remember"
+          />
+        }
+        label="Remember me"
+      />
+      <WithStyles(Button)
+        className="submit"
+        color="primary"
+        fullWidth={true}
+        type="submit"
+        variant="contained"
+      >
+        Sign in
+      </WithStyles(Button)>
+    </form>
+  </WithStyles(Paper)>
+</div>
 `;

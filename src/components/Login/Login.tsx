@@ -15,7 +15,7 @@ import withStyles, { WithStyles } from '@material-ui/core/styles/withStyles';
 
 import styles from './styles';
 
-const Login: SFC<WithStyles<typeof styles>> = ({ classes }) => {
+export const Login: SFC<WithStyles<typeof styles>> = ({ classes }) => {
   return (
     <div className={classes.main}>
       <Paper className={classes.paper}>

@@ -5,9 +5,7 @@ import { SessionSetUserTokenAction } from '../../domains/sessionSetUserToken/act
 
 export type SessionAction = SessionSetUserTokenAction;
 
-const initialState: Session = {
-  userToken: '',
-};
+const initialState: Session = {};
 
 const reducer: Reducer<Session> = (state = initialState, action: SessionAction) => {
   switch (action.type) {

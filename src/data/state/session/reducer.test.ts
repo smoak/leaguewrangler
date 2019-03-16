@@ -14,9 +14,7 @@ describe('reducer', () => {
   });
 
   it('should return the initial state', () => {
-    expect(newState).toEqual({
-      userToken: '',
-    });
+    expect(newState).toEqual({});
   });
 
   describe('for an action that is unhandled', () => {
