@@ -3,14 +3,10 @@
 exports[`Routes renders 1`] = `
 <BrowserRouter>
   <Switch>
-    <Connect(AuthenticatedRoute)
+    <Route
       component={[Function]}
       exact={true}
       path="/"
-    />
-    <Route
-      component={[Function]}
-      path="/login"
     />
   </Switch>
 </BrowserRouter>

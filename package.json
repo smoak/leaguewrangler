@@ -4,9 +4,10 @@
   "private": true,
   "jest": {
     "collectCoverageFrom": [
-      "src/data/**/*.ts",
-      "src/components/**/*.{ts,tsx}",
-      "!**/node_modules/**"
+      "src/**/*.{ts,tsx}",
+      "!**/node_modules/**",
+      "!src/registerServiceWorker.ts",
+      "!src/index.tsx"
     ],
     "coverageReporters": [
       "text",
@@ -25,8 +26,10 @@
   "dependencies": {
     "@material-ui/core": "^3.3.1",
     "@material-ui/icons": "^3.0.1",
+    "@types/cookie": "^0.3.2",
     "@types/react-redux": "^7.0.1",
     "@types/react-router-dom": "^4.3.1",
+    "cookie": "^0.3.1",
     "react": "^16.7.0",
     "react-dom": "^16.6.0",
     "react-redux": "^6.0.0",
