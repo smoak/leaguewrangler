@@ -11,5 +11,6 @@ on:
   branch: master
 deploy:
   provider: surge
-  project: ./build/
+  project: ./build
   domain: team-cowgirl.surge.sh   
+  skip_cleanup: true
