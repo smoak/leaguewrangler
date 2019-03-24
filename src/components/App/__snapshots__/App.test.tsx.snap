@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`App renders 1`] = `
+exports[`App when authenticated renders 1`] = `
 <div
   className="App"
 >
@@ -14,6 +14,24 @@ exports[`App renders 1`] = `
     className="App__body"
   >
     <AppBody />
+  </div>
+</div>
+`;
+
+exports[`App when not authenticated renders 1`] = `
+<div
+  className="App"
+>
+  <WithStyles(CssBaseline) />
+  <div
+    className="App__header"
+  >
+    <WithStyles(AppHeader) />
+  </div>
+  <div
+    className="App__body"
+  >
+    <WithStyles(Login) />
   </div>
 </div>
 `;

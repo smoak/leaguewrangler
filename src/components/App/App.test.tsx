@@ -1,15 +1,27 @@
 import React from 'react';
-import App from '.';
+import App from './App';
 import { ShallowWrapper, shallow } from 'enzyme';
 
 describe('App', () => {
   let component: ShallowWrapper;
 
-  beforeEach(() => {
-    component = shallow(<App />);
+  describe('when not authenticated', () => {
+    beforeEach(() => {
+      component = shallow(<App isAuthenticated={false} />);
+    });
+
+    it('renders', () => {
+      expect(component).toMatchSnapshot();
+    });
   });
 
-  it('renders', () => {
-    expect(component).toMatchSnapshot();
+  describe('when authenticated', () => {
+    beforeEach(() => {
+      component = shallow(<App isAuthenticated={true} />);
+    });
+
+    it('renders', () => {
+      expect(component).toMatchSnapshot();
+    });
   });
 });
