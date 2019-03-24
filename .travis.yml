@@ -9,3 +9,7 @@ script:
   - npm run build
 on:
   branch: master
+deploy:
+  provider: surge
+  project: ./build/
+  domain: team-cowgirl.surge.sh   
