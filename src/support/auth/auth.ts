@@ -1,8 +1,6 @@
-import { get } from '../cookies';
+const userTokenName = 'userToken';
 
-const userTokenCookieName = 'userToken';
-
-export type GetUserTokenFromCookies = () => string | undefined;
-export const getUserTokenFromCookies: GetUserTokenFromCookies = () => {
-  return get(userTokenCookieName);
+export type GetUserToken = () => string | null;
+export const getUserToken: GetUserToken = () => {
+  return localStorage.getItem(userTokenName);
 };

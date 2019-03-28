@@ -1,16 +1,13 @@
-jest.mock('../cookies');
-
-import { getUserTokenFromCookies } from '.';
-import { get } from '../cookies';
+import { getUserToken } from './auth';
 
 describe('auth', () => {
-  describe('getUserTokenFromCookies', () => {
+  describe('getUserToken', () => {
     beforeEach(() => {
-      getUserTokenFromCookies();
+      getUserToken();
     });
 
-    it('uses the browsers cookies', () => {
-      expect(get).toHaveBeenCalled();
+    it('uses localStorage', () => {
+      expect(localStorage.getItem).toHaveBeenCalled();
     });
   });
 });

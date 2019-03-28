@@ -5,10 +5,11 @@ import registerServiceWorker from './registerServiceWorker';
 import { Provider } from 'react-redux';
 import createStore from './data/store/createStore';
 import { setSessionUserToken } from './data/domains/sessionSetUserToken/actions';
-import { getUserTokenFromCookies } from './support/auth';
+import { getUserToken } from './support/auth';
 
 const store = createStore();
-const userToken = getUserTokenFromCookies();
+const userToken = getUserToken();
+
 if (userToken) {
   store.dispatch(setSessionUserToken(userToken));
 }
