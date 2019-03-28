@@ -18,62 +18,10 @@ exports[`Login renders 1`] = `
     >
       Sign in
     </WithStyles(Typography)>
-    <form
-      className="form"
-    >
-      <WithStyles(FormControl)
-        fullWidth={true}
-        margin="normal"
-        required={true}
-      >
-        <WithStyles(InputLabel)
-          htmlFor="username"
-        >
-          Username
-        </WithStyles(InputLabel)>
-        <WithStyles(Input)
-          autoComplete="username"
-          autoFocus={true}
-          id="username"
-          name="username"
-        />
-      </WithStyles(FormControl)>
-      <WithStyles(FormControl)
-        fullWidth={true}
-        margin="normal"
-        required={true}
-      >
-        <WithStyles(InputLabel)
-          htmlFor="password"
-        >
-          Password
-        </WithStyles(InputLabel)>
-        <WithStyles(Input)
-          autoComplete="current-password"
-          id="password"
-          name="password"
-          type="password"
-        />
-      </WithStyles(FormControl)>
-      <WithStyles(FormControlLabel)
-        control={
-          <WithStyles(Checkbox)
-            color="primary"
-            value="remember"
-          />
-        }
-        label="Remember me"
-      />
-      <WithStyles(Button)
-        className="submit"
-        color="primary"
-        fullWidth={true}
-        type="submit"
-        variant="contained"
-      >
-        Sign in
-      </WithStyles(Button)>
-    </form>
+    <Form
+      formClassname="form"
+      submitButtonClassname="submit"
+    />
   </WithStyles(Paper)>
 </div>
 `;
