@@ -2,6 +2,7 @@ import { shallow, ShallowWrapper } from 'enzyme';
 import React from 'react';
 
 import { Form } from '.';
+import { InputProps } from '@material-ui/core/Input';
 
 describe('Form', () => {
   let component: ShallowWrapper;
@@ -12,5 +13,17 @@ describe('Form', () => {
 
   it('renders', () => {
     expect(component).toMatchSnapshot();
+  });
+
+  describe('when username is changed', () => {
+    beforeEach(() => {
+      const event = { target: { value: 'foo' } };
+      component = shallow(<Form formClassname="form" submitButtonClassname="submit" />);
+      component.find('#username').simulate('change', event);
+    });
+
+    it('updates the input value', () => {
+      expect(component.find('#username').prop<InputProps>('value')).toEqual('foo');
+    });
   });
 });

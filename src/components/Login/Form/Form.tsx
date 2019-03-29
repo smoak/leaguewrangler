@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, useState } from 'react';
 import { FormControl, InputLabel, Input, FormControlLabel, Checkbox, Button } from '@material-ui/core';
 
 export interface FormProps {
@@ -7,11 +7,20 @@ export interface FormProps {
 }
 
 export const Form: FC<FormProps> = ({ submitButtonClassname, formClassname }) => {
+  const [username, setUsername] = useState('');
+
   return (
     <div className={formClassname}>
       <FormControl margin="normal" required fullWidth>
         <InputLabel htmlFor="username">Username</InputLabel>
-        <Input id="username" name="username" autoComplete="username" autoFocus />
+        <Input
+          id="username"
+          name="username"
+          autoComplete="username"
+          autoFocus={true}
+          value={username}
+          onChange={e => setUsername(e.target.value)}
+        />
       </FormControl>
       <FormControl margin="normal" required fullWidth>
         <InputLabel htmlFor="password">Password</InputLabel>
