@@ -26,4 +26,16 @@ describe('Form', () => {
       expect(component.find('#username').prop<InputProps>('value')).toEqual('foo');
     });
   });
+
+  describe('when password is changed', () => {
+    beforeEach(() => {
+      const event = { target: { value: 'bar' } };
+      component = shallow(<Form formClassname="form" submitButtonClassname="submit" />);
+      component.find('#password').simulate('change', event);
+    });
+
+    it('updates the input value', () => {
+      expect(component.find('#password').prop<InputProps>('value')).toEqual('bar');
+    });
+  });
 });

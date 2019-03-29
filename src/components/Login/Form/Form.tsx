@@ -8,6 +8,7 @@ export interface FormProps {
 
 export const Form: FC<FormProps> = ({ submitButtonClassname, formClassname }) => {
   const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
 
   return (
     <div className={formClassname}>
@@ -24,7 +25,14 @@ export const Form: FC<FormProps> = ({ submitButtonClassname, formClassname }) =>
       </FormControl>
       <FormControl margin="normal" required fullWidth>
         <InputLabel htmlFor="password">Password</InputLabel>
-        <Input name="password" type="password" id="password" autoComplete="current-password" />
+        <Input
+          name="password"
+          type="password"
+          id="password"
+          autoComplete="current-password"
+          value={password}
+          onChange={e => setPassword(e.target.value)}
+        />
       </FormControl>
       <FormControlLabel control={<Checkbox value="remember" color="primary" />} label="Remember me" />
       <Button type="submit" fullWidth variant="contained" color="primary" className={submitButtonClassname}>

@@ -37,7 +37,9 @@ exports[`Form renders 1`] = `
       autoComplete="current-password"
       id="password"
       name="password"
+      onChange={[Function]}
       type="password"
+      value=""
     />
   </WithStyles(FormControl)>
   <WithStyles(WithFormControlContext(FormControlLabel))
