@@ -4,9 +4,10 @@ import { FormControl, InputLabel, Input, FormControlLabel, Checkbox, Button } fr
 export interface FormProps {
   readonly formClassname: string;
   readonly submitButtonClassname: string;
+  readonly onSignInClicked: (username: string, password: string) => void;
 }
 
-export const Form: FC<FormProps> = ({ submitButtonClassname, formClassname }) => {
+export const Form: FC<FormProps> = ({ submitButtonClassname, formClassname, onSignInClicked }) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
@@ -35,7 +36,17 @@ export const Form: FC<FormProps> = ({ submitButtonClassname, formClassname }) =>
         />
       </FormControl>
       <FormControlLabel control={<Checkbox value="remember" color="primary" />} label="Remember me" />
-      <Button type="submit" fullWidth variant="contained" color="primary" className={submitButtonClassname}>
+      <Button
+        type="submit"
+        fullWidth
+        variant="contained"
+        color="primary"
+        className={submitButtonClassname}
+        onClick={e => {
+          e.preventDefault();
+          onSignInClicked(username, password);
+        }}
+      >
         Sign in
       </Button>
     </div>

@@ -18,7 +18,7 @@ exports[`Login renders 1`] = `
     >
       Sign in
     </WithStyles(Typography)>
-    <Form
+    <FormWithMutation
       formClassname="form"
       submitButtonClassname="submit"
     />

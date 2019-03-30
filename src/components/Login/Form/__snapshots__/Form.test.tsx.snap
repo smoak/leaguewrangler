@@ -55,6 +55,7 @@ exports[`Form renders 1`] = `
     className="submit"
     color="primary"
     fullWidth={true}
+    onClick={[Function]}
     type="submit"
     variant="contained"
   >
