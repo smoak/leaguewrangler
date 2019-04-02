@@ -21,10 +21,8 @@ const mocks: ReadonlyArray<MockedResponse> = [
   },
 ];
 
-storiesOf('UserAvatar', module).add('default', () => {
-  return (
-    <MockedProvider mocks={mocks} addTypename={false}>
-      <UserAvatar />
-    </MockedProvider>
-  );
-});
+storiesOf('UserAvatar', module).add('default', () => (
+  <MockedProvider mocks={mocks} addTypename={false}>
+    <UserAvatar />
+  </MockedProvider>
+));
