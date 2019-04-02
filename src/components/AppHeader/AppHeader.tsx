@@ -19,19 +19,17 @@ const styles = createStyles({
 
 export const AppHeader: SFC<WithStyles<typeof styles>> = ({ classes }) => {
   return (
-    <header className="AppHeader y-hc-border-bottom" role="banner">
-      <AppBar position="static">
-        <Toolbar>
-          <IconButton className={classes.menuButton} color="inherit" aria-label="Menu">
-            <MenuIcon />
-          </IconButton>
-          <Typography variant="h6" color="inherit" className={classes.grow}>
-            Team Cowgirl
-          </Typography>
-          <UserAvatar />
-        </Toolbar>
-      </AppBar>
-    </header>
+    <AppBar position="static">
+      <Toolbar>
+        <IconButton className={classes.menuButton} color="inherit" aria-label="Menu">
+          <MenuIcon />
+        </IconButton>
+        <Typography variant="h6" color="inherit" className={classes.grow}>
+          {process.env.REACT_APP_WEBSITE_NAME}
+        </Typography>
+        <UserAvatar />
+      </Toolbar>
+    </AppBar>
   );
 };
 

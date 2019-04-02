@@ -1,29 +1,24 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`AppHeader renders 1`] = `
-<header
-  className="AppHeader y-hc-border-bottom"
-  role="banner"
+<WithStyles(AppBar)
+  position="static"
 >
-  <WithStyles(AppBar)
-    position="static"
-  >
-    <WithStyles(Toolbar)>
-      <WithStyles(IconButton)
-        aria-label="Menu"
-        className="styles"
-        color="inherit"
-      >
-        <pure(MenuIcon) />
-      </WithStyles(IconButton)>
-      <WithStyles(Typography)
-        color="inherit"
-        variant="h6"
-      >
-        Team Cowgirl
-      </WithStyles(Typography)>
-      <Apollo(WithStyles(UserAvatar)) />
-    </WithStyles(Toolbar)>
-  </WithStyles(AppBar)>
-</header>
+  <WithStyles(Toolbar)>
+    <WithStyles(IconButton)
+      aria-label="Menu"
+      className="styles"
+      color="inherit"
+    >
+      <pure(MenuIcon) />
+    </WithStyles(IconButton)>
+    <WithStyles(Typography)
+      color="inherit"
+      variant="h6"
+    >
+      Team Cowgirl
+    </WithStyles(Typography)>
+    <Apollo(WithStyles(UserAvatar)) />
+  </WithStyles(Toolbar)>
+</WithStyles(AppBar)>
 `;

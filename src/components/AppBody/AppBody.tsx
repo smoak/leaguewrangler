@@ -1,15 +1,7 @@
-import React, { SFC } from 'react';
+import React, { FC } from 'react';
 
 import Routes from '../Routes';
 
-const AppBody: SFC = () => {
-  return (
-    <div className="AppBody">
-      <div className="AppBody__main">
-        <Routes />
-      </div>
-    </div>
-  );
-};
+const AppBody: FC = () => <Routes />;
 
 export default AppBody;

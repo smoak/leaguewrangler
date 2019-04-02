@@ -1,13 +1,3 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`AppBody renders 1`] = `
-<div
-  className="AppBody"
->
-  <div
-    className="AppBody__main"
-  >
-    <Routes />
-  </div>
-</div>
-`;
+exports[`AppBody renders 1`] = `<Routes />`;
