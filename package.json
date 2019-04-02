@@ -45,7 +45,7 @@
     "test": "react-scripts test --env=jsdom --coverage --coverageDirectory=coverage",
     "eject": "react-scripts eject",
     "watch": "react-scripts test --env=jsdom",
-    "build:graphql": "apollo client:codegen --includes=src/graphql/mutations/*.ts --endpoint='https://teamcowboy-graphql.gigalixirapp.com/graphql' --outputFlat --target=typescript src/graphql/types/"
+    "build:graphql": "apollo client:codegen --includes=src/graphql/{mutations,queries}/*.ts --endpoint='https://teamcowboy-graphql.gigalixirapp.com/graphql' --outputFlat --target=typescript src/graphql/types/"
   },
   "devDependencies": {
     "@types/enzyme": "^3.9.1",

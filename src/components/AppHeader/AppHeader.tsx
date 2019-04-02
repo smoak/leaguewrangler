@@ -4,11 +4,16 @@ import { createStyles, withStyles, WithStyles } from '@material-ui/core/styles';
 import Toolbar from '@material-ui/core/Toolbar';
 import MenuIcon from '@material-ui/icons/Menu';
 import React, { SFC } from 'react';
+import { Typography } from '@material-ui/core';
+import UserAvatar from '../UserAvatar';
 
 const styles = createStyles({
   menuButton: {
     marginLeft: -12,
     marginRight: 20,
+  },
+  grow: {
+    flexGrow: 1,
   },
 });
 
@@ -20,6 +25,10 @@ export const AppHeader: SFC<WithStyles<typeof styles>> = ({ classes }) => {
           <IconButton className={classes.menuButton} color="inherit" aria-label="Menu">
             <MenuIcon />
           </IconButton>
+          <Typography variant="h6" color="inherit" className={classes.grow}>
+            Team Cowgirl
+          </Typography>
+          <UserAvatar />
         </Toolbar>
       </AppBar>
     </header>

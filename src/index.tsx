@@ -14,9 +14,11 @@ import { ApolloProvider } from 'react-apollo';
 
 const store = createStore();
 const userToken = getUserToken();
+// const productionUri = 'https://teamcowboy-graphql.gigalixirapp.com/graphql';
+const devUri = 'http://localhost:4000/graphql';
 
 const httpLink = createHttpLink({
-  uri: 'https://teamcowboy-graphql.gigalixirapp.com/graphql',
+  uri: devUri,
 });
 
 const authLink = setContext((_, { headers }) => {

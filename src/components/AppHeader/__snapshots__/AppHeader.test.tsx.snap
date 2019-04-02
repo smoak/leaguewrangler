@@ -16,6 +16,13 @@ exports[`AppHeader renders 1`] = `
       >
         <pure(MenuIcon) />
       </WithStyles(IconButton)>
+      <WithStyles(Typography)
+        color="inherit"
+        variant="h6"
+      >
+        Team Cowgirl
+      </WithStyles(Typography)>
+      <Apollo(WithStyles(UserAvatar)) />
     </WithStyles(Toolbar)>
   </WithStyles(AppBar)>
 </header>
