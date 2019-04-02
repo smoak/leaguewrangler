@@ -13,12 +13,10 @@ export type AppProps = MappedStateProps;
 
 const App: SFC<AppProps> = ({ isAuthenticated }) => {
   return (
-    <div className="App">
+    <div>
       <CssBaseline />
-      <div className="App__header">
-        <AppHeader />
-      </div>
-      <div className="App__body">{isAuthenticated ? <AppBody /> : <Login />}</div>
+      <AppHeader />
+      {isAuthenticated ? <AppBody /> : <Login />}
     </div>
   );
 };

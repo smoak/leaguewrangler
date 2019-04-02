@@ -16,7 +16,7 @@ const store = createStore();
 const userToken = getUserToken();
 
 const httpLink = createHttpLink({
-  uri: 'https://teamcowboy-graphql.gigalixirapp.com/graphql',
+  uri: process.env.REACT_APP_GRAPHQL_ENDPOINT,
 });
 
 const authLink = setContext((_, { headers }) => {
