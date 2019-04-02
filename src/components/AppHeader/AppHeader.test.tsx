@@ -6,7 +6,7 @@ describe('AppHeader', () => {
   let component: ShallowWrapper;
 
   beforeEach(() => {
-    component = shallow(<AppHeader classes={{ menuButton: 'styles' }} />);
+    component = shallow(<AppHeader classes={{ menuButton: 'styles', grow: 'grow' }} />);
   });
 
   it('renders', () => {

@@ -13,6 +13,7 @@ exports[`AppHeader renders 1`] = `
       <pure(MenuIcon) />
     </WithStyles(IconButton)>
     <WithStyles(Typography)
+      className="grow"
       color="inherit"
       variant="h6"
     >

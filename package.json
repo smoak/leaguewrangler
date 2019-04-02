@@ -8,7 +8,8 @@
       "!**/node_modules/**",
       "!src/registerServiceWorker.ts",
       "!src/index.tsx",
-      "!**/index.ts"
+      "!**/index.ts",
+      "!src/**/*.stories.tsx"
     ],
     "coverageReporters": [
       "text",
@@ -27,16 +28,21 @@
   "dependencies": {
     "@material-ui/core": "^3.9.3",
     "@material-ui/icons": "^3.0.2",
+    "@storybook/addon-info": "^5.0.6",
+    "@types/storybook__react": "^4.0.1",
     "apollo": "^2.6.2",
     "apollo-boost": "^0.3.1",
     "apollo-link-context": "^1.0.17",
+    "awesome-typescript-loader": "^5.2.1",
     "graphql": "^14.2.0",
     "react": "^16.8.6",
     "react-apollo": "^2.5.3",
+    "react-docgen-typescript-webpack-plugin": "^1.1.0",
     "react-dom": "^16.8.6",
     "react-redux": "^6.0.1",
     "react-router-dom": "^5.0.0",
     "react-scripts": "^2.1.8",
+    "ts-jest": "^24.0.1",
     "waait": "^1.0.4"
   },
   "scripts": {
@@ -45,7 +51,9 @@
     "test": "react-scripts test --env=jsdom --coverage --coverageDirectory=coverage",
     "eject": "react-scripts eject",
     "watch": "react-scripts test --env=jsdom",
-    "build:graphql": "apollo client:codegen --includes=src/graphql/{mutations,queries}/*.ts --endpoint='https://teamcowboy-graphql.gigalixirapp.com/graphql' --outputFlat --target=typescript src/graphql/types/"
+    "build:graphql": "apollo client:codegen --includes=src/graphql/{mutations,queries}/*.ts --endpoint='https://teamcowboy-graphql.gigalixirapp.com/graphql' --outputFlat --target=typescript src/graphql/types/",
+    "storybook": "start-storybook -p 9009 -s public -c .storybook",
+    "build-storybook": "build-storybook -s public"
   },
   "devDependencies": {
     "@types/enzyme": "^3.9.1",
@@ -63,7 +71,13 @@
     "prettier": "1.14.3",
     "react-test-renderer": "^16.8.6",
     "redux-devtools-extension": "^2.13.8",
-    "typescript": "^3.3.4000"
+    "typescript": "^3.3.4000",
+    "@storybook/react": "^5.0.6",
+    "@storybook/addon-actions": "^5.0.6",
+    "@storybook/addon-links": "^5.0.6",
+    "@storybook/addons": "^5.0.6",
+    "@babel/core": "^7.4.0",
+    "babel-loader": "^8.0.5"
   },
   "browserslist": [
     ">0.2%",
