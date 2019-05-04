@@ -17,9 +17,9 @@ import NotPlayingIcon from '@material-ui/icons/HighlightOffOutlined';
 
 export interface OwnProps {
   readonly title: string;
-  readonly startTime: Date;
+  readonly startTime?: Date;
   readonly endTime?: Date;
-  readonly teamPhotoUrl: string;
+  readonly teamPhotoUrl: string | null;
   readonly location: string;
   readonly locationMapsUrl?: string;
 }
@@ -50,9 +50,9 @@ export const Event: FC<EventProps> = ({ classes, title, teamPhotoUrl, startTime,
   return (
     <Card className={classes.card}>
       <CardHeader
-        avatar={<Avatar aria-label="teamPhoto" src={teamPhotoUrl} />}
+        avatar={<Avatar aria-label="teamPhoto" src={teamPhotoUrl ? teamPhotoUrl : ''} />}
         title={title}
-        subheader={formatDateTime(startTime)}
+        subheader={startTime ? formatDateTime(startTime) : ''}
       />
       <CardContent>
         <Typography component="p">{location}</Typography>
