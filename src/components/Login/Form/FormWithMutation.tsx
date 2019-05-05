@@ -15,7 +15,7 @@ const onSignInCompleted: MutationOpts<CreateUserToken, CreateUserTokenVariables>
   createUserToken: { token },
 }) => {
   setUserToken(token);
-  location.reload();
+  window.location.reload();
 };
 
 const FormWithMutation: FC<FormWithMutationProps> = props => {
