@@ -13652,7 +13652,7 @@ exports[`EventList renders 1`] = `
                                                       <time
                                                         dateTime={"2019-05-05T04:15:00.000Z"}
                                                       >
-                                                        Saturday, May 4, 2019 9:15 PM
+                                                        Saturday, May 4, 2019 11:15 PM
                                                       </time>
                                                     </t>
                                                   </span>
@@ -30002,7 +30002,7 @@ exports[`EventList when an event has a location renders 1`] = `
                                                       <time
                                                         dateTime={"2019-05-05T04:15:00.000Z"}
                                                       >
-                                                        Saturday, May 4, 2019 9:15 PM
+                                                        Saturday, May 4, 2019 11:15 PM
                                                       </time>
                                                     </t>
                                                   </span>
