@@ -43,7 +43,7 @@
     "react-moment": "^0.9.2",
     "react-redux": "^6.0.1",
     "react-router-dom": "^5.0.0",
-    "react-scripts": "^2.1.8",
+    "react-scripts": "3.0.0",
     "ts-jest": "^24.0.1",
     "waait": "^1.0.4"
   },

@@ -24,7 +24,8 @@
     "allowJs": true,
     "skipLibCheck": true,
     "esModuleInterop": true,
-    "strictFunctionTypes": false
+    "strictFunctionTypes": false,
+    "baseUrl": "src"
   },
   "include": ["src"]
 }
