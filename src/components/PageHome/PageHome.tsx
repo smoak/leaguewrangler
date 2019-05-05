@@ -20,7 +20,7 @@ const styles = (theme: Theme) =>
 
 export type PageHomeProps = WithStyles<typeof styles>;
 
-const PageHome: FC<PageHomeProps> = ({ classes }) => {
+export const PageHome: FC<PageHomeProps> = ({ classes }) => {
   return (
     <div className={classes.main}>
       <EventList />

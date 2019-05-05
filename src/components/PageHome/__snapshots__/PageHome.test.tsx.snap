@@ -1,7 +1,19 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`PageHome renders 1`] = `
-<Fragment>
-  Home Page
-</Fragment>
+<div
+  className="main"
+>
+  <Apollo(EventList) />
+</div>
+`;
+
+exports[`PageHomeWithStyles renders 1`] = `
+<PageHome
+  classes={
+    Object {
+      "main": "PageHome-main-1",
+    }
+  }
+/>
 `;

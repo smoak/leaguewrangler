@@ -4,6 +4,7 @@ export default gql`
   query GetCurrentUserEvents {
     currentUser {
       events {
+        eventId
         title
         endTimestamp
         startTimestamp

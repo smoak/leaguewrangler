@@ -18,6 +18,22 @@ describe('Event', () => {
     );
   });
 
+  describe('when the event has no team photo url', () => {
+    component = shallow(
+      <Event
+        classes={{ card: 'card', icon: 'icon' }}
+        title="foo"
+        startTime={new Date(1557029700000)}
+        location="Somewhere USA"
+        teamPhotoUrl={null}
+      />
+    );
+
+    it('renders', () => {
+      expect(component).toMatchSnapshot();
+    });
+  });
+
   it('renders', () => {
     expect(component).toMatchSnapshot();
   });
