@@ -14,6 +14,7 @@ import {
 import PlayingIcon from '@material-ui/icons/CheckCircleOutline';
 import TentativeIcon from '@material-ui/icons/HelpOutlineOutlined';
 import NotPlayingIcon from '@material-ui/icons/HighlightOffOutlined';
+import Moment from 'react-moment';
 
 export interface OwnProps {
   readonly title: string;
@@ -36,23 +37,14 @@ const styles = () =>
 
 export type EventProps = WithStyles<typeof styles> & OwnProps;
 
-const formatDateTime = (dateTime: Date) => {
-  return new Intl.DateTimeFormat(undefined, {
-    weekday: 'long',
-    day: 'numeric',
-    month: 'long',
-    year: 'numeric',
-    hour: 'numeric',
-  }).format(dateTime);
-};
-
 export const Event: FC<EventProps> = ({ classes, title, teamPhotoUrl, startTime, location }) => {
+  const subheader = startTime ? <Moment format="LLLL" date={startTime} /> : null;
   return (
     <Card className={classes.card}>
       <CardHeader
         avatar={<Avatar aria-label="teamPhoto" src={teamPhotoUrl ? teamPhotoUrl : ''} />}
         title={title}
-        subheader={startTime ? formatDateTime(startTime) : ''}
+        subheader={subheader}
       />
       <CardContent>
         <Typography component="p">{location}</Typography>

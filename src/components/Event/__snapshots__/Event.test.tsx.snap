@@ -11,7 +11,27 @@ exports[`Event renders 1`] = `
         src="https://picsum.photos/48"
       />
     }
-    subheader="2019 M05 4, Sat 21"
+    subheader={
+      <t
+        ago={false}
+        calendar={false}
+        date={2019-05-05T04:15:00.000Z}
+        decimal={false}
+        element={null}
+        filter={[Function]}
+        format="LLLL"
+        fromNow={false}
+        interval={60000}
+        local={false}
+        onChange={[Function]}
+        titleFormat=""
+        toNow={false}
+        unit={null}
+        unix={false}
+        utc={false}
+        withTitle={false}
+      />
+    }
     title="foo"
   />
   <WithStyles(CardContent)>
@@ -58,7 +78,27 @@ exports[`Event when the event has no team photo url renders 1`] = `
         src="https://picsum.photos/48"
       />
     }
-    subheader="2019 M05 4, Sat 21"
+    subheader={
+      <t
+        ago={false}
+        calendar={false}
+        date={2019-05-05T04:15:00.000Z}
+        decimal={false}
+        element={null}
+        filter={[Function]}
+        format="LLLL"
+        fromNow={false}
+        interval={60000}
+        local={false}
+        onChange={[Function]}
+        titleFormat=""
+        toNow={false}
+        unit={null}
+        unix={false}
+        utc={false}
+        withTitle={false}
+      />
+    }
     title="foo"
   />
   <WithStyles(CardContent)>
