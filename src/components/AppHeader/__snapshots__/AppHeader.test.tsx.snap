@@ -17,7 +17,7 @@ exports[`AppHeader renders 1`] = `
       color="inherit"
       variant="h6"
     >
-      Team Cowgirl
+      League Wrangler
     </WithStyles(Typography)>
     <Apollo(WithStyles(UserAvatar)) />
   </WithStyles(Toolbar)>
