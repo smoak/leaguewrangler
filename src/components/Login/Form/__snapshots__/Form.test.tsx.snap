@@ -54,6 +54,7 @@ exports[`Form renders 1`] = `
   <WithStyles(Button)
     className="submit"
     color="primary"
+    disabled={true}
     fullWidth={true}
     onClick={[Function]}
     type="submit"

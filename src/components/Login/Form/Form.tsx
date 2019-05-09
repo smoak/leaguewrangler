@@ -5,15 +5,16 @@ export interface FormProps {
   readonly formClassname: string;
   readonly submitButtonClassname: string;
   readonly onSignInClicked: (username: string, password: string) => void;
+  readonly hasError: boolean;
 }
 
-export const Form: FC<FormProps> = ({ submitButtonClassname, formClassname, onSignInClicked }) => {
+export const Form: FC<FormProps> = ({ submitButtonClassname, formClassname, onSignInClicked, hasError }) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
   return (
     <div className={formClassname}>
-      <FormControl margin="normal" required fullWidth>
+      <FormControl margin="normal" required fullWidth error={hasError}>
         <InputLabel htmlFor="username">Username</InputLabel>
         <Input
           id="username"
@@ -24,7 +25,7 @@ export const Form: FC<FormProps> = ({ submitButtonClassname, formClassname, onSi
           onChange={e => setUsername(e.target.value)}
         />
       </FormControl>
-      <FormControl margin="normal" required fullWidth>
+      <FormControl margin="normal" required fullWidth error={hasError}>
         <InputLabel htmlFor="password">Password</InputLabel>
         <Input
           name="password"
@@ -46,6 +47,7 @@ export const Form: FC<FormProps> = ({ submitButtonClassname, formClassname, onSi
           e.preventDefault();
           onSignInClicked(username, password);
         }}
+        disabled={!username || !password}
       >
         Sign in
       </Button>

@@ -7,7 +7,7 @@ import { CreateUserToken, CreateUserTokenVariables } from '../../../graphql/type
 import createUserToken from '../../../graphql/mutations/createUserToken';
 import { setUserToken } from '../../../support/auth';
 
-export type FormWithMutationProps = Omit<FormProps, 'onSignInClicked'>;
+export type FormWithMutationProps = Omit<FormProps, 'onSignInClicked' | 'hasError'>;
 
 export class SignInMutation extends Mutation<CreateUserToken, CreateUserTokenVariables> {}
 
@@ -21,9 +21,10 @@ const onSignInCompleted: MutationOpts<CreateUserToken, CreateUserTokenVariables>
 const FormWithMutation: FC<FormWithMutationProps> = props => {
   return (
     <SignInMutation mutation={createUserToken} onCompleted={onSignInCompleted}>
-      {mutate => (
+      {(mutate, { error }) => (
         <Form
           {...props}
+          hasError={!!error}
           onSignInClicked={(username, password) => {
             mutate({
               variables: { username, password },
