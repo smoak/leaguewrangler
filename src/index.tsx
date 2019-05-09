@@ -11,6 +11,8 @@ import { createHttpLink } from 'apollo-link-http';
 import { setContext } from 'apollo-link-context';
 import { InMemoryCache } from 'apollo-cache-inmemory';
 import { ApolloProvider } from 'react-apollo';
+import { MuiThemeProvider } from '@material-ui/core/styles';
+import theme from 'support/theme';
 
 const store = createStore();
 const userToken = getUserToken();
@@ -39,9 +41,11 @@ if (userToken) {
 
 ReactDOM.render(
   <ApolloProvider client={client}>
-    <Provider store={store}>
-      <App />
-    </Provider>
+    <MuiThemeProvider theme={theme}>
+      <Provider store={store}>
+        <App />
+      </Provider>
+    </MuiThemeProvider>
   </ApolloProvider>,
   document.getElementById('root') as HTMLElement
 );
