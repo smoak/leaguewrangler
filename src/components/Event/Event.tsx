@@ -28,7 +28,7 @@ export interface OwnProps {
 const styles = () =>
   createStyles({
     card: {
-      maxWidth: 400,
+      width: '100%',
     },
     icon: {
       fontSize: 40,

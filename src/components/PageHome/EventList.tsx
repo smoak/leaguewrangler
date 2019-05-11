@@ -28,7 +28,7 @@ const EventList: FC<EventProps> = ({ data: { loading, error, currentUser } }) =>
         {events.map(e => (
           <ListItem key={e.eventId}>
             <Event
-              title={e.title.replace(/&nbsp;/g, ' ')}
+              title={e.title}
               teamPhotoUrl={e.team.photoThumbnailUrl}
               location={e.location ? e.location.name : ''}
               startTime={e.startTimestamp ? new Date(e.startTimestamp * 1000) : undefined}
