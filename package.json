@@ -57,7 +57,12 @@
     "watch": "react-scripts test --env=jsdom",
     "build:graphql": "apollo client:codegen --includes=src/graphql/{mutations,queries}/*.ts --endpoint='https://teamcowboy-graphql.gigalixirapp.com/graphql' --outputFlat --target=typescript src/graphql/types/",
     "storybook": "start-storybook -p 9009 -s public -c .storybook",
-    "build-storybook": "build-storybook -s public"
+    "build-storybook": "build-storybook -s public",
+    "deployprep:diff": "git diff --name-only --exit-code || (echo \"There were uncommitted changes.\" && false)",
+    "deployprep": "run-s -s deployprep:*",
+    "deploy:gh-pages-cleanup": "node node_modules/gh-pages/bin/gh-pages-clean.js",
+    "deploy:gh-pages": "gh-pages -d build -b production -m publish -r git@github.com:smoak/leaguewrangler.git",
+    "deploy": "run-s build deployprep deploy:*"
   },
   "devDependencies": {
     "@babel/core": "^7.4.0",
@@ -76,8 +81,10 @@
     "babel-loader": "^8.0.5",
     "enzyme": "^3.9.0",
     "enzyme-adapter-react-16": "^1.11.2",
+    "gh-pages": "^2.0.1",
     "jest-enzyme": "^7.0.2",
     "jest-localstorage-mock": "^2.4.0",
+    "npm-run-all": "^4.1.5",
     "prettier": "1.14.3",
     "react-test-renderer": "^16.8.6",
     "redux-devtools-extension": "^2.13.8",
