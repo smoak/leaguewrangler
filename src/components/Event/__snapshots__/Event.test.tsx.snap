@@ -42,27 +42,18 @@ exports[`Event renders 1`] = `
     </WithStyles(Typography)>
   </WithStyles(CardContent)>
   <WithStyles(CardActions)>
-    <WithStyles(IconButton)
-      aria-label="Playing"
-    >
-      <pure(CheckCircleOutlineIcon)
-        className="icon"
-      />
-    </WithStyles(IconButton)>
-    <WithStyles(IconButton)
-      aria-label="Tentative"
-    >
-      <pure(HelpOutlineOutlinedIcon)
-        className="icon"
-      />
-    </WithStyles(IconButton)>
-    <WithStyles(IconButton)
-      aria-label="Not Playing"
-    >
-      <pure(HighlightOffOutlinedIcon)
-        className="icon"
-      />
-    </WithStyles(IconButton)>
+    <PlayingButton
+      className="icon"
+      isPlaying={false}
+    />
+    <TentativeButton
+      className="icon"
+      isTentative={false}
+    />
+    <NotPlayingButton
+      className="icon"
+      isNotPlaying={false}
+    />
   </WithStyles(CardActions)>
 </WithStyles(Card)>
 `;
@@ -109,27 +100,18 @@ exports[`Event when the event has no team photo url renders 1`] = `
     </WithStyles(Typography)>
   </WithStyles(CardContent)>
   <WithStyles(CardActions)>
-    <WithStyles(IconButton)
-      aria-label="Playing"
-    >
-      <pure(CheckCircleOutlineIcon)
-        className="icon"
-      />
-    </WithStyles(IconButton)>
-    <WithStyles(IconButton)
-      aria-label="Tentative"
-    >
-      <pure(HelpOutlineOutlinedIcon)
-        className="icon"
-      />
-    </WithStyles(IconButton)>
-    <WithStyles(IconButton)
-      aria-label="Not Playing"
-    >
-      <pure(HighlightOffOutlinedIcon)
-        className="icon"
-      />
-    </WithStyles(IconButton)>
+    <PlayingButton
+      className="icon"
+      isPlaying={false}
+    />
+    <TentativeButton
+      className="icon"
+      isTentative={false}
+    />
+    <NotPlayingButton
+      className="icon"
+      isNotPlaying={false}
+    />
   </WithStyles(CardActions)>
 </WithStyles(Card)>
 `;

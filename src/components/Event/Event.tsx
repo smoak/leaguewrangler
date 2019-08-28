@@ -9,12 +9,12 @@ import {
   CardContent,
   Typography,
   CardActions,
-  IconButton,
 } from '@material-ui/core';
-import PlayingIcon from '@material-ui/icons/CheckCircleOutline';
-import TentativeIcon from '@material-ui/icons/HelpOutlineOutlined';
-import NotPlayingIcon from '@material-ui/icons/HighlightOffOutlined';
 import Moment from 'react-moment';
+import { RsvpStatus } from 'graphql/types/globalTypes';
+import PlayingButton from './PlayingButton';
+import TentativeButton from './TentativeButton';
+import NotPlayingButton from './NotPlayingButton';
 
 export interface OwnProps {
   readonly title: string;
@@ -23,6 +23,7 @@ export interface OwnProps {
   readonly teamPhotoUrl: string | null;
   readonly location: string;
   readonly locationMapsUrl?: string;
+  readonly rsvpStatus: RsvpStatus;
 }
 
 const styles = () =>
@@ -37,7 +38,7 @@ const styles = () =>
 
 export type EventProps = WithStyles<typeof styles> & OwnProps;
 
-export const Event: FC<EventProps> = ({ classes, title, teamPhotoUrl, startTime, location }) => {
+export const Event: FC<EventProps> = ({ classes, title, teamPhotoUrl, startTime, location, rsvpStatus }) => {
   const subheader = startTime ? <Moment format="LLLL" date={startTime} /> : null;
   return (
     <Card className={classes.card}>
@@ -50,15 +51,9 @@ export const Event: FC<EventProps> = ({ classes, title, teamPhotoUrl, startTime,
         <Typography component="p">{location}</Typography>
       </CardContent>
       <CardActions>
-        <IconButton aria-label="Playing">
-          <PlayingIcon className={classes.icon} />
-        </IconButton>
-        <IconButton aria-label="Tentative">
-          <TentativeIcon className={classes.icon} />
-        </IconButton>
-        <IconButton aria-label="Not Playing">
-          <NotPlayingIcon className={classes.icon} />
-        </IconButton>
+        <PlayingButton className={classes.icon} isPlaying={rsvpStatus === RsvpStatus.YES} />
+        <TentativeButton className={classes.icon} isTentative={rsvpStatus === RsvpStatus.MAYBE} />
+        <NotPlayingButton className={classes.icon} isNotPlaying={rsvpStatus === RsvpStatus.NO} />
       </CardActions>
     </Card>
   );

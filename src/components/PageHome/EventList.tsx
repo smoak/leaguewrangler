@@ -32,6 +32,7 @@ const EventList: FC<EventProps> = ({ data: { loading, error, currentUser } }) =>
               teamPhotoUrl={e.team.photoThumbnailUrl}
               location={e.location ? e.location.name : ''}
               startTime={e.startTimestamp ? new Date(e.startTimestamp * 1000) : undefined}
+              rsvpStatus={e.viewerRsvpStatus}
             />
           </ListItem>
         ))}

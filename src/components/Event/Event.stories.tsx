@@ -1,5 +1,6 @@
 import { storiesOf } from '@storybook/react';
 import * as React from 'react';
+import { RsvpStatus } from 'graphql/types/globalTypes';
 
 import Event from '.';
 
@@ -9,5 +10,6 @@ storiesOf('Event', module).add('default', () => (
     startTime={new Date(1557029700000)}
     location="Somewhere USA"
     teamPhotoUrl="https://picsum.photos/48"
+    rsvpStatus={RsvpStatus.NONE}
   />
 ));

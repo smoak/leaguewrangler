@@ -8,6 +8,7 @@ export default gql`
         title
         endTimestamp
         startTimestamp
+        viewerRsvpStatus
         team {
           shortName
           photoThumbnailUrl
