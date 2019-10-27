@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NotPlayingButton when not playing renders as expected 1`] = `
+<WithStyles(IconButton)
+  aria-label="Not Playing"
+>
+  <pure(ReportOffIcon)
+    className="test"
+  />
+</WithStyles(IconButton)>
+`;
+
+exports[`NotPlayingButton when playing renders as expected 1`] = `
+<WithStyles(IconButton)
+  aria-label="Not Playing"
+>
+  <pure(ReportOffOutlinedIcon)
+    className="test"
+  />
+</WithStyles(IconButton)>
+`;

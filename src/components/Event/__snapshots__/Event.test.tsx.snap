@@ -125,6 +125,7 @@ exports[`EventWithStyles renders 1`] = `
     }
   }
   location="Somewhere USA"
+  rsvpStatus="NONE"
   startTime={2019-05-05T04:15:00.000Z}
   teamPhotoUrl="https://picsum.photos/48"
   title="foo"

@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TentativeButton when not tentative renders as expected 1`] = `
+<WithStyles(IconButton)
+  aria-label="Tentative"
+>
+  <pure(HelpOutlineOutlinedIcon)
+    className="test"
+  />
+</WithStyles(IconButton)>
+`;
+
+exports[`TentativeButton when tentative renders as expected 1`] = `
+<WithStyles(IconButton)
+  aria-label="Tentative"
+>
+  <pure(HelpIcon)
+    className="test"
+  />
+</WithStyles(IconButton)>
+`;

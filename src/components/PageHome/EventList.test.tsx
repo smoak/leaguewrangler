@@ -7,6 +7,7 @@ import wait from 'waait';
 import getCurrentUserEvents from '../../graphql/queries/getCurrentUserEvents';
 import { GetCurrentUserEvents_currentUser } from '../../graphql/types/GetCurrentUserEvents';
 import { GraphQLRequest } from 'apollo-link';
+import { RsvpStatus } from 'graphql/types/globalTypes';
 
 describe('EventList', () => {
   let component: ReactWrapper;
@@ -33,6 +34,7 @@ describe('EventList', () => {
           },
           location: null,
           endTimestamp: null,
+          viewerRsvpStatus: RsvpStatus.NONE,
         },
       ],
     };
@@ -83,6 +85,7 @@ describe('EventList', () => {
               name: 'name',
             },
             endTimestamp: null,
+            viewerRsvpStatus: RsvpStatus.NONE,
           },
         ],
       };
@@ -129,6 +132,7 @@ describe('EventList', () => {
             },
             location: null,
             endTimestamp: null,
+            viewerRsvpStatus: RsvpStatus.NONE,
           },
         ],
       };

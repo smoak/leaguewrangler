@@ -3731,6 +3731,20 @@ Cannot read property 'teams' of undefined],
                                             },
                                           }
                                         }
+                                        anchorEl={
+                                          <div
+                                            aria-haspopup="true"
+                                            aria-pressed="false"
+                                            class="MuiSelect-select-16 MuiSelect-selectMenu-19 MuiInputBase-input-45 MuiInput-input-30"
+                                            id="select-team"
+                                            role="button"
+                                            tabindex="0"
+                                          >
+                                            <span>
+                                              ​
+                                            </span>
+                                          </div>
+                                        }
                                         id="menu-team"
                                         onClose={[Function]}
                                         open={false}
@@ -3748,6 +3762,20 @@ Cannot read property 'teams' of undefined],
                                                 "minWidth": null,
                                               },
                                             }
+                                          }
+                                          anchorEl={
+                                            <div
+                                              aria-haspopup="true"
+                                              aria-pressed="false"
+                                              class="MuiSelect-select-16 MuiSelect-selectMenu-19 MuiInputBase-input-45 MuiInput-input-30"
+                                              id="select-team"
+                                              role="button"
+                                              tabindex="0"
+                                            >
+                                              <span>
+                                                ​
+                                              </span>
+                                            </div>
                                           }
                                           classes={
                                             Object {
@@ -4133,6 +4161,20 @@ Cannot read property 'teams' of undefined],
                                                 },
                                               }
                                             }
+                                            anchorEl={
+                                              <div
+                                                aria-haspopup="true"
+                                                aria-pressed="false"
+                                                class="MuiSelect-select-16 MuiSelect-selectMenu-19 MuiInputBase-input-45 MuiInput-input-30"
+                                                id="select-team"
+                                                role="button"
+                                                tabindex="0"
+                                              >
+                                                <span>
+                                                  ​
+                                                </span>
+                                              </div>
+                                            }
                                             anchorOrigin={
                                               Object {
                                                 "horizontal": "left",
@@ -4164,6 +4206,20 @@ Cannot read property 'teams' of undefined],
                                                 }
                                               }
                                               TransitionComponent={[Function]}
+                                              anchorEl={
+                                                <div
+                                                  aria-haspopup="true"
+                                                  aria-pressed="false"
+                                                  class="MuiSelect-select-16 MuiSelect-selectMenu-19 MuiInputBase-input-45 MuiInput-input-30"
+                                                  id="select-team"
+                                                  role="button"
+                                                  tabindex="0"
+                                                >
+                                                  <span>
+                                                    ​
+                                                  </span>
+                                                </div>
+                                              }
                                               anchorOrigin={
                                                 Object {
                                                   "horizontal": "left",
@@ -4197,6 +4253,7 @@ Cannot read property 'teams' of undefined],
                                                     "invisible": true,
                                                   }
                                                 }
+                                                container={<body />}
                                                 id="menu-team"
                                                 onClose={[Function]}
                                                 open={false}
@@ -4215,6 +4272,7 @@ Cannot read property 'teams' of undefined],
                                                     }
                                                   }
                                                   closeAfterTransition={false}
+                                                  container={<body />}
                                                   disableAutoFocus={false}
                                                   disableBackdropClick={false}
                                                   disableEnforceFocus={false}
