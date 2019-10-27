@@ -17,7 +17,7 @@ const EventList: FC<EventProps> = ({ data: { loading, error, currentUser } }) =>
   }
 
   if (error || !currentUser) {
-    return <>'Some error'</>;
+    return <>Some error</>;
   }
 
   const events = currentUser.events.filter(notEmpty);

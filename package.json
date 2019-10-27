@@ -63,7 +63,8 @@
     "deployprep": "run-s -s deployprep:*",
     "deploy:gh-pages-cleanup": "node node_modules/gh-pages/bin/gh-pages-clean.js",
     "deploy:gh-pages": "gh-pages -d build -b production -m publish -r git@github.com:smoak/leaguewrangler.git",
-    "deploy": "run-s build deployprep deploy:*"
+    "deploy": "run-s build deployprep deploy:*",
+    "test:lint": "eslint './src/**/*.{ts,tsx}'"
   },
   "devDependencies": {
     "@babel/core": "^7.5.5",
@@ -79,8 +80,14 @@
     "@types/react-dom": "^16.8.5",
     "@types/react-redux": "^7.1.1",
     "@types/react-router-dom": "^4.3.4",
+    "@typescript-eslint/eslint-plugin": "^2.5.0",
+    "@typescript-eslint/parser": "^2.5.0",
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.14.0",
+    "eslint-config-prettier": "^6.5.0",
+    "eslint-config-react": "^1.1.7",
+    "eslint-plugin-jest": "^22.21.0",
+    "eslint-plugin-prettier": "^3.1.1",
     "jest-enzyme": "^7.0.2",
     "jest-localstorage-mock": "^2.4.0",
     "npm-run-all": "^4.1.5",
