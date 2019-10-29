@@ -20088,7 +20088,7 @@ exports[`EventList when there is a server error renders an error message 1`] = `
             }
           }
         >
-          'Some error'
+          Some error
         </EventList>
       </Query>
     </Apollo(EventList)>
