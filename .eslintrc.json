@@ -20,6 +20,7 @@
     "@typescript-eslint/no-unused-vars": ["error", { "argsIgnorePattern": "^_", "ignoreRestSiblings": true }],
     "@typescript-eslint/no-use-before-define": "off",
     "@typescript-eslint/no-var-requires": "off",
+    
     "jest/no-alias-methods": "error",
     "jest/no-disabled-tests": "error",
     "jest/no-jasmine-globals": "error",

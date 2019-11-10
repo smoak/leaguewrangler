@@ -42,17 +42,8 @@ exports[`Event renders 1`] = `
     </WithStyles(Typography)>
   </WithStyles(CardContent)>
   <WithStyles(CardActions)>
-    <PlayingButton
-      className="icon"
-      isPlaying={false}
-    />
-    <TentativeButton
-      className="icon"
-      isTentative={false}
-    />
-    <NotPlayingButton
-      className="icon"
-      isNotPlaying={false}
+    <WithStyles(EventActions)
+      rsvpStatus="NONE"
     />
   </WithStyles(CardActions)>
 </WithStyles(Card)>
@@ -100,17 +91,8 @@ exports[`Event when the event has no team photo url renders 1`] = `
     </WithStyles(Typography)>
   </WithStyles(CardContent)>
   <WithStyles(CardActions)>
-    <PlayingButton
-      className="icon"
-      isPlaying={false}
-    />
-    <TentativeButton
-      className="icon"
-      isTentative={false}
-    />
-    <NotPlayingButton
-      className="icon"
-      isNotPlaying={false}
+    <WithStyles(EventActions)
+      rsvpStatus="NONE"
     />
   </WithStyles(CardActions)>
 </WithStyles(Card)>
@@ -121,7 +103,6 @@ exports[`EventWithStyles renders 1`] = `
   classes={
     Object {
       "card": "Event-card-1",
-      "icon": "Event-icon-2",
     }
   }
   location="Somewhere USA"

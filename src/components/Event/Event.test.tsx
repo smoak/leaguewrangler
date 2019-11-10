@@ -10,7 +10,7 @@ describe('Event', () => {
   beforeEach(() => {
     component = shallow(
       <Event
-        classes={{ card: 'card', icon: 'icon' }}
+        classes={{ card: 'card' }}
         title="foo"
         startTime={new Date(1557029700000)}
         location="Somewhere USA"
@@ -23,7 +23,7 @@ describe('Event', () => {
   describe('when the event has no team photo url', () => {
     component = shallow(
       <Event
-        classes={{ card: 'card', icon: 'icon' }}
+        classes={{ card: 'card' }}
         title="foo"
         startTime={new Date(1557029700000)}
         location="Somewhere USA"
