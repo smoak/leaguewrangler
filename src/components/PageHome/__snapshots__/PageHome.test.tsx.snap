@@ -4,7 +4,7 @@ exports[`PageHome renders 1`] = `
 <div
   className="main"
 >
-  <Apollo(EventList) />
+  <EventList />
 </div>
 `;
 

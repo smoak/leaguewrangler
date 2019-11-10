@@ -18,7 +18,7 @@ const styles = createStyles({
 
 type EventActionsProps = WithStyles<typeof styles> & OwnProps;
 
-const EventActions: FC<EventActionsProps> = ({ classes, rsvpStatus }) => {
+export const EventActions: FC<EventActionsProps> = ({ classes, rsvpStatus }) => {
   return (
     <>
       <PlayingButton className={classes.icon} isPlaying={rsvpStatus === RsvpStatus.YES} />

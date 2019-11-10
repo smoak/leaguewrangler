@@ -1,2 +1,1 @@
-export { default } from './FormWithMutation';
-export * from './Form';
+export { default } from './Form';

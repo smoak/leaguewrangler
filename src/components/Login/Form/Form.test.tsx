@@ -1,63 +1,97 @@
+jest.mock('support/auth');
+jest.mock('./hooks');
+
 import { shallow, ShallowWrapper } from 'enzyme';
 import React from 'react';
-import { InputProps } from '@material-ui/core/Input';
-import { Button } from '@material-ui/core';
+import { useMutation } from 'react-apollo';
+import { ApolloError } from 'apollo-boost';
 
 import Form from './Form';
+import { useControlledInput } from './hooks';
+import { CreateUserToken } from 'graphql/types/CreateUserToken';
+import SignInButton from './SignInButton';
+import { setUserToken } from 'support/auth';
 
 describe('Form', () => {
   let component: ShallowWrapper;
-  let onSignInClicked: jest.Mock;
+  let createUserTokenMutation: jest.Mock;
+  let data: CreateUserToken;
+  let error: ApolloError | undefined;
+  let loading: boolean;
 
   beforeEach(() => {
-    onSignInClicked = jest.fn().mockName('onSignInClicked');
-    component = shallow(<Form formClassname="form" submitButtonClassname="submit" onSignInClicked={onSignInClicked} />);
+    loading = false;
+    createUserTokenMutation = jest.fn();
+    (useMutation as jest.Mock).mockReturnValue([createUserTokenMutation, { data, error, loading }]);
+    (useControlledInput as jest.Mock).mockReturnValue({ value: '', onChange: jest.fn() });
+
+    component = shallow(<Form formClassname="form" submitButtonClassname="submit" />);
   });
 
-  it('renders', () => {
+  describe('when the username and password are provided', () => {
+    beforeEach(() => {
+      (useControlledInput as jest.Mock).mockReturnValue({ value: 'foo', onChange: jest.fn() });
+      component = shallow(<Form formClassname="form" submitButtonClassname="submit" />);
+    });
+
+    it('renders as expected', () => {
+      expect(component).toMatchSnapshot();
+    });
+  });
+
+  describe('when the user submits the form', () => {
+    beforeEach(() => {
+      (useControlledInput as jest.Mock).mockReturnValue({ value: 'foo', onChange: jest.fn() });
+      component = shallow(<Form formClassname="form" submitButtonClassname="submit" />);
+      component.find(SignInButton).simulate('click');
+    });
+
+    describe('and the token is being created', () => {
+      beforeEach(() => {
+        loading = true;
+        (useMutation as jest.Mock).mockReturnValue([createUserTokenMutation, { data, error, loading }]);
+        component = shallow(<Form formClassname="form" submitButtonClassname="submit" />);
+      });
+
+      it('renders as expected', () => {
+        expect(component).toMatchSnapshot();
+      });
+    });
+
+    describe('and the token was created', () => {
+      const token = 'token';
+
+      beforeEach(() => {
+        Object.defineProperty(window.location, 'reload', {
+          configurable: true,
+        });
+        window.location.reload = jest.fn();
+        data = {
+          createUserToken: {
+            __typename: 'UserToken',
+            token,
+          },
+        };
+        loading = true;
+        (useMutation as jest.Mock).mockReturnValue([createUserTokenMutation, { data, error, loading }]);
+        component = shallow(<Form formClassname="form" submitButtonClassname="submit" />);
+      });
+
+      it('sets the user token', () => {
+        expect(setUserToken).toHaveBeenCalledWith(token);
+      });
+
+      it('reloads the page', () => {
+        expect(window.location.reload).toHaveBeenCalled();
+      });
+    });
+
+    it('creates the user token', () => {
+      expect(createUserTokenMutation).toHaveBeenCalledWith({ variables: { username: 'foo', password: 'foo' } });
+    });
+  });
+
+  it('renders as expected', () => {
     expect(component).toMatchSnapshot();
-  });
-
-  describe('when username is changed', () => {
-    beforeEach(() => {
-      const event = { target: { value: 'foo' } };
-      component = shallow(
-        <Form formClassname="form" submitButtonClassname="submit" onSignInClicked={onSignInClicked} />
-      );
-      component.find('#username').simulate('change', event);
-    });
-
-    it('updates the input value', () => {
-      expect(component.find('#username').prop<InputProps>('value')).toEqual('foo');
-    });
-  });
-
-  describe('when password is changed', () => {
-    beforeEach(() => {
-      const event = { target: { value: 'bar' } };
-      component = shallow(
-        <Form formClassname="form" submitButtonClassname="submit" onSignInClicked={onSignInClicked} />
-      );
-      component.find('#password').simulate('change', event);
-    });
-
-    it('updates the input value', () => {
-      expect(component.find('#password').prop<InputProps>('value')).toEqual('bar');
-    });
-  });
-
-  describe('when the user clicks the sign in button', () => {
-    beforeEach(() => {
-      component = shallow(
-        <Form formClassname="form" submitButtonClassname="submit" onSignInClicked={onSignInClicked} />
-      );
-      const button = component.find(Button);
-      const event = { preventDefault: jest.fn() };
-      button.simulate('click', event);
-    });
-
-    it('calls onSignInClicked with the username and password', () => {
-      expect(onSignInClicked).toHaveBeenCalledWith('', '');
-    });
   });
 });

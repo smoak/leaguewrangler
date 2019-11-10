@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SignInButton renders as expected 1`] = `
+<WithStyles(Button)
+  className="className"
+  color="primary"
+  disabled={false}
+  fullWidth={true}
+  onClick={[Function]}
+  type="submit"
+  variant="contained"
+>
+  Sign in
+</WithStyles(Button)>
+`;

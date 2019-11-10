@@ -1,12 +1,18 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`EventActions renders as expected 1`] = `
-<EventActions
-  classes={
-    Object {
-      "icon": "EventActions-icon-1",
-    }
-  }
-  rsvpStatus="NONE"
-/>
+<Fragment>
+  <PlayingButton
+    className="icon"
+    isPlaying={false}
+  />
+  <TentativeButton
+    className="icon"
+    isTentative={false}
+  />
+  <NotPlayingButton
+    className="icon"
+    isNotPlaying={false}
+  />
+</Fragment>
 `;

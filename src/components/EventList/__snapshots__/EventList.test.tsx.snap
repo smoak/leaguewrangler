@@ -1,0 +1,88 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`EventList when the data is loading renders as expected 1`] = `
+<WithStyles(CircularProgress)
+  color="secondary"
+/>
+`;
+
+exports[`EventList when the server returns an error renders as expected 1`] = `
+<Fragment>
+  Some error
+</Fragment>
+`;
+
+exports[`EventList when the server returns data and the user has events renders as expected 1`] = `
+<WithStyles(List)>
+  <WithStyles(ListItem)
+    key="1"
+  >
+    <WithStyles(Event)
+      location=""
+      rsvpStatus="NONE"
+      startTime={1970-01-01T00:00:02.000Z}
+      teamPhotoUrl="url"
+      title="test"
+    />
+  </WithStyles(ListItem)>
+</WithStyles(List)>
+`;
+
+exports[`EventList when the server returns data and the user has no events renders as expected 1`] = `
+<Fragment>
+  No events scheduled
+</Fragment>
+`;
+
+exports[`EventList when the server returns data renders as expected 1`] = `
+<WithStyles(List)>
+  <WithStyles(ListItem)
+    key="1"
+  >
+    <WithStyles(Event)
+      location="test location"
+      rsvpStatus="NONE"
+      startTime={1970-01-01T00:00:02.000Z}
+      teamPhotoUrl="url"
+      title="test"
+    />
+  </WithStyles(ListItem)>
+</WithStyles(List)>
+`;
+
+exports[`EventList when the server returns data when the event has a location renders as expected 1`] = `
+<WithStyles(List)>
+  <WithStyles(ListItem)
+    key="1"
+  >
+    <WithStyles(Event)
+      location="test location"
+      rsvpStatus="NONE"
+      startTime={1970-01-01T00:00:02.000Z}
+      teamPhotoUrl="url"
+      title="test"
+    />
+  </WithStyles(ListItem)>
+</WithStyles(List)>
+`;
+
+exports[`EventList when the server returns data when the event has no start time renders as expected 1`] = `
+<WithStyles(List)>
+  <WithStyles(ListItem)
+    key="1"
+  >
+    <WithStyles(Event)
+      location="test location"
+      rsvpStatus="NONE"
+      teamPhotoUrl="url"
+      title="test"
+    />
+  </WithStyles(ListItem)>
+</WithStyles(List)>
+`;
+
+exports[`EventList when the server returns no data renders as expected 1`] = `
+<Fragment>
+  Some error
+</Fragment>
+`;

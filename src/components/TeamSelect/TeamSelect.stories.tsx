@@ -1,7 +1,6 @@
 import { storiesOf } from '@storybook/react';
 import * as React from 'react';
-import { MockedResponse } from 'react-apollo/test-links';
-import { MockedProvider } from 'react-apollo/test-utils';
+import { MockedProvider, MockedResponse } from '@apollo/react-testing';
 import TeamSelect from './TeamSelect';
 import getTeams from '../../graphql/queries/getTeams';
 

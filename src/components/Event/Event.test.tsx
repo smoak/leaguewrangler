@@ -21,23 +21,43 @@ describe('Event', () => {
   });
 
   describe('when the event has no team photo url', () => {
-    component = shallow(
-      <Event
-        classes={{ card: 'card' }}
-        title="foo"
-        startTime={new Date(1557029700000)}
-        location="Somewhere USA"
-        teamPhotoUrl={null}
-        rsvpStatus={RsvpStatus.NONE}
-      />
-    );
+    beforeEach(() => {
+      component = shallow(
+        <Event
+          classes={{ card: 'card' }}
+          title="foo"
+          startTime={new Date(1557029700000)}
+          location="Somewhere USA"
+          teamPhotoUrl={null}
+          rsvpStatus={RsvpStatus.NONE}
+        />
+      );
+    });
 
-    it('renders', () => {
+    it('renders as expected', () => {
       expect(component).toMatchSnapshot();
     });
   });
 
-  it('renders', () => {
+  describe('when the event has no startTime', () => {
+    beforeEach(() => {
+      component = shallow(
+        <Event
+          classes={{ card: 'card' }}
+          title="foo"
+          location="Somewhere USA"
+          teamPhotoUrl="https://new.url"
+          rsvpStatus={RsvpStatus.NONE}
+        />
+      );
+    });
+
+    it('renders as expected', () => {
+      expect(component).toMatchSnapshot();
+    });
+  });
+
+  it('renders as expected', () => {
     expect(component).toMatchSnapshot();
   });
 });

@@ -1,9 +1,10 @@
+import { useQuery } from '@apollo/react-hooks';
 import React, { FC } from 'react';
 import { Avatar, createStyles, withStyles, WithStyles, CircularProgress } from '@material-ui/core';
-import { ChildDataProps, withQuery } from 'react-apollo';
-import { GetUserAvatar } from '../../graphql/types/GetUserAvatar';
-import getUserAvatar from '../../graphql/queries/getUserAvatar';
 import AccountCircle from '@material-ui/icons/AccountCircle';
+
+import { GetUserAvatar } from 'graphql/types/GetUserAvatar';
+import getUserAvatarQuery from 'graphql/queries/getUserAvatar';
 
 const styles = createStyles({
   avatar: {
@@ -11,18 +12,18 @@ const styles = createStyles({
   },
 });
 
-export type UserAvatarProps = WithStyles<typeof styles> & ChildDataProps<{}, GetUserAvatar, {}>;
+export type UserAvatarProps = WithStyles<typeof styles>;
 
-export const UserAvatar: FC<UserAvatarProps> = ({ classes, data: { loading, currentUser } }) => {
+export const UserAvatar: FC<UserAvatarProps> = ({ classes }) => {
+  const { loading, data } = useQuery<GetUserAvatar>(getUserAvatarQuery);
+
   if (loading) {
     return <CircularProgress color="secondary" />;
   }
-  if (currentUser) {
-    return <Avatar src={currentUser.profilePhotoThumbnailUrl} className={classes.avatar} />;
+  if (data && data.currentUser) {
+    return <Avatar src={data.currentUser.profilePhotoThumbnailUrl} className={classes.avatar} />;
   }
   return <AccountCircle />;
 };
 
-const UserAvatarWithStyles = withStyles(styles)(UserAvatar);
-
-export default withQuery<{}, GetUserAvatar, {}>(getUserAvatar)(UserAvatarWithStyles);
+export default withStyles(styles)(UserAvatar);

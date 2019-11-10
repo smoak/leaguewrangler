@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import { Theme, createStyles, WithStyles, withStyles } from '@material-ui/core';
 
-import EventList from './EventList';
+import EventList from '../EventList';
 
 const styles = (theme: Theme) =>
   createStyles({

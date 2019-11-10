@@ -1,7 +1,6 @@
 import { storiesOf } from '@storybook/react';
 import * as React from 'react';
-import { MockedResponse } from 'react-apollo/test-links';
-import { MockedProvider } from 'react-apollo/test-utils';
+import { MockedResponse, MockedProvider } from '@apollo/react-testing';
 
 import getUserAvatar from '../../graphql/queries/getUserAvatar';
 import UserAvatar from './UserAvatar';

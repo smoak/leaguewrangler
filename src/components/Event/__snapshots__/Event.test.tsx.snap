@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Event renders 1`] = `
+exports[`Event renders as expected 1`] = `
 <WithStyles(Card)
   className="card"
 >
@@ -49,7 +49,7 @@ exports[`Event renders 1`] = `
 </WithStyles(Card)>
 `;
 
-exports[`Event when the event has no team photo url renders 1`] = `
+exports[`Event when the event has no startTime renders as expected 1`] = `
 <WithStyles(Card)
   className="card"
 >
@@ -57,7 +57,36 @@ exports[`Event when the event has no team photo url renders 1`] = `
     avatar={
       <WithStyles(Avatar)
         aria-label="teamPhoto"
-        src="https://picsum.photos/48"
+        src="https://new.url"
+      />
+    }
+    subheader={null}
+    title="foo"
+  />
+  <WithStyles(CardContent)>
+    <WithStyles(Typography)
+      component="p"
+    >
+      Somewhere USA
+    </WithStyles(Typography)>
+  </WithStyles(CardContent)>
+  <WithStyles(CardActions)>
+    <WithStyles(EventActions)
+      rsvpStatus="NONE"
+    />
+  </WithStyles(CardActions)>
+</WithStyles(Card)>
+`;
+
+exports[`Event when the event has no team photo url renders as expected 1`] = `
+<WithStyles(Card)
+  className="card"
+>
+  <WithStyles(CardHeader)
+    avatar={
+      <WithStyles(Avatar)
+        aria-label="teamPhoto"
+        src=""
       />
     }
     subheader={

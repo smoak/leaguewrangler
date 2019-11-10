@@ -1,24 +1,26 @@
 import React, { FC } from 'react';
+import { useQuery } from '@apollo/react-hooks';
 import getCurrentUserEvents from '../../graphql/queries/getCurrentUserEvents';
-import { ChildDataProps, withQuery } from 'react-apollo';
 import { GetCurrentUserEvents } from '../../graphql/types/GetCurrentUserEvents';
 import { CircularProgress, List, ListItem } from '@material-ui/core';
 import Event from '../Event';
-
-export type EventProps = ChildDataProps<{}, GetCurrentUserEvents, {}>;
 
 function notEmpty<TValue>(value: TValue | null | undefined): value is TValue {
   return value !== null && value !== undefined;
 }
 
-const EventList: FC<EventProps> = ({ data: { loading, error, currentUser } }) => {
+const EventList: FC = () => {
+  const { loading, data, error } = useQuery<GetCurrentUserEvents>(getCurrentUserEvents);
+
   if (loading) {
     return <CircularProgress color="secondary" />;
   }
 
-  if (error || !currentUser) {
+  if (error || !data) {
     return <>Some error</>;
   }
+
+  const { currentUser } = data;
 
   const events = currentUser.events.filter(notEmpty);
 
@@ -43,4 +45,4 @@ const EventList: FC<EventProps> = ({ data: { loading, error, currentUser } }) =>
   return <>No events scheduled</>;
 };
 
-export default withQuery<{}, GetCurrentUserEvents, {}>(getCurrentUserEvents)(EventList);
+export default EventList;

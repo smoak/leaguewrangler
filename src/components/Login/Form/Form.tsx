@@ -1,20 +1,44 @@
-import React, { FC, useState } from 'react';
-import { FormControl, InputLabel, Input, FormControlLabel, Checkbox, Button } from '@material-ui/core';
+import { useMutation } from '@apollo/react-hooks';
+import React, { FC, useCallback } from 'react';
+import { FormControl, InputLabel, Input, FormControlLabel, Checkbox, CircularProgress } from '@material-ui/core';
+
+import SignInButton from './SignInButton';
+import { CreateUserToken, CreateUserTokenVariables } from 'graphql/types/CreateUserToken';
+import CREATE_USER_TOKEN from 'graphql/mutations/createUserToken';
+import { setUserToken } from 'support/auth';
+import { useControlledInput } from './hooks';
 
 export interface FormProps {
   readonly formClassname: string;
   readonly submitButtonClassname: string;
-  readonly onSignInClicked: (username: string, password: string) => void;
-  readonly hasError: boolean;
 }
 
-export const Form: FC<FormProps> = ({ submitButtonClassname, formClassname, onSignInClicked, hasError }) => {
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
+export const Form: FC<FormProps> = ({ submitButtonClassname, formClassname }) => {
+  const { value: username, onChange: onUsernameChange } = useControlledInput('');
+  const { value: password, onChange: onPasswordChange } = useControlledInput('');
+  const [createUserToken, { data, error, loading }] = useMutation<CreateUserToken, CreateUserTokenVariables>(
+    CREATE_USER_TOKEN
+  );
+  const onSignInClicked = useCallback(
+    () => {
+      createUserToken({ variables: { username, password } });
+    },
+    [createUserToken, username, password]
+  );
+  if (data) {
+    setUserToken(data.createUserToken.token);
+    window.location.reload();
+  }
+
+  const button = loading ? (
+    <CircularProgress color="secondary" />
+  ) : (
+    <SignInButton onClick={onSignInClicked} isDisabled={!username || !password} className={submitButtonClassname} />
+  );
 
   return (
     <div className={formClassname}>
-      <FormControl margin="normal" required fullWidth error={hasError}>
+      <FormControl margin="normal" required fullWidth error={!!error}>
         <InputLabel htmlFor="username">Username</InputLabel>
         <Input
           id="username"
@@ -22,10 +46,10 @@ export const Form: FC<FormProps> = ({ submitButtonClassname, formClassname, onSi
           autoComplete="username"
           autoFocus={true}
           value={username}
-          onChange={e => setUsername(e.target.value)}
+          onChange={onUsernameChange}
         />
       </FormControl>
-      <FormControl margin="normal" required fullWidth error={hasError}>
+      <FormControl margin="normal" required fullWidth error={!!error}>
         <InputLabel htmlFor="password">Password</InputLabel>
         <Input
           name="password"
@@ -33,24 +57,11 @@ export const Form: FC<FormProps> = ({ submitButtonClassname, formClassname, onSi
           id="password"
           autoComplete="current-password"
           value={password}
-          onChange={e => setPassword(e.target.value)}
+          onChange={onPasswordChange}
         />
       </FormControl>
       <FormControlLabel control={<Checkbox value="remember" color="primary" />} label="Remember me" />
-      <Button
-        type="submit"
-        fullWidth
-        variant="contained"
-        color="primary"
-        className={submitButtonClassname}
-        onClick={e => {
-          e.preventDefault();
-          onSignInClicked(username, password);
-        }}
-        disabled={!username || !password}
-      >
-        Sign in
-      </Button>
+      {button}
     </div>
   );
 };

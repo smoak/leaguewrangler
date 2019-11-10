@@ -19,7 +19,7 @@ exports[`AppHeader renders 1`] = `
     >
       League Wrangler
     </WithStyles(Typography)>
-    <Apollo(WithStyles(UserAvatar)) />
+    <WithStyles(UserAvatar) />
   </WithStyles(Toolbar)>
 </WithStyles(AppBar)>
 `;

@@ -6,3 +6,8 @@ import moment from 'moment-timezone';
 
 configure({ adapter: new Adapter() });
 moment.tz.setDefault('EST');
+
+jest.mock('@apollo/react-hooks', () => ({
+  useQuery: jest.fn(),
+  useMutation: jest.fn(),
+}));

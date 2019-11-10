@@ -1,10 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Form renders 1`] = `
+exports[`Form renders as expected 1`] = `
 <div
   className="form"
 >
   <WithStyles(FormControl)
+    error={false}
     fullWidth={true}
     margin="normal"
     required={true}
@@ -19,11 +20,12 @@ exports[`Form renders 1`] = `
       autoFocus={true}
       id="username"
       name="username"
-      onChange={[Function]}
+      onChange={[MockFunction]}
       value=""
     />
   </WithStyles(FormControl)>
   <WithStyles(FormControl)
+    error={false}
     fullWidth={true}
     margin="normal"
     required={true}
@@ -37,7 +39,7 @@ exports[`Form renders 1`] = `
       autoComplete="current-password"
       id="password"
       name="password"
-      onChange={[Function]}
+      onChange={[MockFunction]}
       type="password"
       value=""
     />
@@ -51,16 +53,130 @@ exports[`Form renders 1`] = `
     }
     label="Remember me"
   />
-  <WithStyles(Button)
+  <SignInButton
     className="submit"
-    color="primary"
-    disabled={true}
-    fullWidth={true}
+    isDisabled={true}
     onClick={[Function]}
-    type="submit"
-    variant="contained"
+  />
+</div>
+`;
+
+exports[`Form when the user submits the form and the token is being created renders as expected 1`] = `
+<div
+  className="form"
+>
+  <WithStyles(FormControl)
+    error={false}
+    fullWidth={true}
+    margin="normal"
+    required={true}
   >
-    Sign in
-  </WithStyles(Button)>
+    <WithStyles(WithFormControlContext(InputLabel))
+      htmlFor="username"
+    >
+      Username
+    </WithStyles(WithFormControlContext(InputLabel))>
+    <WithStyles(Input)
+      autoComplete="username"
+      autoFocus={true}
+      id="username"
+      name="username"
+      onChange={[MockFunction]}
+      value="foo"
+    />
+  </WithStyles(FormControl)>
+  <WithStyles(FormControl)
+    error={false}
+    fullWidth={true}
+    margin="normal"
+    required={true}
+  >
+    <WithStyles(WithFormControlContext(InputLabel))
+      htmlFor="password"
+    >
+      Password
+    </WithStyles(WithFormControlContext(InputLabel))>
+    <WithStyles(Input)
+      autoComplete="current-password"
+      id="password"
+      name="password"
+      onChange={[MockFunction]}
+      type="password"
+      value="foo"
+    />
+  </WithStyles(FormControl)>
+  <WithStyles(WithFormControlContext(FormControlLabel))
+    control={
+      <WithStyles(Checkbox)
+        color="primary"
+        value="remember"
+      />
+    }
+    label="Remember me"
+  />
+  <WithStyles(CircularProgress)
+    color="secondary"
+  />
+</div>
+`;
+
+exports[`Form when the username and password are provided renders as expected 1`] = `
+<div
+  className="form"
+>
+  <WithStyles(FormControl)
+    error={false}
+    fullWidth={true}
+    margin="normal"
+    required={true}
+  >
+    <WithStyles(WithFormControlContext(InputLabel))
+      htmlFor="username"
+    >
+      Username
+    </WithStyles(WithFormControlContext(InputLabel))>
+    <WithStyles(Input)
+      autoComplete="username"
+      autoFocus={true}
+      id="username"
+      name="username"
+      onChange={[MockFunction]}
+      value="foo"
+    />
+  </WithStyles(FormControl)>
+  <WithStyles(FormControl)
+    error={false}
+    fullWidth={true}
+    margin="normal"
+    required={true}
+  >
+    <WithStyles(WithFormControlContext(InputLabel))
+      htmlFor="password"
+    >
+      Password
+    </WithStyles(WithFormControlContext(InputLabel))>
+    <WithStyles(Input)
+      autoComplete="current-password"
+      id="password"
+      name="password"
+      onChange={[MockFunction]}
+      type="password"
+      value="foo"
+    />
+  </WithStyles(FormControl)>
+  <WithStyles(WithFormControlContext(FormControlLabel))
+    control={
+      <WithStyles(Checkbox)
+        color="primary"
+        value="remember"
+      />
+    }
+    label="Remember me"
+  />
+  <SignInButton
+    className="submit"
+    isDisabled={false}
+    onClick={[Function]}
+  />
 </div>
 `;
