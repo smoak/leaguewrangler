@@ -1,9 +1,9 @@
-import React, { SFC } from 'react';
+import React, { FC } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 import PageHome from '../PageHome';
 
-const Routes: SFC = () => {
+const Routes: FC = () => {
   return (
     <BrowserRouter>
       <Switch>

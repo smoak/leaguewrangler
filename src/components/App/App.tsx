@@ -1,5 +1,5 @@
 import CssBaseline from '@material-ui/core/CssBaseline';
-import React, { SFC } from 'react';
+import React, { FC } from 'react';
 
 import AppBody from '../AppBody';
 import AppHeader from '../AppHeader';
@@ -11,7 +11,7 @@ export interface MappedStateProps {
 
 export type AppProps = MappedStateProps;
 
-const App: SFC<AppProps> = ({ isAuthenticated }) => {
+const App: FC<AppProps> = ({ isAuthenticated }) => {
   return (
     <div>
       <CssBaseline />

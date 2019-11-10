@@ -3,7 +3,7 @@ import IconButton from '@material-ui/core/IconButton';
 import { createStyles, withStyles, WithStyles } from '@material-ui/core/styles';
 import Toolbar from '@material-ui/core/Toolbar';
 import MenuIcon from '@material-ui/icons/Menu';
-import React, { SFC } from 'react';
+import React, { FC } from 'react';
 import { Typography } from '@material-ui/core';
 import UserAvatar from '../UserAvatar';
 
@@ -17,7 +17,7 @@ const styles = createStyles({
   },
 });
 
-export const AppHeader: SFC<WithStyles<typeof styles>> = ({ classes }) => {
+export const AppHeader: FC<WithStyles<typeof styles>> = ({ classes }) => {
   return (
     <AppBar position="static">
       <Toolbar>
