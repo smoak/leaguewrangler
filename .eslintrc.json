@@ -2,13 +2,16 @@
   "extends": [
     "eslint:recommended",
     "plugin:@typescript-eslint/recommended",
-    "plugin:react/recommended",
+    "plugin:import/errors",
+    "plugin:import/typescript",
+    "plugin:import/warnings",
     "plugin:jest/recommended",
     "plugin:prettier/recommended",
+    "plugin:react/recommended",
     "prettier/@typescript-eslint",
     "prettier/react"
   ],
-  "plugins": ["react-hooks", "jest"],
+  "plugins": ["react-hooks", "import", "jest"],
   "env": {
     "browser": true,
     "es6": true,
@@ -21,6 +24,7 @@
     "@typescript-eslint/no-use-before-define": "off",
     "@typescript-eslint/no-var-requires": "off",
     
+    "import/no-unresolved": "off",
     "jest/no-alias-methods": "error",
     "jest/no-disabled-tests": "error",
     "jest/no-jasmine-globals": "error",

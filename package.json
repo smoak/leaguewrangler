@@ -90,6 +90,7 @@
     "enzyme-adapter-react-16": "^1.14.0",
     "eslint-config-prettier": "^6.5.0",
     "eslint-config-react": "^1.1.7",
+    "eslint-plugin-import": "^2.18.2",
     "eslint-plugin-jest": "^22.21.0",
     "eslint-plugin-prettier": "^3.1.1",
     "jest-enzyme": "^7.0.2",

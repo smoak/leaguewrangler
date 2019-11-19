@@ -1,7 +1,7 @@
 import { shallow, ShallowWrapper } from 'enzyme';
 import React from 'react';
 
-import { Login } from '.';
+import { Login } from './Login';
 
 describe('Login', () => {
   let component: ShallowWrapper;

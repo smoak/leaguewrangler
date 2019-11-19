@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow, ShallowWrapper } from 'enzyme';
 
-import { UserAvatar } from './UserAvatar';
+import UserAvatar from './UserAvatar';
 import { useQuery } from 'react-apollo';
 
 describe('UserAvatar', () => {
@@ -10,7 +10,7 @@ describe('UserAvatar', () => {
   describe('when the component is fetching data', () => {
     beforeEach(() => {
       (useQuery as jest.Mock).mockReturnValue({ loading: true, data: undefined });
-      component = shallow(<UserAvatar classes={{ avatar: 'avatar' }} />);
+      component = shallow(<UserAvatar classes={{ avatar: 'avatar' }} />).dive();
     });
 
     it('renders as expected', () => {
@@ -21,7 +21,7 @@ describe('UserAvatar', () => {
   describe('when the user does not have an avatar', () => {
     beforeEach(() => {
       (useQuery as jest.Mock).mockReturnValue({ loading: false, data: {} });
-      component = shallow(<UserAvatar classes={{ avatar: 'avatar' }} />);
+      component = shallow(<UserAvatar classes={{ avatar: 'avatar' }} />).dive();
     });
 
     it('renders as expected', () => {
@@ -35,7 +35,7 @@ describe('UserAvatar', () => {
         profilePhotoThumbnailUrl: 'foo',
       };
       (useQuery as jest.Mock).mockReturnValue({ loading: false, data: { currentUser } });
-      component = shallow(<UserAvatar classes={{ avatar: 'avatar' }} />);
+      component = shallow(<UserAvatar classes={{ avatar: 'avatar' }} />).dive();
     });
 
     it('renders as expected', () => {

@@ -8,7 +8,7 @@ exports[`UserAvatar when the component is fetching data renders as expected 1`] 
 
 exports[`UserAvatar when the user does have an avatar renders as expected 1`] = `
 <WithStyles(Avatar)
-  className="avatar"
+  className="UserAvatar-avatar-1 avatar"
   src="foo"
 />
 `;

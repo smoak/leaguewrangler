@@ -14,7 +14,7 @@ const styles = createStyles({
 
 export type UserAvatarProps = WithStyles<typeof styles>;
 
-export const UserAvatar: FC<UserAvatarProps> = ({ classes }) => {
+const UserAvatar: FC<UserAvatarProps> = ({ classes }) => {
   const { loading, data } = useQuery<GetUserAvatar>(getUserAvatarQuery);
 
   if (loading) {

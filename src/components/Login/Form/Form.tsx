@@ -13,7 +13,7 @@ export interface FormProps {
   readonly submitButtonClassname: string;
 }
 
-export const Form: FC<FormProps> = ({ submitButtonClassname, formClassname }) => {
+const Form: FC<FormProps> = ({ submitButtonClassname, formClassname }) => {
   const { value: username, onChange: onUsernameChange } = useControlledInput('');
   const { value: password, onChange: onPasswordChange } = useControlledInput('');
   const [createUserToken, { data, error, loading }] = useMutation<CreateUserToken, CreateUserTokenVariables>(
