@@ -27,4 +27,5 @@ jobs:
           build_dir: build
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REACT_APP_GRAPHQL_ENDPOINT: "/graphql"
           
