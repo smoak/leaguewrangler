@@ -67,7 +67,7 @@
     "deploy:gh-pages-cleanup": "node node_modules/gh-pages/bin/gh-pages-clean.js",
     "deploy:gh-pages": "gh-pages -d build -b production -m publish -r git@github.com:smoak/leaguewrangler.git",
     "deploy": "run-s build deployprep deploy:*",
-    "test:lint": "eslint './src/**/*.{ts,tsx}'"
+    "test:lint": "eslint --max-warnings 0 './src/**/*.{ts,tsx}'"
   },
   "devDependencies": {
     "@babel/core": "^7.5.5",

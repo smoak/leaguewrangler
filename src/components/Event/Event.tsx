@@ -1,14 +1,6 @@
 import React, { FC } from 'react';
 import Card from '@material-ui/core/Card';
-import {
-  Avatar,
-  CardActions,
-  CardContent,
-  CardHeader,
-  Typography,
-  WithStyles,
-  withStyles,
-} from '@material-ui/core';
+import { Avatar, CardActions, CardContent, CardHeader, Typography, WithStyles, withStyles } from '@material-ui/core';
 import Moment from 'react-moment';
 import { RsvpStatus } from 'graphql/types/globalTypes';
 

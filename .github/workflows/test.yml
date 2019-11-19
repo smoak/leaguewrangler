@@ -4,12 +4,14 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
-      - uses: bahmutov/npm-install@v1
-      - name: npm install, build, and test
-        run: |
-          npm run build --if-present
-          npm test
+      - name: Checkout
+        uses: actions/checkout@v1
+      - name: Install Packages
+        uses: bahmutov/npm-install@v1
+      - name: Lint
+        run: npm run test:eslint
+      - name: Test
+        run: npm test
         env:
           CI: true
 
