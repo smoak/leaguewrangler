@@ -1,7 +1,7 @@
 import { shallow, ShallowWrapper } from 'enzyme';
 import React from 'react';
 
-import EventWithStyles, { Event } from '.';
+import EventWithStyles, { Event } from './Event';
 import { RsvpStatus } from 'graphql/types/globalTypes';
 
 describe('Event', () => {

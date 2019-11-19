@@ -1,0 +1,51 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SkeletonEvent renders as expected 1`] = `
+<WithStyles(Card)
+  className="card"
+>
+  <WithStyles(CardHeader)
+    avatar={
+      <WithStyles(Component)
+        height={40}
+        variant="circle"
+        width={40}
+      />
+    }
+    subheader={
+      <WithStyles(Component)
+        height={6}
+        width="80%"
+      />
+    }
+    title={
+      <WithStyles(Component)
+        height={6}
+      />
+    }
+  />
+  <WithStyles(CardContent)>
+    <WithStyles(Component)
+      height={50}
+      variant="rect"
+    />
+  </WithStyles(CardContent)>
+  <WithStyles(CardActions)>
+    <WithStyles(IconButton)>
+      <WithStyles(Component)
+        variant="rect"
+      />
+    </WithStyles(IconButton)>
+  </WithStyles(CardActions)>
+</WithStyles(Card)>
+`;
+
+exports[`SkeletonEventWithStyles renders as expected 1`] = `
+<SkeletonEvent
+  classes={
+    Object {
+      "card": "SkeletonEvent-card-1",
+    }
+  }
+/>
+`;

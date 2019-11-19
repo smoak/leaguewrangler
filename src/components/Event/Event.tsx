@@ -5,7 +5,6 @@ import {
   CardActions,
   CardContent,
   CardHeader,
-  createStyles,
   Typography,
   WithStyles,
   withStyles,
@@ -14,6 +13,7 @@ import Moment from 'react-moment';
 import { RsvpStatus } from 'graphql/types/globalTypes';
 
 import EventActions from '../EventActions';
+import styles from './styles';
 
 export interface OwnProps {
   readonly title: string;
@@ -24,13 +24,6 @@ export interface OwnProps {
   readonly locationMapsUrl?: string;
   readonly rsvpStatus: RsvpStatus;
 }
-
-const styles = () =>
-  createStyles({
-    card: {
-      width: '100%',
-    },
-  });
 
 export type EventProps = WithStyles<typeof styles> & OwnProps;
 

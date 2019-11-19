@@ -1,10 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`EventList when the data is loading renders as expected 1`] = `
-<WithStyles(CircularProgress)
-  color="secondary"
-/>
-`;
+exports[`EventList when the data is loading renders as expected 1`] = `<WithStyles(SkeletonEvent) />`;
 
 exports[`EventList when the server returns an error renders as expected 1`] = `
 <Fragment>
