@@ -4,8 +4,9 @@ exports[`NotPlayingButton when not playing renders as expected 1`] = `
 <WithStyles(IconButton)
   aria-label="Not Playing"
 >
-  <pure(ReportOffIcon)
+  <pure(HighlightOffTwoToneIcon)
     className="test"
+    color="primary"
   />
 </WithStyles(IconButton)>
 `;
@@ -14,7 +15,7 @@ exports[`NotPlayingButton when playing renders as expected 1`] = `
 <WithStyles(IconButton)
   aria-label="Not Playing"
 >
-  <pure(ReportOffOutlinedIcon)
+  <pure(HighlightOffIcon)
     className="test"
   />
 </WithStyles(IconButton)>

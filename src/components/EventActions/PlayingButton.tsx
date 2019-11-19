@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import PlayingIcon from '@material-ui/icons/CheckCircleOutline';
-import RsvpedPlayingIcon from '@material-ui/icons/CheckCircle';
+import RsvpedPlayingIcon from '@material-ui/icons/CheckCircleTwoTone';
 import { IconButton } from '@material-ui/core';
 
 interface PlayingButtonProps {
@@ -9,7 +9,11 @@ interface PlayingButtonProps {
 }
 
 const PlayingButton: FC<PlayingButtonProps> = ({ isPlaying, className }) => {
-  const icon = isPlaying ? <RsvpedPlayingIcon className={className} /> : <PlayingIcon className={className} />;
+  const icon = isPlaying ? (
+    <RsvpedPlayingIcon className={className} color="primary" />
+  ) : (
+    <PlayingIcon className={className} />
+  );
 
   return <IconButton aria-label="Playing">{icon}</IconButton>;
 };

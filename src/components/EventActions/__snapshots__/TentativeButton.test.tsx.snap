@@ -14,8 +14,9 @@ exports[`TentativeButton when tentative renders as expected 1`] = `
 <WithStyles(IconButton)
   aria-label="Tentative"
 >
-  <pure(HelpIcon)
+  <pure(HelpTwoToneIcon)
     className="test"
+    color="primary"
   />
 </WithStyles(IconButton)>
 `;

@@ -14,8 +14,9 @@ exports[`PlayingButton when playing renders as expected 1`] = `
 <WithStyles(IconButton)
   aria-label="Playing"
 >
-  <pure(CheckCircleIcon)
+  <pure(CheckCircleTwoToneIcon)
     className="test"
+    color="primary"
   />
 </WithStyles(IconButton)>
 `;
