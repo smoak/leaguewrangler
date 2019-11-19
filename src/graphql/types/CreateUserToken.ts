@@ -18,7 +18,7 @@ export interface CreateUserToken {
   /**
    * Create a user token
    */
-  createUserToken: CreateUserToken_createUserToken;
+  createUserToken: CreateUserToken_createUserToken | null;
 }
 
 export interface CreateUserTokenVariables {

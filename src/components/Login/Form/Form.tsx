@@ -19,13 +19,15 @@ const Form: FC<FormProps> = ({ submitButtonClassname, formClassname }) => {
   const [createUserToken, { data, error, loading }] = useMutation<CreateUserToken, CreateUserTokenVariables>(
     CREATE_USER_TOKEN
   );
+
   const onSignInClicked = useCallback(
     () => {
       createUserToken({ variables: { username, password } });
     },
     [createUserToken, username, password]
   );
-  if (data) {
+
+  if (data && data.createUserToken) {
     setUserToken(data.createUserToken.token);
     window.location.reload();
   }

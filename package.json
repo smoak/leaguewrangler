@@ -34,7 +34,7 @@
     "@storybook/addon-info": "^5.2.1",
     "@types/moment-timezone": "^0.5.12",
     "@types/storybook__react": "^4.0.2",
-    "apollo": "^2.18.0",
+    "apollo": "^2.21.0",
     "apollo-boost": "^0.4.1",
     "apollo-link-context": "^1.0.18",
     "awesome-typescript-loader": "^5.2.1",
@@ -50,8 +50,7 @@
     "react-redux": "^6.0.1",
     "react-router-dom": "^5.0.1",
     "react-scripts": "3.1.2",
-    "ts-jest": "^24.0.2",
-    "waait": "^1.0.5"
+    "ts-jest": "^24.0.2"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -59,7 +58,7 @@
     "test": "react-scripts test --env=jsdom --coverage --coverageDirectory=coverage",
     "eject": "react-scripts eject",
     "watch": "react-scripts test --env=jsdom",
-    "build:graphql": "apollo client:codegen --includes=src/graphql/{mutations,queries}/*.ts --endpoint='https://leaguewrangler.com/graphql' --outputFlat --target=typescript src/graphql/types/",
+    "build:graphql": "apollo client:codegen --includes=src/graphql/queries/*.ts --includes=src/graphql/mutations/*.ts --endpoint='https://leaguewrangler.com/graphql' --outputFlat --target=typescript src/graphql/types/",
     "storybook": "start-storybook -p 9009 -s public -c .storybook",
     "build-storybook": "build-storybook -s public",
     "deployprep:diff": "git diff --name-only --exit-code || (echo \"There were uncommitted changes.\" && false)",
