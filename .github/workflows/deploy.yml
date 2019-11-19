@@ -29,6 +29,9 @@ jobs:
         with:
           target_branch: production
           build_dir: build
+          keep_history: true
+          allow_empty_commit: false
+          commit_message: "Production deploy"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           
