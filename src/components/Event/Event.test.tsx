@@ -10,6 +10,8 @@ describe('Event', () => {
   beforeEach(() => {
     component = shallow(
       <Event
+        eventId={1}
+        teamId={1}
         classes={{ card: 'card' }}
         title="foo"
         startTime={new Date(1557029700000)}
@@ -24,6 +26,8 @@ describe('Event', () => {
     beforeEach(() => {
       component = shallow(
         <Event
+          eventId={1}
+          teamId={1}
           classes={{ card: 'card' }}
           title="foo"
           startTime={new Date(1557029700000)}
@@ -43,6 +47,8 @@ describe('Event', () => {
     beforeEach(() => {
       component = shallow(
         <Event
+          eventId={1}
+          teamId={1}
           classes={{ card: 'card' }}
           title="foo"
           location="Somewhere USA"
@@ -68,6 +74,8 @@ describe('EventWithStyles', () => {
   beforeEach(() => {
     component = shallow(
       <EventWithStyles
+        eventId={1}
+        teamId={1}
         title="foo"
         startTime={new Date(1557029700000)}
         location="Somewhere USA"

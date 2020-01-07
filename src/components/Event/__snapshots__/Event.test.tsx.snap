@@ -43,7 +43,9 @@ exports[`Event renders as expected 1`] = `
   </WithStyles(CardContent)>
   <WithStyles(CardActions)>
     <WithStyles(EventActions)
+      eventId={1}
       rsvpStatus="NONE"
+      teamId={1}
     />
   </WithStyles(CardActions)>
 </WithStyles(Card)>
@@ -72,7 +74,9 @@ exports[`Event when the event has no startTime renders as expected 1`] = `
   </WithStyles(CardContent)>
   <WithStyles(CardActions)>
     <WithStyles(EventActions)
+      eventId={1}
       rsvpStatus="NONE"
+      teamId={1}
     />
   </WithStyles(CardActions)>
 </WithStyles(Card)>
@@ -121,7 +125,9 @@ exports[`Event when the event has no team photo url renders as expected 1`] = `
   </WithStyles(CardContent)>
   <WithStyles(CardActions)>
     <WithStyles(EventActions)
+      eventId={1}
       rsvpStatus="NONE"
+      teamId={1}
     />
   </WithStyles(CardActions)>
 </WithStyles(Card)>
@@ -134,9 +140,11 @@ exports[`EventWithStyles renders 1`] = `
       "card": "Event-card-1",
     }
   }
+  eventId={1}
   location="Somewhere USA"
   rsvpStatus="NONE"
   startTime={2019-05-05T04:15:00.000Z}
+  teamId={1}
   teamPhotoUrl="https://picsum.photos/48"
   title="foo"
 />

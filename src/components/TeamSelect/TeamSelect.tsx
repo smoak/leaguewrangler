@@ -26,9 +26,9 @@ const TeamSelect: FC = () => {
 
   return (
     <FormControl>
-      <Select value={firstTeam ? firstTeam.teamId : ''} name="team">
+      <Select value={firstTeam ? firstTeam.id : ''} name="team">
         {teams.filter(notEmpty).map(team => (
-          <MenuItem key={team.teamId} value={team.teamId}>
+          <MenuItem key={team.id} value={team.id}>
             {team.name}
           </MenuItem>
         ))}

@@ -46,7 +46,7 @@ describe('TeamSelect', () => {
 
     describe('and the user belongs to a single team', () => {
       beforeEach(() => {
-        const teams: GetTeams['teams'] = [{ name: 'Test Team', teamId: 1, __typename: 'Team' }];
+        const teams: GetTeams['teams'] = [{ name: 'Test Team', id: 1, __typename: 'Team' }];
         (useQuery as jest.Mock).mockReturnValue({ loading: false, data: { teams }, error: undefined });
 
         component = shallow(<TeamSelect />);

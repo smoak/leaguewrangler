@@ -1,13 +1,16 @@
+import { createStyles, withStyles, WithStyles, CircularProgress } from '@material-ui/core';
 import React, { FC } from 'react';
-import { RsvpStatus } from 'graphql/types/globalTypes';
-import { createStyles, withStyles, WithStyles } from '@material-ui/core';
 
+import { RsvpStatus } from '../../graphql/types/globalTypes';
+import { useSaveRsvpMutation } from './hooks';
+import NotPlayingButton from './NotPlayingButton';
 import PlayingButton from './PlayingButton';
 import TentativeButton from './TentativeButton';
-import NotPlayingButton from './NotPlayingButton';
 
 interface OwnProps {
+  readonly eventId: number;
   readonly rsvpStatus: RsvpStatus;
+  readonly teamId: number;
 }
 
 const styles = createStyles({
@@ -18,12 +21,26 @@ const styles = createStyles({
 
 type EventActionsProps = WithStyles<typeof styles> & OwnProps;
 
-export const EventActions: FC<EventActionsProps> = ({ classes, rsvpStatus }) => {
+export const EventActions: FC<EventActionsProps> = ({ classes, eventId, teamId, rsvpStatus }) => {
+  const { loading, saveRsvpCallback } = useSaveRsvpMutation({ teamId, eventId });
+
+  if (loading) {
+    return <CircularProgress className={classes.icon} color="secondary" />;
+  }
+
   return (
     <>
-      <PlayingButton className={classes.icon} isPlaying={rsvpStatus === RsvpStatus.YES} />
-      <TentativeButton className={classes.icon} isTentative={rsvpStatus === RsvpStatus.MAYBE} />
-      <NotPlayingButton className={classes.icon} isNotPlaying={rsvpStatus === RsvpStatus.NO} />
+      <PlayingButton className={classes.icon} isPlaying={rsvpStatus === RsvpStatus.YES} onRsvp={saveRsvpCallback} />
+      <TentativeButton
+        className={classes.icon}
+        isTentative={rsvpStatus === RsvpStatus.MAYBE}
+        onRsvp={saveRsvpCallback}
+      />
+      <NotPlayingButton
+        className={classes.icon}
+        isNotPlaying={rsvpStatus === RsvpStatus.NO}
+        onRsvp={saveRsvpCallback}
+      />
     </>
   );
 };

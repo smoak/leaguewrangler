@@ -10,6 +10,7 @@ import { RsvpStatus } from "./globalTypes";
 
 export interface GetCurrentUserEvents_currentUser_events_team {
   __typename: "Team";
+  id: number;
   shortName: string;
   photoThumbnailUrl: string | null;
 }
@@ -23,7 +24,7 @@ export interface GetCurrentUserEvents_currentUser_events_location {
 
 export interface GetCurrentUserEvents_currentUser_events {
   __typename: "Event";
-  eventId: number;
+  id: number;
   title: string;
   endTimestamp: number | null;
   startTimestamp: number | null;

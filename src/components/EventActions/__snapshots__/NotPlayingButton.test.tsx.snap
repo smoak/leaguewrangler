@@ -3,6 +3,7 @@
 exports[`NotPlayingButton when not playing renders as expected 1`] = `
 <WithStyles(IconButton)
   aria-label="Not Playing"
+  onClick={[Function]}
 >
   <pure(HighlightOffTwoToneIcon)
     className="test"
@@ -14,6 +15,7 @@ exports[`NotPlayingButton when not playing renders as expected 1`] = `
 exports[`NotPlayingButton when playing renders as expected 1`] = `
 <WithStyles(IconButton)
   aria-label="Not Playing"
+  onClick={[Function]}
 >
   <pure(HighlightOffIcon)
     className="test"

@@ -9,7 +9,7 @@
 export interface GetTeams_teams {
   __typename: "Team";
   name: string;
-  teamId: number;
+  id: number;
 }
 
 export interface GetTeams {

@@ -3,6 +3,7 @@
 exports[`PlayingButton when not playing renders as expected 1`] = `
 <WithStyles(IconButton)
   aria-label="Playing"
+  onClick={[Function]}
 >
   <pure(CheckCircleOutlineIcon)
     className="test"
@@ -13,6 +14,7 @@ exports[`PlayingButton when not playing renders as expected 1`] = `
 exports[`PlayingButton when playing renders as expected 1`] = `
 <WithStyles(IconButton)
   aria-label="Playing"
+  onClick={[Function]}
 >
   <pure(CheckCircleTwoToneIcon)
     className="test"

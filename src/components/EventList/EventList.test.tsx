@@ -73,10 +73,11 @@ describe('EventList', () => {
                 __typename: 'Event',
                 endTimestamp: 1,
                 startTimestamp: 2,
-                eventId: 1,
+                id: 1,
                 location: null,
                 team: {
                   __typename: 'Team',
+                  id: 1,
                   photoThumbnailUrl: 'url',
                   shortName: 'team',
                 },
@@ -106,7 +107,7 @@ describe('EventList', () => {
                 __typename: 'Event',
                 endTimestamp: 1,
                 startTimestamp: null,
-                eventId: 1,
+                id: 1,
                 location: {
                   __typename: 'Location',
                   name: 'test location',
@@ -115,6 +116,7 @@ describe('EventList', () => {
                 },
                 team: {
                   __typename: 'Team',
+                  id: 1,
                   photoThumbnailUrl: 'url',
                   shortName: 'team',
                 },
@@ -144,7 +146,7 @@ describe('EventList', () => {
                 __typename: 'Event',
                 endTimestamp: 1,
                 startTimestamp: 2,
-                eventId: 1,
+                id: 1,
                 location: {
                   __typename: 'Location',
                   name: 'test location',
@@ -153,6 +155,7 @@ describe('EventList', () => {
                 },
                 team: {
                   __typename: 'Team',
+                  id: 1,
                   photoThumbnailUrl: 'url',
                   shortName: 'team',
                 },

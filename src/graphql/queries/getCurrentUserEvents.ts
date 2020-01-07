@@ -4,12 +4,13 @@ export default gql`
   query GetCurrentUserEvents {
     currentUser {
       events {
-        eventId
+        id: eventId
         title
         endTimestamp
         startTimestamp
         viewerRsvpStatus
         team {
+          id: teamId
           shortName
           photoThumbnailUrl
         }

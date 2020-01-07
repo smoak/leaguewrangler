@@ -3,6 +3,7 @@
 exports[`TentativeButton when not tentative renders as expected 1`] = `
 <WithStyles(IconButton)
   aria-label="Tentative"
+  onClick={[Function]}
 >
   <pure(HelpOutlineOutlinedIcon)
     className="test"
@@ -13,6 +14,7 @@ exports[`TentativeButton when not tentative renders as expected 1`] = `
 exports[`TentativeButton when tentative renders as expected 1`] = `
 <WithStyles(IconButton)
   aria-label="Tentative"
+  onClick={[Function]}
 >
   <pure(HelpTwoToneIcon)
     className="test"

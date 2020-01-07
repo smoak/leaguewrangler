@@ -30,8 +30,10 @@ const EventList: FC = () => {
     return (
       <List>
         {events.map(e => (
-          <ListItem key={e.eventId}>
+          <ListItem key={e.id}>
             <Event
+              eventId={e.id}
+              teamId={e.team.id}
               title={e.title}
               teamPhotoUrl={e.team.photoThumbnailUrl}
               location={e.location ? e.location.name : ''}

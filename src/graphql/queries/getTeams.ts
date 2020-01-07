@@ -4,7 +4,7 @@ export default gql`
   query GetTeams {
     teams {
       name
-      teamId
+      id: teamId
     }
   }
 `;

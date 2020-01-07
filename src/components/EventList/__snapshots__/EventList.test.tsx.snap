@@ -14,9 +14,11 @@ exports[`EventList when the server returns data and the user has events renders 
     key="1"
   >
     <WithStyles(Event)
+      eventId={1}
       location=""
       rsvpStatus="NONE"
       startTime={1970-01-01T00:00:02.000Z}
+      teamId={1}
       teamPhotoUrl="url"
       title="test"
     />
@@ -36,9 +38,11 @@ exports[`EventList when the server returns data renders as expected 1`] = `
     key="1"
   >
     <WithStyles(Event)
+      eventId={1}
       location="test location"
       rsvpStatus="NONE"
       startTime={1970-01-01T00:00:02.000Z}
+      teamId={1}
       teamPhotoUrl="url"
       title="test"
     />
@@ -52,9 +56,11 @@ exports[`EventList when the server returns data when the event has a location re
     key="1"
   >
     <WithStyles(Event)
+      eventId={1}
       location="test location"
       rsvpStatus="NONE"
       startTime={1970-01-01T00:00:02.000Z}
+      teamId={1}
       teamPhotoUrl="url"
       title="test"
     />
@@ -68,8 +74,10 @@ exports[`EventList when the server returns data when the event has no start time
     key="1"
   >
     <WithStyles(Event)
+      eventId={1}
       location="test location"
       rsvpStatus="NONE"
+      teamId={1}
       teamPhotoUrl="url"
       title="test"
     />

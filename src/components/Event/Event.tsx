@@ -8,18 +8,29 @@ import EventActions from '../EventActions';
 import styles from './styles';
 
 export interface OwnProps {
-  readonly title: string;
-  readonly startTime?: Date;
   readonly endTime?: Date;
-  readonly teamPhotoUrl: string | null;
+  readonly eventId: number;
   readonly location: string;
   readonly locationMapsUrl?: string;
   readonly rsvpStatus: RsvpStatus;
+  readonly startTime?: Date;
+  readonly teamId: number;
+  readonly teamPhotoUrl: string | null;
+  readonly title: string;
 }
 
 export type EventProps = WithStyles<typeof styles> & OwnProps;
 
-export const Event: FC<EventProps> = ({ classes, title, teamPhotoUrl, startTime, location, rsvpStatus }) => {
+export const Event: FC<EventProps> = ({
+  classes,
+  eventId,
+  location,
+  rsvpStatus,
+  startTime,
+  teamId,
+  teamPhotoUrl,
+  title,
+}) => {
   const subheader = startTime ? <Moment format="LLLL" date={startTime} /> : null;
   return (
     <Card className={classes.card}>
@@ -32,7 +43,7 @@ export const Event: FC<EventProps> = ({ classes, title, teamPhotoUrl, startTime,
         <Typography component="p">{location}</Typography>
       </CardContent>
       <CardActions>
-        <EventActions rsvpStatus={rsvpStatus} />
+        <EventActions rsvpStatus={rsvpStatus} teamId={teamId} eventId={eventId} />
       </CardActions>
     </Card>
   );
