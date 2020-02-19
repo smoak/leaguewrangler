@@ -9,7 +9,7 @@ jobs:
       - name: Install Packages
         uses: bahmutov/npm-install@v1
       - name: Lint
-        run: npm run test:eslint
+        run: npm run test:lint
       - name: Test
         run: npm test
         env:
