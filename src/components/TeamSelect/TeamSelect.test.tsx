@@ -1,9 +1,9 @@
 import { useQuery } from '@apollo/react-hooks';
-import React from 'react';
 import { ShallowWrapper, shallow } from 'enzyme';
+import { GetTeams } from 'graphql/types/GetTeams';
+import React from 'react';
 
 import TeamSelect from './TeamSelect';
-import { GetTeams } from 'graphql/types/GetTeams';
 
 describe('TeamSelect', () => {
   let component: ShallowWrapper;

@@ -1,6 +1,6 @@
 import { storiesOf } from '@storybook/react';
-import * as React from 'react';
 import { RsvpStatus } from 'graphql/types/globalTypes';
+import * as React from 'react';
 
 import Event from '.';
 

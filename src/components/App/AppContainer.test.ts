@@ -1,6 +1,7 @@
-import { mapStateToProps } from './AppContainer';
-import { MappedStateProps } from './App';
 import { ApplicationState } from '../../data/state/types';
+
+import { MappedStateProps } from './App';
+import { mapStateToProps } from './AppContainer';
 
 describe('AppContainer', () => {
   describe('.mapStateToProps', () => {

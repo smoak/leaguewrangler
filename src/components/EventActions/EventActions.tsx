@@ -1,11 +1,12 @@
-import { createStyles, withStyles, WithStyles, CircularProgress } from '@material-ui/core';
+import { CircularProgress, WithStyles, createStyles, withStyles } from '@material-ui/core';
 import React, { FC } from 'react';
 
 import { RsvpStatus } from '../../graphql/types/globalTypes';
-import { useSaveRsvpMutation } from './hooks';
+
 import NotPlayingButton from './NotPlayingButton';
 import PlayingButton from './PlayingButton';
 import TentativeButton from './TentativeButton';
+import { useSaveRsvpMutation } from './hooks';
 
 interface OwnProps {
   readonly eventId: number;

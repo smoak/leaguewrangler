@@ -1,10 +1,11 @@
+import { Typography } from '@material-ui/core';
 import AppBar from '@material-ui/core/AppBar';
 import IconButton from '@material-ui/core/IconButton';
-import { createStyles, withStyles, WithStyles } from '@material-ui/core/styles';
 import Toolbar from '@material-ui/core/Toolbar';
+import { WithStyles, createStyles, withStyles } from '@material-ui/core/styles';
 import MenuIcon from '@material-ui/icons/Menu';
 import React, { FC } from 'react';
-import { Typography } from '@material-ui/core';
+
 import UserAvatar from '../UserAvatar';
 
 const styles = createStyles({

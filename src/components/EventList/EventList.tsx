@@ -1,9 +1,9 @@
-import React, { FC } from 'react';
 import { useQuery } from '@apollo/react-hooks';
 import { List, ListItem } from '@material-ui/core';
+import React, { FC } from 'react';
 
-import { GetCurrentUserEvents } from '../../graphql/types/GetCurrentUserEvents';
 import getCurrentUserEvents from '../../graphql/queries/getCurrentUserEvents';
+import { GetCurrentUserEvents } from '../../graphql/types/GetCurrentUserEvents';
 import Event from '../Event';
 import SkeletonEvent from '../SkeletonEvent';
 

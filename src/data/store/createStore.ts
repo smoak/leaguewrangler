@@ -1,7 +1,7 @@
-import { createStore, combineReducers } from 'redux';
+import { combineReducers, createStore } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
-import * as reducers from '../state/reducers';
 
+import * as reducers from '../state/reducers';
 import { ApplicationState } from '../state/types';
 
 const createEnhancedStore = () => {

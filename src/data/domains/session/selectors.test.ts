@@ -1,4 +1,5 @@
 import { ApplicationState } from '../../state/types';
+
 import { isAuthenticated } from './selectors';
 
 describe('selectors', () => {

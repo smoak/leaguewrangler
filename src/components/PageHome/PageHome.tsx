@@ -1,5 +1,5 @@
+import { Theme, WithStyles, createStyles, withStyles } from '@material-ui/core';
 import React, { FC } from 'react';
-import { Theme, createStyles, WithStyles, withStyles } from '@material-ui/core';
 
 import EventList from '../EventList';
 

@@ -1,7 +1,7 @@
+import { act, renderHook } from '@testing-library/react-hooks';
 import React from 'react';
-import { renderHook, act } from '@testing-library/react-hooks';
 
-import { useControlledInput, ControlledInput } from './hooks';
+import { ControlledInput, useControlledInput } from './hooks';
 
 describe('.useControlledInput', () => {
   let value: string;

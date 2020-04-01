@@ -1,10 +1,10 @@
-import React, { FC } from 'react';
-import { Paper, Avatar, Typography } from '@material-ui/core';
-import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
+import { Avatar, Paper, Typography } from '@material-ui/core';
 import withStyles, { WithStyles } from '@material-ui/core/styles/withStyles';
+import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
+import React, { FC } from 'react';
 
-import styles from './styles';
 import Form from './Form';
+import styles from './styles';
 
 export const Login: FC<WithStyles<typeof styles>> = ({ classes }) => {
   return (

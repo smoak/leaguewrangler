@@ -1,18 +1,19 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './components/App';
-import registerServiceWorker from './registerServiceWorker';
-import { Provider } from 'react-redux';
-import createStore from './data/store/createStore';
-import { setSessionUserToken } from './data/domains/sessionSetUserToken/actions';
-import { getUserToken } from './support/auth';
-import { ApolloClient } from 'apollo-client';
-import { createHttpLink } from 'apollo-link-http';
-import { setContext } from 'apollo-link-context';
-import { InMemoryCache } from 'apollo-cache-inmemory';
-import { ApolloProvider } from 'react-apollo';
 import { MuiThemeProvider } from '@material-ui/core/styles';
+import { InMemoryCache } from 'apollo-cache-inmemory';
+import { ApolloClient } from 'apollo-client';
+import { setContext } from 'apollo-link-context';
+import { createHttpLink } from 'apollo-link-http';
+import React from 'react';
+import { ApolloProvider } from 'react-apollo';
+import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
 import theme from 'support/theme';
+
+import App from './components/App';
+import { setSessionUserToken } from './data/domains/sessionSetUserToken/actions';
+import createStore from './data/store/createStore';
+import registerServiceWorker from './registerServiceWorker';
+import { getUserToken } from './support/auth';
 
 const store = createStore();
 const userToken = getUserToken();

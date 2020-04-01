@@ -1,5 +1,6 @@
-import { shallow, ShallowWrapper } from 'enzyme';
+import { ShallowWrapper, shallow } from 'enzyme';
 import React from 'react';
+
 import PageHomeWithStyles, { PageHome } from './PageHome';
 
 describe('PageHome', () => {

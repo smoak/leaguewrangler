@@ -1,7 +1,8 @@
 import { Reducer } from 'redux';
 
-import { Session } from './types';
 import { SessionSetUserTokenAction } from '../../domains/sessionSetUserToken/actions';
+
+import { Session } from './types';
 
 export type SessionAction = SessionSetUserTokenAction;
 

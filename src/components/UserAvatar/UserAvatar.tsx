@@ -1,10 +1,9 @@
 import { useQuery } from '@apollo/react-hooks';
-import React, { FC } from 'react';
-import { Avatar, createStyles, withStyles, WithStyles, CircularProgress } from '@material-ui/core';
+import { Avatar, CircularProgress, WithStyles, createStyles, withStyles } from '@material-ui/core';
 import AccountCircle from '@material-ui/icons/AccountCircle';
-
-import { GetUserAvatar } from 'graphql/types/GetUserAvatar';
 import getUserAvatarQuery from 'graphql/queries/getUserAvatar';
+import { GetUserAvatar } from 'graphql/types/GetUserAvatar';
+import React, { FC } from 'react';
 
 const styles = createStyles({
   avatar: {

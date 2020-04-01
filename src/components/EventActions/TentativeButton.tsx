@@ -1,7 +1,7 @@
-import React, { useCallback, FC } from 'react';
 import { IconButton } from '@material-ui/core';
 import TentativeIcon from '@material-ui/icons/HelpOutlineOutlined';
 import RsvpedTentativeIcon from '@material-ui/icons/HelpTwoTone';
+import React, { FC, useCallback } from 'react';
 
 import { RsvpStatus } from '../../graphql/types/globalTypes';
 

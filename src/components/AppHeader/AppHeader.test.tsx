@@ -1,6 +1,7 @@
-import { shallow, ShallowWrapper } from 'enzyme';
-import { AppHeader } from './AppHeader';
+import { ShallowWrapper, shallow } from 'enzyme';
 import React from 'react';
+
+import { AppHeader } from './AppHeader';
 
 describe('AppHeader', () => {
   let component: ShallowWrapper;

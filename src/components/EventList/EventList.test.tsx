@@ -1,10 +1,10 @@
+import { useQuery } from '@apollo/react-hooks';
+import { ShallowWrapper, shallow } from 'enzyme';
+import { GetCurrentUserEvents } from 'graphql/types/GetCurrentUserEvents';
+import { RsvpStatus } from 'graphql/types/globalTypes';
 import React from 'react';
-import { shallow, ShallowWrapper } from 'enzyme';
 
 import EventList from './EventList';
-import { RsvpStatus } from 'graphql/types/globalTypes';
-import { useQuery } from '@apollo/react-hooks';
-import { GetCurrentUserEvents } from 'graphql/types/GetCurrentUserEvents';
 
 describe('EventList', () => {
   let component: ShallowWrapper;

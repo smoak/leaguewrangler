@@ -1,10 +1,11 @@
-import React, { FC } from 'react';
-import Card from '@material-ui/core/Card';
 import { Avatar, CardActions, CardContent, CardHeader, Typography, WithStyles, withStyles } from '@material-ui/core';
-import Moment from 'react-moment';
+import Card from '@material-ui/core/Card';
 import { RsvpStatus } from 'graphql/types/globalTypes';
+import React, { FC } from 'react';
+import Moment from 'react-moment';
 
 import EventActions from '../EventActions';
+
 import styles from './styles';
 
 export interface OwnProps {

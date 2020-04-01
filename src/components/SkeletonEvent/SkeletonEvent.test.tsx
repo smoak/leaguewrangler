@@ -1,5 +1,5 @@
-import React from 'react';
 import { ShallowWrapper, shallow } from 'enzyme';
+import React from 'react';
 
 import SkeletonEventWithStyles, { SkeletonEvent } from './SkeletonEvent';
 

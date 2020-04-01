@@ -1,8 +1,8 @@
+import { ShallowWrapper, shallow } from 'enzyme';
 import React from 'react';
-import { shallow, ShallowWrapper } from 'enzyme';
+import { useQuery } from 'react-apollo';
 
 import UserAvatar from './UserAvatar';
-import { useQuery } from 'react-apollo';
 
 describe('UserAvatar', () => {
   let component: ShallowWrapper;

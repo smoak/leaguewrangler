@@ -1,8 +1,10 @@
+import { MockedProvider, MockedResponse } from '@apollo/react-testing';
 import { storiesOf } from '@storybook/react';
 import * as React from 'react';
-import { MockedProvider, MockedResponse } from '@apollo/react-testing';
-import TeamSelect from './TeamSelect';
+
 import getTeams from '../../graphql/queries/getTeams';
+
+import TeamSelect from './TeamSelect';
 
 const mocksWithTeams: ReadonlyArray<MockedResponse> = [
   {
