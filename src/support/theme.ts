@@ -7,7 +7,4 @@ export default createMuiTheme({
     primary: deepPurple,
     secondary: purple,
   },
-  typography: {
-    useNextVariants: true,
-  },
 });

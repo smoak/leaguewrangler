@@ -4,7 +4,7 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 import * as reducers from '../state/reducers';
 import { ApplicationState } from '../state/types';
 
-const createEnhancedStore = () => {
+const createEnhancedStore = (): ReturnType<typeof createStore> => {
   const rootReducer = combineReducers<ApplicationState>({
     ...reducers,
   });
