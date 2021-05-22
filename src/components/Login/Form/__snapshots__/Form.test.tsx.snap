@@ -4,18 +4,18 @@ exports[`Form renders as expected 1`] = `
 <div
   className="form"
 >
-  <WithStyles(FormControl)
+  <WithStyles(ForwardRef(FormControl))
     error={false}
     fullWidth={true}
     margin="normal"
     required={true}
   >
-    <WithStyles(WithFormControlContext(InputLabel))
+    <WithStyles(ForwardRef(InputLabel))
       htmlFor="username"
     >
       Username
-    </WithStyles(WithFormControlContext(InputLabel))>
-    <WithStyles(Input)
+    </WithStyles(ForwardRef(InputLabel))>
+    <WithStyles(ForwardRef(Input))
       autoComplete="username"
       autoFocus={true}
       id="username"
@@ -23,19 +23,19 @@ exports[`Form renders as expected 1`] = `
       onChange={[MockFunction]}
       value=""
     />
-  </WithStyles(FormControl)>
-  <WithStyles(FormControl)
+  </WithStyles(ForwardRef(FormControl))>
+  <WithStyles(ForwardRef(FormControl))
     error={false}
     fullWidth={true}
     margin="normal"
     required={true}
   >
-    <WithStyles(WithFormControlContext(InputLabel))
+    <WithStyles(ForwardRef(InputLabel))
       htmlFor="password"
     >
       Password
-    </WithStyles(WithFormControlContext(InputLabel))>
-    <WithStyles(Input)
+    </WithStyles(ForwardRef(InputLabel))>
+    <WithStyles(ForwardRef(Input))
       autoComplete="current-password"
       id="password"
       name="password"
@@ -43,10 +43,10 @@ exports[`Form renders as expected 1`] = `
       type="password"
       value=""
     />
-  </WithStyles(FormControl)>
-  <WithStyles(WithFormControlContext(FormControlLabel))
+  </WithStyles(ForwardRef(FormControl))>
+  <WithStyles(ForwardRef(FormControlLabel))
     control={
-      <WithStyles(Checkbox)
+      <WithStyles(ForwardRef(Checkbox))
         color="primary"
         value="remember"
       />
@@ -65,18 +65,18 @@ exports[`Form when the user submits the form and the token is being created rend
 <div
   className="form"
 >
-  <WithStyles(FormControl)
+  <WithStyles(ForwardRef(FormControl))
     error={false}
     fullWidth={true}
     margin="normal"
     required={true}
   >
-    <WithStyles(WithFormControlContext(InputLabel))
+    <WithStyles(ForwardRef(InputLabel))
       htmlFor="username"
     >
       Username
-    </WithStyles(WithFormControlContext(InputLabel))>
-    <WithStyles(Input)
+    </WithStyles(ForwardRef(InputLabel))>
+    <WithStyles(ForwardRef(Input))
       autoComplete="username"
       autoFocus={true}
       id="username"
@@ -84,19 +84,19 @@ exports[`Form when the user submits the form and the token is being created rend
       onChange={[MockFunction]}
       value="foo"
     />
-  </WithStyles(FormControl)>
-  <WithStyles(FormControl)
+  </WithStyles(ForwardRef(FormControl))>
+  <WithStyles(ForwardRef(FormControl))
     error={false}
     fullWidth={true}
     margin="normal"
     required={true}
   >
-    <WithStyles(WithFormControlContext(InputLabel))
+    <WithStyles(ForwardRef(InputLabel))
       htmlFor="password"
     >
       Password
-    </WithStyles(WithFormControlContext(InputLabel))>
-    <WithStyles(Input)
+    </WithStyles(ForwardRef(InputLabel))>
+    <WithStyles(ForwardRef(Input))
       autoComplete="current-password"
       id="password"
       name="password"
@@ -104,17 +104,17 @@ exports[`Form when the user submits the form and the token is being created rend
       type="password"
       value="foo"
     />
-  </WithStyles(FormControl)>
-  <WithStyles(WithFormControlContext(FormControlLabel))
+  </WithStyles(ForwardRef(FormControl))>
+  <WithStyles(ForwardRef(FormControlLabel))
     control={
-      <WithStyles(Checkbox)
+      <WithStyles(ForwardRef(Checkbox))
         color="primary"
         value="remember"
       />
     }
     label="Remember me"
   />
-  <WithStyles(CircularProgress)
+  <WithStyles(ForwardRef(CircularProgress))
     color="secondary"
   />
 </div>
@@ -124,18 +124,18 @@ exports[`Form when the username and password are provided renders as expected 1`
 <div
   className="form"
 >
-  <WithStyles(FormControl)
+  <WithStyles(ForwardRef(FormControl))
     error={false}
     fullWidth={true}
     margin="normal"
     required={true}
   >
-    <WithStyles(WithFormControlContext(InputLabel))
+    <WithStyles(ForwardRef(InputLabel))
       htmlFor="username"
     >
       Username
-    </WithStyles(WithFormControlContext(InputLabel))>
-    <WithStyles(Input)
+    </WithStyles(ForwardRef(InputLabel))>
+    <WithStyles(ForwardRef(Input))
       autoComplete="username"
       autoFocus={true}
       id="username"
@@ -143,19 +143,19 @@ exports[`Form when the username and password are provided renders as expected 1`
       onChange={[MockFunction]}
       value="foo"
     />
-  </WithStyles(FormControl)>
-  <WithStyles(FormControl)
+  </WithStyles(ForwardRef(FormControl))>
+  <WithStyles(ForwardRef(FormControl))
     error={false}
     fullWidth={true}
     margin="normal"
     required={true}
   >
-    <WithStyles(WithFormControlContext(InputLabel))
+    <WithStyles(ForwardRef(InputLabel))
       htmlFor="password"
     >
       Password
-    </WithStyles(WithFormControlContext(InputLabel))>
-    <WithStyles(Input)
+    </WithStyles(ForwardRef(InputLabel))>
+    <WithStyles(ForwardRef(Input))
       autoComplete="current-password"
       id="password"
       name="password"
@@ -163,10 +163,10 @@ exports[`Form when the username and password are provided renders as expected 1`
       type="password"
       value="foo"
     />
-  </WithStyles(FormControl)>
-  <WithStyles(WithFormControlContext(FormControlLabel))
+  </WithStyles(ForwardRef(FormControl))>
+  <WithStyles(ForwardRef(FormControlLabel))
     control={
-      <WithStyles(Checkbox)
+      <WithStyles(ForwardRef(Checkbox))
         color="primary"
         value="remember"
       />

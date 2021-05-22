@@ -1,16 +1,16 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`UserAvatar when the component is fetching data renders as expected 1`] = `
-<WithStyles(CircularProgress)
+<WithStyles(ForwardRef(CircularProgress))
   color="secondary"
 />
 `;
 
 exports[`UserAvatar when the user does have an avatar renders as expected 1`] = `
-<WithStyles(Avatar)
+<WithStyles(ForwardRef(Avatar))
   className="UserAvatar-avatar-1 avatar"
   src="foo"
 />
 `;
 
-exports[`UserAvatar when the user does not have an avatar renders as expected 1`] = `<pure(AccountCircleIcon) />`;
+exports[`UserAvatar when the user does not have an avatar renders as expected 1`] = `<Memo(ForwardRef(AccountCircleIcon)) />`;

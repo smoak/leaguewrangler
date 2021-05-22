@@ -21,7 +21,7 @@ exports[`EventActions renders as expected 1`] = `
 `;
 
 exports[`EventActions when loading renders as expected 1`] = `
-<WithStyles(CircularProgress)
+<WithStyles(ForwardRef(CircularProgress))
   className="icon"
   color="secondary"
 />

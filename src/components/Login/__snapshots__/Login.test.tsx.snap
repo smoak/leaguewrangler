@@ -4,24 +4,24 @@ exports[`Login renders 1`] = `
 <div
   className="main"
 >
-  <WithStyles(Paper)
+  <WithStyles(ForwardRef(Paper))
     className="paper"
   >
-    <WithStyles(Avatar)
+    <WithStyles(ForwardRef(Avatar))
       className="avatar"
     >
-      <pure(LockOutlinedIcon) />
-    </WithStyles(Avatar)>
-    <WithStyles(Typography)
+      <Memo(ForwardRef(LockOutlinedIcon)) />
+    </WithStyles(ForwardRef(Avatar))>
+    <WithStyles(ForwardRef(Typography))
       component="h1"
       variant="h5"
     >
       Sign in
-    </WithStyles(Typography)>
+    </WithStyles(ForwardRef(Typography))>
     <Form
       formClassname="form"
       submitButtonClassname="submit"
     />
-  </WithStyles(Paper)>
+  </WithStyles(ForwardRef(Paper))>
 </div>
 `;

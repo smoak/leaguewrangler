@@ -1,25 +1,25 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`AppHeader renders 1`] = `
-<WithStyles(AppBar)
+<WithStyles(ForwardRef(AppBar))
   position="static"
 >
-  <WithStyles(Toolbar)>
-    <WithStyles(IconButton)
+  <WithStyles(ForwardRef(Toolbar))>
+    <WithStyles(ForwardRef(IconButton))
       aria-label="Menu"
       className="styles"
       color="inherit"
     >
-      <pure(MenuIcon) />
-    </WithStyles(IconButton)>
-    <WithStyles(Typography)
+      <Memo(ForwardRef(MenuIcon)) />
+    </WithStyles(ForwardRef(IconButton))>
+    <WithStyles(ForwardRef(Typography))
       className="grow"
       color="inherit"
       variant="h6"
     >
       League Wrangler
-    </WithStyles(Typography)>
+    </WithStyles(ForwardRef(Typography))>
     <WithStyles(UserAvatar) />
-  </WithStyles(Toolbar)>
-</WithStyles(AppBar)>
+  </WithStyles(ForwardRef(Toolbar))>
+</WithStyles(ForwardRef(AppBar))>
 `;

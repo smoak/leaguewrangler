@@ -1,24 +1,24 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`PlayingButton when not playing renders as expected 1`] = `
-<WithStyles(IconButton)
+<WithStyles(ForwardRef(IconButton))
   aria-label="Playing"
   onClick={[Function]}
 >
-  <pure(CheckCircleOutlineIcon)
+  <Memo(ForwardRef(CheckCircleOutlineIcon))
     className="test"
   />
-</WithStyles(IconButton)>
+</WithStyles(ForwardRef(IconButton))>
 `;
 
 exports[`PlayingButton when playing renders as expected 1`] = `
-<WithStyles(IconButton)
+<WithStyles(ForwardRef(IconButton))
   aria-label="Playing"
   onClick={[Function]}
 >
-  <pure(CheckCircleTwoToneIcon)
+  <Memo(ForwardRef(CheckCircleTwoToneIcon))
     className="test"
     color="primary"
   />
-</WithStyles(IconButton)>
+</WithStyles(ForwardRef(IconButton))>
 `;

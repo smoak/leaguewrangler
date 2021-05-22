@@ -62,10 +62,8 @@ describe('Form', () => {
       const token = 'token';
 
       beforeEach(() => {
-        Object.defineProperty(window.location, 'reload', {
-          configurable: true,
-        });
-        window.location.reload = jest.fn();
+        delete window.location;
+        window.location = { reload: jest.fn() };
         data = {
           createUserToken: {
             __typename: 'UserToken',

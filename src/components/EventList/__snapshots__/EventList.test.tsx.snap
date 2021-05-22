@@ -9,8 +9,8 @@ exports[`EventList when the server returns an error renders as expected 1`] = `
 `;
 
 exports[`EventList when the server returns data and the user has events renders as expected 1`] = `
-<WithStyles(List)>
-  <WithStyles(ListItem)
+<WithStyles(ForwardRef(List))>
+  <WithStyles(ForwardRef(ListItem))
     key="1"
   >
     <WithStyles(Event)
@@ -22,8 +22,8 @@ exports[`EventList when the server returns data and the user has events renders 
       teamPhotoUrl="url"
       title="test"
     />
-  </WithStyles(ListItem)>
-</WithStyles(List)>
+  </WithStyles(ForwardRef(ListItem))>
+</WithStyles(ForwardRef(List))>
 `;
 
 exports[`EventList when the server returns data and the user has no events renders as expected 1`] = `
@@ -33,8 +33,8 @@ exports[`EventList when the server returns data and the user has no events rende
 `;
 
 exports[`EventList when the server returns data renders as expected 1`] = `
-<WithStyles(List)>
-  <WithStyles(ListItem)
+<WithStyles(ForwardRef(List))>
+  <WithStyles(ForwardRef(ListItem))
     key="1"
   >
     <WithStyles(Event)
@@ -46,13 +46,13 @@ exports[`EventList when the server returns data renders as expected 1`] = `
       teamPhotoUrl="url"
       title="test"
     />
-  </WithStyles(ListItem)>
-</WithStyles(List)>
+  </WithStyles(ForwardRef(ListItem))>
+</WithStyles(ForwardRef(List))>
 `;
 
 exports[`EventList when the server returns data when the event has a location renders as expected 1`] = `
-<WithStyles(List)>
-  <WithStyles(ListItem)
+<WithStyles(ForwardRef(List))>
+  <WithStyles(ForwardRef(ListItem))
     key="1"
   >
     <WithStyles(Event)
@@ -64,13 +64,13 @@ exports[`EventList when the server returns data when the event has a location re
       teamPhotoUrl="url"
       title="test"
     />
-  </WithStyles(ListItem)>
-</WithStyles(List)>
+  </WithStyles(ForwardRef(ListItem))>
+</WithStyles(ForwardRef(List))>
 `;
 
 exports[`EventList when the server returns data when the event has no start time renders as expected 1`] = `
-<WithStyles(List)>
-  <WithStyles(ListItem)
+<WithStyles(ForwardRef(List))>
+  <WithStyles(ForwardRef(ListItem))
     key="1"
   >
     <WithStyles(Event)
@@ -81,8 +81,8 @@ exports[`EventList when the server returns data when the event has no start time
       teamPhotoUrl="url"
       title="test"
     />
-  </WithStyles(ListItem)>
-</WithStyles(List)>
+  </WithStyles(ForwardRef(ListItem))>
+</WithStyles(ForwardRef(List))>
 `;
 
 exports[`EventList when the server returns no data renders as expected 1`] = `

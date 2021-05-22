@@ -1,12 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Event renders as expected 1`] = `
-<WithStyles(Card)
+<WithStyles(ForwardRef(Card))
   className="card"
 >
-  <WithStyles(CardHeader)
+  <WithStyles(ForwardRef(CardHeader))
     avatar={
-      <WithStyles(Avatar)
+      <WithStyles(ForwardRef(Avatar))
         aria-label="teamPhoto"
         src="https://picsum.photos/48"
       />
@@ -34,30 +34,30 @@ exports[`Event renders as expected 1`] = `
     }
     title="foo"
   />
-  <WithStyles(CardContent)>
-    <WithStyles(Typography)
+  <WithStyles(ForwardRef(CardContent))>
+    <WithStyles(ForwardRef(Typography))
       component="p"
     >
       Somewhere USA
-    </WithStyles(Typography)>
-  </WithStyles(CardContent)>
-  <WithStyles(CardActions)>
+    </WithStyles(ForwardRef(Typography))>
+  </WithStyles(ForwardRef(CardContent))>
+  <WithStyles(ForwardRef(CardActions))>
     <WithStyles(EventActions)
       eventId={1}
       rsvpStatus="NONE"
       teamId={1}
     />
-  </WithStyles(CardActions)>
-</WithStyles(Card)>
+  </WithStyles(ForwardRef(CardActions))>
+</WithStyles(ForwardRef(Card))>
 `;
 
 exports[`Event when the event has no startTime renders as expected 1`] = `
-<WithStyles(Card)
+<WithStyles(ForwardRef(Card))
   className="card"
 >
-  <WithStyles(CardHeader)
+  <WithStyles(ForwardRef(CardHeader))
     avatar={
-      <WithStyles(Avatar)
+      <WithStyles(ForwardRef(Avatar))
         aria-label="teamPhoto"
         src="https://new.url"
       />
@@ -65,30 +65,30 @@ exports[`Event when the event has no startTime renders as expected 1`] = `
     subheader={null}
     title="foo"
   />
-  <WithStyles(CardContent)>
-    <WithStyles(Typography)
+  <WithStyles(ForwardRef(CardContent))>
+    <WithStyles(ForwardRef(Typography))
       component="p"
     >
       Somewhere USA
-    </WithStyles(Typography)>
-  </WithStyles(CardContent)>
-  <WithStyles(CardActions)>
+    </WithStyles(ForwardRef(Typography))>
+  </WithStyles(ForwardRef(CardContent))>
+  <WithStyles(ForwardRef(CardActions))>
     <WithStyles(EventActions)
       eventId={1}
       rsvpStatus="NONE"
       teamId={1}
     />
-  </WithStyles(CardActions)>
-</WithStyles(Card)>
+  </WithStyles(ForwardRef(CardActions))>
+</WithStyles(ForwardRef(Card))>
 `;
 
 exports[`Event when the event has no team photo url renders as expected 1`] = `
-<WithStyles(Card)
+<WithStyles(ForwardRef(Card))
   className="card"
 >
-  <WithStyles(CardHeader)
+  <WithStyles(ForwardRef(CardHeader))
     avatar={
-      <WithStyles(Avatar)
+      <WithStyles(ForwardRef(Avatar))
         aria-label="teamPhoto"
         src=""
       />
@@ -116,21 +116,21 @@ exports[`Event when the event has no team photo url renders as expected 1`] = `
     }
     title="foo"
   />
-  <WithStyles(CardContent)>
-    <WithStyles(Typography)
+  <WithStyles(ForwardRef(CardContent))>
+    <WithStyles(ForwardRef(Typography))
       component="p"
     >
       Somewhere USA
-    </WithStyles(Typography)>
-  </WithStyles(CardContent)>
-  <WithStyles(CardActions)>
+    </WithStyles(ForwardRef(Typography))>
+  </WithStyles(ForwardRef(CardContent))>
+  <WithStyles(ForwardRef(CardActions))>
     <WithStyles(EventActions)
       eventId={1}
       rsvpStatus="NONE"
       teamId={1}
     />
-  </WithStyles(CardActions)>
-</WithStyles(Card)>
+  </WithStyles(ForwardRef(CardActions))>
+</WithStyles(ForwardRef(Card))>
 `;
 
 exports[`EventWithStyles renders 1`] = `

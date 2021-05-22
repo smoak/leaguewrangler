@@ -1,43 +1,43 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`SkeletonEvent renders as expected 1`] = `
-<WithStyles(Card)
+<WithStyles(ForwardRef(Card))
   className="card"
 >
-  <WithStyles(CardHeader)
+  <WithStyles(ForwardRef(CardHeader))
     avatar={
-      <WithStyles(Component)
+      <WithStyles(ForwardRef(Skeleton))
         height={40}
         variant="circle"
         width={40}
       />
     }
     subheader={
-      <WithStyles(Component)
+      <WithStyles(ForwardRef(Skeleton))
         height={6}
         width="80%"
       />
     }
     title={
-      <WithStyles(Component)
+      <WithStyles(ForwardRef(Skeleton))
         height={6}
       />
     }
   />
-  <WithStyles(CardContent)>
-    <WithStyles(Component)
+  <WithStyles(ForwardRef(CardContent))>
+    <WithStyles(ForwardRef(Skeleton))
       height={50}
       variant="rect"
     />
-  </WithStyles(CardContent)>
-  <WithStyles(CardActions)>
-    <WithStyles(IconButton)>
-      <WithStyles(Component)
+  </WithStyles(ForwardRef(CardContent))>
+  <WithStyles(ForwardRef(CardActions))>
+    <WithStyles(ForwardRef(IconButton))>
+      <WithStyles(ForwardRef(Skeleton))
         variant="rect"
       />
-    </WithStyles(IconButton)>
-  </WithStyles(CardActions)>
-</WithStyles(Card)>
+    </WithStyles(ForwardRef(IconButton))>
+  </WithStyles(ForwardRef(CardActions))>
+</WithStyles(ForwardRef(Card))>
 `;
 
 exports[`SkeletonEventWithStyles renders as expected 1`] = `
