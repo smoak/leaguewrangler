@@ -1,10 +1,10 @@
-import { combineReducers, createStore } from 'redux';
+import { Store, combineReducers, createStore } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 
 import * as reducers from '../state/reducers';
 import { ApplicationState } from '../state/types';
 
-const createEnhancedStore = (): ReturnType<typeof createStore> => {
+const createEnhancedStore = (): Store<ApplicationState> => {
   const rootReducer = combineReducers<ApplicationState>({
     ...reducers,
   });

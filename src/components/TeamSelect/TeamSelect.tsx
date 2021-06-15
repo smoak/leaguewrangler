@@ -1,8 +1,9 @@
 import { useQuery } from '@apollo/react-hooks';
 import { CircularProgress, FormControl, MenuItem, Select } from '@material-ui/core';
-import getTeamsQuery from 'graphql/queries/getTeams';
-import { GetTeams } from 'graphql/types/GetTeams';
 import React, { FC } from 'react';
+
+import getTeamsQuery from '../../graphql/queries/getTeams';
+import { GetTeams } from '../../graphql/types/GetTeams';
 
 function notEmpty<TValue>(value: TValue | null | undefined): value is TValue {
   return value !== null && value !== undefined;

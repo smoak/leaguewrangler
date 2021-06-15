@@ -1,9 +1,9 @@
 import { Avatar, CardActions, CardContent, CardHeader, Typography, WithStyles, withStyles } from '@material-ui/core';
 import Card from '@material-ui/core/Card';
-import { RsvpStatus } from 'graphql/types/globalTypes';
 import React, { FC } from 'react';
 import Moment from 'react-moment';
 
+import { RsvpStatus } from '../../graphql/types/globalTypes';
 import EventActions from '../EventActions';
 
 import styles from './styles';
