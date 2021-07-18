@@ -35,11 +35,9 @@ exports[`Event renders as expected 1`] = `
     title="foo"
   />
   <WithStyles(ForwardRef(CardContent))>
-    <WithStyles(ForwardRef(Typography))
-      component="p"
-    >
-      Somewhere USA
-    </WithStyles(ForwardRef(Typography))>
+    <Location
+      locationName="Somewhere USA"
+    />
   </WithStyles(ForwardRef(CardContent))>
   <WithStyles(ForwardRef(CardActions))>
     <WithStyles(EventActions)
@@ -66,11 +64,9 @@ exports[`Event when the event has no startTime renders as expected 1`] = `
     title="foo"
   />
   <WithStyles(ForwardRef(CardContent))>
-    <WithStyles(ForwardRef(Typography))
-      component="p"
-    >
-      Somewhere USA
-    </WithStyles(ForwardRef(Typography))>
+    <Location
+      locationName="Somewhere USA"
+    />
   </WithStyles(ForwardRef(CardContent))>
   <WithStyles(ForwardRef(CardActions))>
     <WithStyles(EventActions)
@@ -117,11 +113,9 @@ exports[`Event when the event has no team photo url renders as expected 1`] = `
     title="foo"
   />
   <WithStyles(ForwardRef(CardContent))>
-    <WithStyles(ForwardRef(Typography))
-      component="p"
-    >
-      Somewhere USA
-    </WithStyles(ForwardRef(Typography))>
+    <Location
+      locationName="Somewhere USA"
+    />
   </WithStyles(ForwardRef(CardContent))>
   <WithStyles(ForwardRef(CardActions))>
     <WithStyles(EventActions)

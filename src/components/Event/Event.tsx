@@ -1,4 +1,4 @@
-import { Avatar, CardActions, CardContent, CardHeader, Typography, WithStyles, withStyles } from '@material-ui/core';
+import { Avatar, CardActions, CardContent, CardHeader, WithStyles, withStyles } from '@material-ui/core';
 import Card from '@material-ui/core/Card';
 import React, { FC } from 'react';
 import Moment from 'react-moment';
@@ -6,6 +6,7 @@ import Moment from 'react-moment';
 import { RsvpStatus } from '../../graphql/types/globalTypes';
 import EventActions from '../EventActions';
 
+import { Location } from './Location';
 import styles from './styles';
 
 export interface OwnProps {
@@ -26,6 +27,7 @@ export const Event: FC<EventProps> = ({
   classes,
   eventId,
   location,
+  locationMapsUrl,
   rsvpStatus,
   startTime,
   teamId,
@@ -41,7 +43,7 @@ export const Event: FC<EventProps> = ({
         subheader={subheader}
       />
       <CardContent>
-        <Typography component="p">{location}</Typography>
+        <Location locationName={location} locationUrl={locationMapsUrl} />
       </CardContent>
       <CardActions>
         <EventActions rsvpStatus={rsvpStatus} teamId={teamId} eventId={eventId} />
