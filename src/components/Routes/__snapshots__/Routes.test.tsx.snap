@@ -8,7 +8,6 @@ exports[`Routes renders 1`] = `
         Object {
           "$$typeof": Symbol(react.forward_ref),
           "Naked": [Function],
-          "displayName": "WithStyles(PageHome)",
           "options": Object {
             "defaultTheme": Object {
               "breakpoints": Object {
