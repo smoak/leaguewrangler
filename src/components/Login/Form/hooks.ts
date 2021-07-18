@@ -5,9 +5,9 @@ export interface ControlledInput {
   onChange: React.ChangeEventHandler<HTMLTextAreaElement | HTMLInputElement>;
 }
 type UseControlledInput = (defaultValue: string) => ControlledInput;
-export const useControlledInput: UseControlledInput = defaultValue => {
+export const useControlledInput: UseControlledInput = (defaultValue) => {
   const [value, setValue] = useState(defaultValue);
-  const onChange = useCallback<React.ChangeEventHandler<HTMLTextAreaElement | HTMLInputElement>>(e => {
+  const onChange = useCallback<React.ChangeEventHandler<HTMLTextAreaElement | HTMLInputElement>>((e) => {
     setValue(e.target.value);
   }, []);
 

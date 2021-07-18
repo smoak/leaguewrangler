@@ -6,4 +6,4 @@ export const getUserToken: GetUserToken = () => {
 };
 
 export type SetUserToken = (token: string) => void;
-export const setUserToken: SetUserToken = token => localStorage.setItem(userTokenName, token);
+export const setUserToken: SetUserToken = (token) => localStorage.setItem(userTokenName, token);

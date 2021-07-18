@@ -21,12 +21,9 @@ const Form: FC<FormProps> = ({ submitButtonClassname, formClassname }) => {
     CREATE_USER_TOKEN
   );
 
-  const onSignInClicked = useCallback(
-    () => {
-      createUserToken({ variables: { username, password } });
-    },
-    [createUserToken, username, password]
-  );
+  const onSignInClicked = useCallback(() => {
+    createUserToken({ variables: { username, password } });
+  }, [createUserToken, username, password]);
 
   if (data && data.createUserToken) {
     setUserToken(data.createUserToken.token);

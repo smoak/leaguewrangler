@@ -12,12 +12,9 @@ interface TentativeButtonProps {
 }
 
 const TentativeButton: FC<TentativeButtonProps> = ({ onRsvp, className, isTentative }) => {
-  const rsvpCallback = useCallback(
-    () => {
-      onRsvp(RsvpStatus.MAYBE);
-    },
-    [onRsvp]
-  );
+  const rsvpCallback = useCallback(() => {
+    onRsvp(RsvpStatus.MAYBE);
+  }, [onRsvp]);
 
   const icon = isTentative ? (
     <RsvpedTentativeIcon className={className} color="primary" />

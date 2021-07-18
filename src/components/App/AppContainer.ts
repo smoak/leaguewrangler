@@ -5,7 +5,7 @@ import { ApplicationState } from '../../data/state/types';
 
 import App, { MappedStateProps } from './App';
 
-export const mapStateToProps: MapStateToProps<MappedStateProps, Record<string, never>, ApplicationState> = state => {
+export const mapStateToProps: MapStateToProps<MappedStateProps, Record<string, never>, ApplicationState> = (state) => {
   return {
     isAuthenticated: isAuthenticated(state),
   };

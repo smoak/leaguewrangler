@@ -12,12 +12,9 @@ interface PlayingButtonProps {
 }
 
 const PlayingButton: FC<PlayingButtonProps> = ({ isPlaying, className, onRsvp }) => {
-  const rsvpCallback = useCallback(
-    () => {
-      onRsvp(RsvpStatus.YES);
-    },
-    [onRsvp]
-  );
+  const rsvpCallback = useCallback(() => {
+    onRsvp(RsvpStatus.YES);
+  }, [onRsvp]);
   const icon = isPlaying ? (
     <RsvpedPlayingIcon className={className} color="primary" />
   ) : (

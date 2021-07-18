@@ -15,7 +15,7 @@ const SignInButton: FC<SignInButtonProps> = ({ className, isDisabled, onClick })
       variant="contained"
       color="primary"
       className={className}
-      onClick={e => {
+      onClick={(e) => {
         e.preventDefault();
         onClick();
       }}

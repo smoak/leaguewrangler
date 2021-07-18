@@ -21,7 +21,7 @@ type UseSaveRsvpMutation = (options: UseSaveRsvpMutationOptions) => SaveRsvpMuta
 export const useSaveRsvpMutation: UseSaveRsvpMutation = ({ eventId, teamId }) => {
   const [saveRsvp, { loading }] = useMutation<SaveEventRsvp, SaveEventRsvpVariables>(saveEventRsvp);
   const saveRsvpCallback = useCallback(
-    rsvpStatus => {
+    (rsvpStatus) => {
       saveRsvp({ variables: { eventId, teamId, rsvpStatus } });
     },
     [eventId, teamId, saveRsvp]

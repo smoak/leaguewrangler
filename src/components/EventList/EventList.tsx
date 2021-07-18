@@ -29,7 +29,7 @@ const EventList: FC = () => {
   if (events.length > 0) {
     return (
       <List>
-        {events.map(e => (
+        {events.map((e) => (
           <ListItem key={e.id}>
             <Event
               eventId={e.id}

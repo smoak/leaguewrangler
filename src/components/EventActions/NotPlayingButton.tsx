@@ -12,12 +12,9 @@ interface NotPlayingButtonProps {
 }
 
 const NotPlayingButton: FC<NotPlayingButtonProps> = ({ className, isNotPlaying, onRsvp }) => {
-  const rsvpCallback = useCallback(
-    () => {
-      onRsvp(RsvpStatus.NO);
-    },
-    [onRsvp]
-  );
+  const rsvpCallback = useCallback(() => {
+    onRsvp(RsvpStatus.NO);
+  }, [onRsvp]);
 
   const icon = isNotPlaying ? (
     <RsvpedNotPlayingIcon className={className} color="primary" />
