@@ -1,6 +1,6 @@
 import { Theme, createStyles } from '@material-ui/core';
 
-export default (theme: Theme): ReturnType<typeof createStyles> =>
+const styles = (theme: Theme): ReturnType<typeof createStyles> =>
   createStyles({
     main: {
       width: 'auto',
@@ -32,3 +32,5 @@ export default (theme: Theme): ReturnType<typeof createStyles> =>
       marginTop: theme.spacing(3),
     },
   });
+
+export default styles;

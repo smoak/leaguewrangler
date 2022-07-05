@@ -11,8 +11,6 @@ jobs:
         uses: actions/checkout@v1
       - name: Install
         uses: bahmutov/npm-install@v1
-      - name: Lint
-        run: npm run test:lint
       - name: Test
         run: npm test
         env:

@@ -1,8 +1,10 @@
 import { createStyles } from '@material-ui/core/styles';
 
-export default (): ReturnType<typeof createStyles> =>
+const styles = (): ReturnType<typeof createStyles> =>
   createStyles({
     card: {
       width: '100%',
     },
   });
+
+export default styles;
