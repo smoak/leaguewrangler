@@ -1,9 +1,5 @@
-jest.mock('support/auth');
-jest.mock('./hooks');
-
 import { ApolloError } from 'apollo-boost';
 import { ShallowWrapper, shallow } from 'enzyme';
-import React from 'react';
 import { useMutation } from 'react-apollo';
 import { setUserToken } from 'support/auth';
 
@@ -12,6 +8,9 @@ import { CreateUserToken } from '../../../graphql/types/CreateUserToken';
 import Form from './Form';
 import SignInButton from './SignInButton';
 import { useControlledInput } from './hooks';
+
+jest.mock('support/auth');
+jest.mock('./hooks');
 
 describe('Form', () => {
   let component: ShallowWrapper;

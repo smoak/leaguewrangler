@@ -1,5 +1,5 @@
 import { act, renderHook } from '@testing-library/react-hooks';
-import React from 'react';
+import { ChangeEvent } from 'react';
 
 import { ControlledInput, useControlledInput } from './hooks';
 
@@ -23,7 +23,7 @@ describe('.useControlledInput', () => {
       const { result } = renderHook(HookCallback);
       const onChange = result.current.onChange;
       act(() => {
-        onChange(event as React.ChangeEvent<HTMLInputElement>);
+        onChange(event as ChangeEvent<HTMLInputElement>);
       });
 
       value = result.current.value;

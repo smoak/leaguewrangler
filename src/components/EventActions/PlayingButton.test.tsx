@@ -1,6 +1,5 @@
 import { IconButton } from '@material-ui/core';
 import { ShallowWrapper, shallow } from 'enzyme';
-import React from 'react';
 
 import { RsvpStatus } from '../../graphql/types/globalTypes';
 

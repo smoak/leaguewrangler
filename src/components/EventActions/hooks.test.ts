@@ -1,11 +1,11 @@
-jest.mock('react-apollo');
-
 import { renderHook } from '@testing-library/react-hooks';
 import { useMutation } from 'react-apollo';
 
 import { RsvpStatus } from '../../graphql/types/globalTypes';
 
 import { useSaveRsvpMutation } from './hooks';
+
+jest.mock('react-apollo');
 
 describe('hooks', () => {
   describe('.useSaveRsvpMutation', () => {

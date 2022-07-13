@@ -1,7 +1,7 @@
 import { Avatar, Paper, Typography } from '@material-ui/core';
 import withStyles, { WithStyles } from '@material-ui/core/styles/withStyles';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
-import React, { FC } from 'react';
+import { FC } from 'react';
 
 import Form from './Form';
 import styles from './styles';

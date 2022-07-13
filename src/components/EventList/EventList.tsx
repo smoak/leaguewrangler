@@ -1,6 +1,6 @@
 import { useQuery } from '@apollo/react-hooks';
 import { List, ListItem } from '@material-ui/core';
-import React, { FC } from 'react';
+import { FC } from 'react';
 
 import getCurrentUserEvents from '../../graphql/queries/getCurrentUserEvents';
 import { GetCurrentUserEvents } from '../../graphql/types/GetCurrentUserEvents';

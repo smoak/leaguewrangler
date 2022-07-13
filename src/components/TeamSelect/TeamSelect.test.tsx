@@ -1,6 +1,5 @@
 import { useQuery } from '@apollo/react-hooks';
 import { ShallowWrapper, shallow } from 'enzyme';
-import React from 'react';
 
 import { GetTeams } from '../../graphql/types/GetTeams';
 

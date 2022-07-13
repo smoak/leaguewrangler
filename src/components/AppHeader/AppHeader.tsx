@@ -4,7 +4,7 @@ import IconButton from '@material-ui/core/IconButton';
 import Toolbar from '@material-ui/core/Toolbar';
 import { WithStyles, createStyles, withStyles } from '@material-ui/core/styles';
 import MenuIcon from '@material-ui/icons/Menu';
-import React, { FC } from 'react';
+import { FC } from 'react';
 
 import UserAvatar from '../UserAvatar';
 

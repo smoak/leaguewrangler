@@ -1,6 +1,6 @@
 import Link from '@material-ui/core/Link';
 import Typography from '@material-ui/core/Typography';
-import React, { FC } from 'react';
+import { FC } from 'react';
 
 interface LocationProps {
   readonly locationName: string;

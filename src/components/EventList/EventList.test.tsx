@@ -1,6 +1,5 @@
 import { useQuery } from '@apollo/react-hooks';
 import { ShallowWrapper, shallow } from 'enzyme';
-import React from 'react';
 
 import { GetCurrentUserEvents } from '../../graphql/types/GetCurrentUserEvents';
 import { RsvpStatus } from '../../graphql/types/globalTypes';

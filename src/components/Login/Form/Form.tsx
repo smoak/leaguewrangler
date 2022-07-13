@@ -1,6 +1,6 @@
 import { useMutation } from '@apollo/react-hooks';
 import { Checkbox, CircularProgress, FormControl, FormControlLabel, Input, InputLabel } from '@material-ui/core';
-import React, { FC, useCallback } from 'react';
+import { FC, useCallback } from 'react';
 import { setUserToken } from 'support/auth';
 
 import CREATE_USER_TOKEN from '../../../graphql/mutations/createUserToken';

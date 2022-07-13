@@ -1,5 +1,5 @@
 import CssBaseline from '@material-ui/core/CssBaseline';
-import React, { FC } from 'react';
+import { FC } from 'react';
 
 import AppBody from '../AppBody';
 import AppHeader from '../AppHeader';

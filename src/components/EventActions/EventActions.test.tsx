@@ -1,12 +1,11 @@
-jest.mock('./hooks');
-
 import { ShallowWrapper, shallow } from 'enzyme';
-import React from 'react';
 
 import { RsvpStatus } from '../../graphql/types/globalTypes';
 
 import { EventActions } from './EventActions';
 import { useSaveRsvpMutation } from './hooks';
+
+jest.mock('./hooks');
 
 describe('EventActions', () => {
   let component: ShallowWrapper;

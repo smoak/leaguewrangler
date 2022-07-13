@@ -1,5 +1,5 @@
 import { Button } from '@material-ui/core';
-import React, { FC } from 'react';
+import { FC } from 'react';
 
 interface SignInButtonProps {
   readonly className: string;
