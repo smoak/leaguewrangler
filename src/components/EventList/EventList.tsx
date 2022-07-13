@@ -38,7 +38,7 @@ const EventList: FC = () => {
               teamPhotoUrl={e.team.photoThumbnailUrl}
               location={e.location ? e.location.name : ''}
               locationMapsUrl={e.location?.googleMapsUrl ?? undefined}
-              startTime={e.startTimestamp ? new Date(e.startTimestamp * 1000) : undefined}
+              startTime={e.startTimestamp ?? undefined}
               rsvpStatus={e.viewerRsvpStatus}
             />
           </ListItem>

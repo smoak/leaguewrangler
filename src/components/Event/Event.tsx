@@ -10,12 +10,11 @@ import { Location } from './Location';
 import styles from './styles';
 
 export interface OwnProps {
-  readonly endTime?: Date;
   readonly eventId: number;
   readonly location: string;
   readonly locationMapsUrl?: string;
   readonly rsvpStatus: RsvpStatus;
-  readonly startTime?: Date;
+  readonly startTime?: number;
   readonly teamId: number;
   readonly teamPhotoUrl: string | null;
   readonly title: string;

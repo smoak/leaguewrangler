@@ -71,8 +71,8 @@ describe('EventList', () => {
             events: [
               {
                 __typename: 'Event',
-                endTimestamp: 1,
-                startTimestamp: 2,
+                endTimestamp: 1657691037616,
+                startTimestamp: 1657691025566,
                 id: 1,
                 location: null,
                 team: {
@@ -105,7 +105,7 @@ describe('EventList', () => {
             events: [
               {
                 __typename: 'Event',
-                endTimestamp: 1,
+                endTimestamp: 1657691037616,
                 startTimestamp: null,
                 id: 1,
                 location: {
@@ -144,8 +144,8 @@ describe('EventList', () => {
             events: [
               {
                 __typename: 'Event',
-                endTimestamp: 1,
-                startTimestamp: 2,
+                endTimestamp: 1657691037616,
+                startTimestamp: 1657691025566,
                 id: 1,
                 location: {
                   __typename: 'Location',

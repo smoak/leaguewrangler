@@ -17,7 +17,7 @@ exports[`EventList when the server returns data and the user has events renders 
       eventId={1}
       location=""
       rsvpStatus="NONE"
-      startTime={1970-01-01T00:00:02.000Z}
+      startTime={1657691025566}
       teamId={1}
       teamPhotoUrl="url"
       title="test"
@@ -42,7 +42,7 @@ exports[`EventList when the server returns data renders as expected 1`] = `
       location="test location"
       locationMapsUrl="url"
       rsvpStatus="NONE"
-      startTime={1970-01-01T00:00:02.000Z}
+      startTime={1657691025566}
       teamId={1}
       teamPhotoUrl="url"
       title="test"
@@ -61,7 +61,7 @@ exports[`EventList when the server returns data when the event has a location re
       location="test location"
       locationMapsUrl="url"
       rsvpStatus="NONE"
-      startTime={1970-01-01T00:00:02.000Z}
+      startTime={1657691025566}
       teamId={1}
       teamPhotoUrl="url"
       title="test"

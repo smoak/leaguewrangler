@@ -15,7 +15,7 @@ exports[`Event renders as expected 1`] = `
       <t
         ago={false}
         calendar={false}
-        date={2019-05-05T04:15:00.000Z}
+        date={1557029700000}
         decimal={false}
         element={null}
         filter={[Function]}
@@ -93,7 +93,7 @@ exports[`Event when the event has no team photo url renders as expected 1`] = `
       <t
         ago={false}
         calendar={false}
-        date={2019-05-05T04:15:00.000Z}
+        date={1557029700000}
         decimal={false}
         element={null}
         filter={[Function]}
@@ -137,7 +137,7 @@ exports[`EventWithStyles renders 1`] = `
   eventId={1}
   location="Somewhere USA"
   rsvpStatus="NONE"
-  startTime={2019-05-05T04:15:00.000Z}
+  startTime={1557029700000}
   teamId={1}
   teamPhotoUrl="https://picsum.photos/48"
   title="foo"
