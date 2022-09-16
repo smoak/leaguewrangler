@@ -12,24 +12,8 @@ exports[`Event renders as expected 1`] = `
       />
     }
     subheader={
-      <t
-        ago={false}
-        calendar={false}
-        date={1557029700000}
-        decimal={false}
-        element={null}
-        filter={[Function]}
-        format="LLLL"
-        fromNow={false}
-        interval={60000}
-        local={false}
-        onChange={[Function]}
-        titleFormat=""
-        toNow={false}
-        unit={null}
-        unix={false}
-        utc={false}
-        withTitle={false}
+      <Subheader
+        startTime={1557029700000}
       />
     }
     title="foo"
@@ -60,7 +44,7 @@ exports[`Event when the event has no startTime renders as expected 1`] = `
         src="https://new.url"
       />
     }
-    subheader={null}
+    subheader={<Subheader />}
     title="foo"
   />
   <WithStyles(ForwardRef(CardContent))>
@@ -90,24 +74,8 @@ exports[`Event when the event has no team photo url renders as expected 1`] = `
       />
     }
     subheader={
-      <t
-        ago={false}
-        calendar={false}
-        date={1557029700000}
-        decimal={false}
-        element={null}
-        filter={[Function]}
-        format="LLLL"
-        fromNow={false}
-        interval={60000}
-        local={false}
-        onChange={[Function]}
-        titleFormat=""
-        toNow={false}
-        unit={null}
-        unix={false}
-        utc={false}
-        withTitle={false}
+      <Subheader
+        startTime={1557029700000}
       />
     }
     title="foo"

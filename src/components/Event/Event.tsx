@@ -1,13 +1,13 @@
 import { Avatar, CardActions, CardContent, CardHeader, WithStyles, withStyles } from '@material-ui/core';
 import Card from '@material-ui/core/Card';
 import { FC } from 'react';
-import Moment from 'react-moment';
 
 import { RsvpStatus } from '../../graphql/types/globalTypes';
 import EventActions from '../EventActions';
 
 import { Location } from './Location';
 import styles from './styles';
+import { Subheader } from './Subheader';
 
 export interface OwnProps {
   readonly eventId: number;
@@ -33,13 +33,12 @@ export const Event: FC<EventProps> = ({
   teamPhotoUrl,
   title,
 }) => {
-  const subheader = startTime ? <Moment format="LLLL" date={startTime} /> : null;
   return (
     <Card className={classes.card}>
       <CardHeader
         avatar={<Avatar aria-label="teamPhoto" src={teamPhotoUrl ? teamPhotoUrl : ''} />}
         title={title}
-        subheader={subheader}
+        subheader={<Subheader startTime={startTime} />}
       />
       <CardContent>
         <Location locationName={location} locationUrl={locationMapsUrl} />
