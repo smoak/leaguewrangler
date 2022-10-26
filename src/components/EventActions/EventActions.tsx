@@ -16,7 +16,7 @@ interface OwnProps {
 
 const styles = createStyles({
   icon: {
-    fontSize: 40,
+    fontSize: 30,
   },
 });
 

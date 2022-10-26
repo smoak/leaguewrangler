@@ -1,17 +1,48 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`EventList when the data is loading renders as expected 1`] = `<WithStyles(SkeletonEvent) />`;
-
-exports[`EventList when the server returns an error renders as expected 1`] = `
+exports[`EventList when the data is loading renders as expected 1`] = `
 <Fragment>
-  Some error
+  <WithStyles(ForwardRef(Grid))
+    item={true}
+    xs={4}
+  >
+    <WithStyles(SkeletonEvent) />
+  </WithStyles(ForwardRef(Grid))>
+  <WithStyles(ForwardRef(Grid))
+    item={true}
+    xs={4}
+  >
+    <WithStyles(SkeletonEvent) />
+  </WithStyles(ForwardRef(Grid))>
+  <WithStyles(ForwardRef(Grid))
+    item={true}
+    xs={4}
+  >
+    <WithStyles(SkeletonEvent) />
+  </WithStyles(ForwardRef(Grid))>
 </Fragment>
 `;
 
+exports[`EventList when the server returns an error renders as expected 1`] = `
+<WithStyles(ForwardRef(Grid))
+  item={true}
+  xs={8}
+>
+  Some error
+</WithStyles(ForwardRef(Grid))>
+`;
+
 exports[`EventList when the server returns data and the user has events renders as expected 1`] = `
-<WithStyles(ForwardRef(List))>
-  <WithStyles(ForwardRef(ListItem))
+<Fragment>
+  <WithStyles(ForwardRef(Grid))
+    item={true}
     key="1"
+    style={
+      Object {
+        "display": "flex",
+      }
+    }
+    xs={6}
   >
     <WithStyles(Event)
       eventId={1}
@@ -22,8 +53,8 @@ exports[`EventList when the server returns data and the user has events renders 
       teamPhotoUrl="url"
       title="test"
     />
-  </WithStyles(ForwardRef(ListItem))>
-</WithStyles(ForwardRef(List))>
+  </WithStyles(ForwardRef(Grid))>
+</Fragment>
 `;
 
 exports[`EventList when the server returns data and the user has no events renders as expected 1`] = `
@@ -33,9 +64,16 @@ exports[`EventList when the server returns data and the user has no events rende
 `;
 
 exports[`EventList when the server returns data renders as expected 1`] = `
-<WithStyles(ForwardRef(List))>
-  <WithStyles(ForwardRef(ListItem))
+<Fragment>
+  <WithStyles(ForwardRef(Grid))
+    item={true}
     key="1"
+    style={
+      Object {
+        "display": "flex",
+      }
+    }
+    xs={6}
   >
     <WithStyles(Event)
       eventId={1}
@@ -47,14 +85,21 @@ exports[`EventList when the server returns data renders as expected 1`] = `
       teamPhotoUrl="url"
       title="test"
     />
-  </WithStyles(ForwardRef(ListItem))>
-</WithStyles(ForwardRef(List))>
+  </WithStyles(ForwardRef(Grid))>
+</Fragment>
 `;
 
 exports[`EventList when the server returns data when the event has a location renders as expected 1`] = `
-<WithStyles(ForwardRef(List))>
-  <WithStyles(ForwardRef(ListItem))
+<Fragment>
+  <WithStyles(ForwardRef(Grid))
+    item={true}
     key="1"
+    style={
+      Object {
+        "display": "flex",
+      }
+    }
+    xs={6}
   >
     <WithStyles(Event)
       eventId={1}
@@ -66,14 +111,21 @@ exports[`EventList when the server returns data when the event has a location re
       teamPhotoUrl="url"
       title="test"
     />
-  </WithStyles(ForwardRef(ListItem))>
-</WithStyles(ForwardRef(List))>
+  </WithStyles(ForwardRef(Grid))>
+</Fragment>
 `;
 
 exports[`EventList when the server returns data when the event has no start time renders as expected 1`] = `
-<WithStyles(ForwardRef(List))>
-  <WithStyles(ForwardRef(ListItem))
+<Fragment>
+  <WithStyles(ForwardRef(Grid))
+    item={true}
     key="1"
+    style={
+      Object {
+        "display": "flex",
+      }
+    }
+    xs={6}
   >
     <WithStyles(Event)
       eventId={1}
@@ -84,12 +136,15 @@ exports[`EventList when the server returns data when the event has no start time
       teamPhotoUrl="url"
       title="test"
     />
-  </WithStyles(ForwardRef(ListItem))>
-</WithStyles(ForwardRef(List))>
+  </WithStyles(ForwardRef(Grid))>
+</Fragment>
 `;
 
 exports[`EventList when the server returns no data renders as expected 1`] = `
-<Fragment>
+<WithStyles(ForwardRef(Grid))
+  item={true}
+  xs={8}
+>
   Some error
-</Fragment>
+</WithStyles(ForwardRef(Grid))>
 `;

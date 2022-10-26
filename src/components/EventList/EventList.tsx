@@ -1,5 +1,5 @@
 import { useQuery } from '@apollo/react-hooks';
-import { List, ListItem } from '@material-ui/core';
+import { Grid } from '@material-ui/core';
 import { FC } from 'react';
 
 import getCurrentUserEvents from '../../graphql/queries/getCurrentUserEvents';
@@ -15,11 +15,27 @@ const EventList: FC = () => {
   const { loading, data, error } = useQuery<GetCurrentUserEvents>(getCurrentUserEvents);
 
   if (loading) {
-    return <SkeletonEvent />;
+    return (
+      <>
+        <Grid item xs={4}>
+          <SkeletonEvent />
+        </Grid>
+        <Grid item xs={4}>
+          <SkeletonEvent />
+        </Grid>
+        <Grid item xs={4}>
+          <SkeletonEvent />
+        </Grid>
+      </>
+    );
   }
 
   if (error || !data) {
-    return <>Some error</>;
+    return (
+      <Grid item xs={8}>
+        Some error
+      </Grid>
+    );
   }
 
   const { currentUser } = data;
@@ -28,9 +44,9 @@ const EventList: FC = () => {
 
   if (events.length > 0) {
     return (
-      <List>
+      <>
         {events.map((e) => (
-          <ListItem key={e.id}>
+          <Grid item xs={6} key={e.id} style={{ display: 'flex' }}>
             <Event
               eventId={e.id}
               teamId={e.team.id}
@@ -41,9 +57,9 @@ const EventList: FC = () => {
               startTime={e.startTimestamp ?? undefined}
               rsvpStatus={e.viewerRsvpStatus}
             />
-          </ListItem>
+          </Grid>
         ))}
-      </List>
+      </>
     );
   }
 

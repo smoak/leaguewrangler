@@ -1,4 +1,4 @@
-import { Theme, WithStyles, createStyles, withStyles } from '@material-ui/core';
+import { Theme, WithStyles, createStyles, withStyles, Grid, Typography, Container } from '@material-ui/core';
 import { FC } from 'react';
 
 import EventList from '../EventList';
@@ -9,7 +9,7 @@ const styles = (theme: Theme) =>
       display: 'flex',
       justifyContent: 'center',
       alignItems: 'center',
-      marginTop: theme.spacing(2),
+      margin: theme.spacing(2),
     },
   });
 
@@ -17,9 +17,14 @@ export type PageHomeProps = WithStyles<typeof styles>;
 
 export const PageHome: FC<PageHomeProps> = ({ classes }) => {
   return (
-    <div className={classes.main}>
-      <EventList />
-    </div>
+    <Container maxWidth="md">
+      <Typography variant="h3" className={classes.main}>
+        Events
+      </Typography>
+      <Grid container spacing={2}>
+        <EventList />
+      </Grid>
+    </Container>
   );
 };
 

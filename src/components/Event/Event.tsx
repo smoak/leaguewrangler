@@ -43,7 +43,7 @@ export const Event: FC<EventProps> = ({
       <CardContent>
         <Location locationName={location} locationUrl={locationMapsUrl} />
       </CardContent>
-      <CardActions>
+      <CardActions disableSpacing>
         <EventActions rsvpStatus={rsvpStatus} teamId={teamId} eventId={eventId} />
       </CardActions>
     </Card>

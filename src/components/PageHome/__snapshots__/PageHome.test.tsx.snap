@@ -1,11 +1,22 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`PageHome renders 1`] = `
-<div
-  className="main"
+<WithStyles(ForwardRef(Container))
+  maxWidth="md"
 >
-  <EventList />
-</div>
+  <WithStyles(ForwardRef(Typography))
+    className="main"
+    variant="h3"
+  >
+    Events
+  </WithStyles(ForwardRef(Typography))>
+  <WithStyles(ForwardRef(Grid))
+    container={true}
+    spacing={2}
+  >
+    <EventList />
+  </WithStyles(ForwardRef(Grid))>
+</WithStyles(ForwardRef(Container))>
 `;
 
 exports[`PageHomeWithStyles renders 1`] = `

@@ -23,7 +23,9 @@ exports[`Event renders as expected 1`] = `
       locationName="Somewhere USA"
     />
   </WithStyles(ForwardRef(CardContent))>
-  <WithStyles(ForwardRef(CardActions))>
+  <WithStyles(ForwardRef(CardActions))
+    disableSpacing={true}
+  >
     <WithStyles(EventActions)
       eventId={1}
       rsvpStatus="NONE"
@@ -52,7 +54,9 @@ exports[`Event when the event has no startTime renders as expected 1`] = `
       locationName="Somewhere USA"
     />
   </WithStyles(ForwardRef(CardContent))>
-  <WithStyles(ForwardRef(CardActions))>
+  <WithStyles(ForwardRef(CardActions))
+    disableSpacing={true}
+  >
     <WithStyles(EventActions)
       eventId={1}
       rsvpStatus="NONE"
@@ -85,7 +89,9 @@ exports[`Event when the event has no team photo url renders as expected 1`] = `
       locationName="Somewhere USA"
     />
   </WithStyles(ForwardRef(CardContent))>
-  <WithStyles(ForwardRef(CardActions))>
+  <WithStyles(ForwardRef(CardActions))
+    disableSpacing={true}
+  >
     <WithStyles(EventActions)
       eventId={1}
       rsvpStatus="NONE"
