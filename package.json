@@ -44,7 +44,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom --coverage --coverageDirectory=coverage",
+    "test": "TZ=UTC react-scripts test --env=jsdom --coverage --coverageDirectory=coverage",
     "eject": "react-scripts eject",
     "watch": "react-scripts test --env=jsdom",
     "build:graphql": "apollo client:codegen --includes=\"src/graphql/{mutations,queries}/*.ts\" --endpoint='https://leaguewrangler.com/graphql' --outputFlat --target=typescript src/graphql/types/",

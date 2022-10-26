@@ -20,7 +20,7 @@ describe('Subheader', () => {
     });
 
     it('should render a localized time format', () => {
-      expect(screen.getByText('Tuesday, November 1, 2022 at 9:15 PM')).toBeInTheDocument();
+      expect(screen.getByText('Wednesday, November 2, 2022 at 4:15 AM')).toBeInTheDocument();
     });
   });
 });
