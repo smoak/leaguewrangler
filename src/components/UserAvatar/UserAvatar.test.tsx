@@ -1,44 +1,94 @@
-import { ShallowWrapper, shallow } from 'enzyme';
-import { useQuery } from 'react-apollo';
+import { MockedProvider } from '@apollo/client/testing';
+import { render, screen, waitForElementToBeRemoved } from '@testing-library/react';
 
 import UserAvatar from './UserAvatar';
+import getUserAvatarQuery from '../../graphql/queries/getUserAvatar';
 
 describe('UserAvatar', () => {
-  let component: ShallowWrapper;
-
   describe('when the component is fetching data', () => {
+    const mocks = [
+      {
+        request: {
+          query: getUserAvatarQuery,
+        },
+        result: {
+          data: {
+            currentUser: {
+              profilePhotoThumbnailUrl: 'https://picsum.photos/40',
+            },
+          },
+        },
+      },
+    ];
+
     beforeEach(() => {
-      (useQuery as jest.Mock).mockReturnValue({ loading: true, data: undefined });
-      component = shallow(<UserAvatar classes={{ avatar: 'avatar' }} />).dive();
+      render(
+        <MockedProvider mocks={mocks} addTypename={false}>
+          <UserAvatar />
+        </MockedProvider>
+      );
     });
 
     it('renders as expected', () => {
-      expect(component).toMatchSnapshot();
+      expect(screen.getByRole('progressbar')).toBeInTheDocument();
     });
   });
 
   describe('when the user does not have an avatar', () => {
-    beforeEach(() => {
-      (useQuery as jest.Mock).mockReturnValue({ loading: false, data: {} });
-      component = shallow(<UserAvatar classes={{ avatar: 'avatar' }} />).dive();
+    const mocks = [
+      {
+        request: {
+          query: getUserAvatarQuery,
+        },
+        result: {
+          data: {},
+        },
+      },
+    ];
+
+    beforeEach(async () => {
+      render(
+        <MockedProvider mocks={mocks} addTypename={false}>
+          <UserAvatar />
+        </MockedProvider>
+      );
+
+      await waitForElementToBeRemoved(screen.getByRole('progressbar'));
     });
 
     it('renders as expected', () => {
-      expect(component).toMatchSnapshot();
+      expect(screen.getByTestId('avatar-placeholder'));
     });
   });
 
   describe('when the user does have an avatar', () => {
-    beforeEach(() => {
-      const currentUser = {
-        profilePhotoThumbnailUrl: 'foo',
-      };
-      (useQuery as jest.Mock).mockReturnValue({ loading: false, data: { currentUser } });
-      component = shallow(<UserAvatar classes={{ avatar: 'avatar' }} />).dive();
+    const mocks = [
+      {
+        request: {
+          query: getUserAvatarQuery,
+        },
+        result: {
+          data: {
+            currentUser: {
+              profilePhotoThumbnailUrl: 'https://picsum.photos/40',
+            },
+          },
+        },
+      },
+    ];
+
+    beforeEach(async () => {
+      render(
+        <MockedProvider mocks={mocks} addTypename={false}>
+          <UserAvatar />
+        </MockedProvider>
+      );
+
+      await waitForElementToBeRemoved(screen.getByRole('progressbar'));
     });
 
     it('renders as expected', () => {
-      expect(component).toMatchSnapshot();
+      expect(screen.getByRole('img')).toHaveAttribute('src', 'https://picsum.photos/40');
     });
   });
 });

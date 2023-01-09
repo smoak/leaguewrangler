@@ -36,7 +36,7 @@ export const Event: FC<EventProps> = ({
   return (
     <Card className={classes.card}>
       <CardHeader
-        avatar={<Avatar aria-label="teamPhoto" src={teamPhotoUrl ? teamPhotoUrl : ''} />}
+        avatar={<Avatar aria-label="teamPhoto" src={teamPhotoUrl ?? ''} />}
         title={title}
         subheader={<Subheader startTime={startTime} />}
       />

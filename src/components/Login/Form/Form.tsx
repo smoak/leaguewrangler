@@ -1,4 +1,4 @@
-import { useMutation } from '@apollo/react-hooks';
+import { useMutation } from '@apollo/client';
 import { Checkbox, CircularProgress, FormControl, FormControlLabel, Input, InputLabel } from '@material-ui/core';
 import { FC, useCallback } from 'react';
 import { setUserToken } from 'support/auth';
@@ -58,6 +58,7 @@ const Form: FC<FormProps> = ({ submitButtonClassname, formClassname }) => {
           autoComplete="current-password"
           value={password}
           onChange={onPasswordChange}
+          data-testid="password-textbox"
         />
       </FormControl>
       <FormControlLabel control={<Checkbox value="remember" color="primary" />} label="Remember me" />

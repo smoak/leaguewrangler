@@ -1,95 +1,85 @@
-import { ApolloError } from 'apollo-boost';
-import { ShallowWrapper, shallow } from 'enzyme';
-import { useMutation } from 'react-apollo';
-import { setUserToken } from 'support/auth';
-
-import { CreateUserToken } from '../../../graphql/types/CreateUserToken';
+import userEvent from '@testing-library/user-event';
+import { render, screen, waitFor } from '@testing-library/react';
+import { MockedProvider } from '@apollo/client/testing';
 
 import Form from './Form';
-import SignInButton from './SignInButton';
-import { useControlledInput } from './hooks';
+import createUserToken from 'graphql/mutations/createUserToken';
+import { setUserToken } from 'support/auth';
 
 jest.mock('support/auth');
-jest.mock('./hooks');
 
 describe('Form', () => {
-  let component: ShallowWrapper;
-  let createUserTokenMutation: jest.Mock;
-  let data: CreateUserToken;
-  let error: ApolloError | undefined;
-  let loading: boolean;
-
-  beforeEach(() => {
-    loading = false;
-    createUserTokenMutation = jest.fn();
-    (useMutation as jest.Mock).mockReturnValue([createUserTokenMutation, { data, error, loading }]);
-    (useControlledInput as jest.Mock).mockReturnValue({ value: '', onChange: jest.fn() });
-
-    component = shallow(<Form formClassname="form" submitButtonClassname="submit" />);
-  });
-
-  describe('when the username and password are provided', () => {
+  describe('when rendered', () => {
     beforeEach(() => {
-      (useControlledInput as jest.Mock).mockReturnValue({ value: 'foo', onChange: jest.fn() });
-      component = shallow(<Form formClassname="form" submitButtonClassname="submit" />);
+      render(
+        <MockedProvider>
+          <Form formClassname="form" submitButtonClassname="submit" />
+        </MockedProvider>
+      );
     });
 
-    it('renders as expected', () => {
-      expect(component).toMatchSnapshot();
+    it('renders a username textbox', () => {
+      expect(screen.getByRole('textbox', { name: 'Username' })).toBeInTheDocument();
+    });
+
+    it('renders a password textbox', () => {
+      expect(screen.getByTestId('password-textbox')).toBeInTheDocument();
     });
   });
 
-  describe('when the user submits the form', () => {
-    beforeEach(() => {
-      (useControlledInput as jest.Mock).mockReturnValue({ value: 'foo', onChange: jest.fn() });
-      component = shallow(<Form formClassname="form" submitButtonClassname="submit" />);
-      component.find(SignInButton).simulate('click');
-    });
-
-    describe('and the token is being created', () => {
-      beforeEach(() => {
-        loading = true;
-        (useMutation as jest.Mock).mockReturnValue([createUserTokenMutation, { data, error, loading }]);
-        component = shallow(<Form formClassname="form" submitButtonClassname="submit" />);
-      });
-
-      it('renders as expected', () => {
-        expect(component).toMatchSnapshot();
-      });
-    });
-
-    describe('and the token was created', () => {
-      const token = 'token';
-
-      beforeEach(() => {
-        delete window.location;
-        window.location = { reload: jest.fn() };
-        data = {
-          createUserToken: {
-            __typename: 'UserToken',
-            token,
+  describe('when the user types in their username and password and submits the form', () => {
+    const originalWindowLocation = window.location;
+    const username = 'username';
+    const password = 'password';
+    const token = 'token';
+    const mocks = [
+      {
+        request: {
+          query: createUserToken,
+          variables: {
+            username,
+            password,
           },
-        };
-        loading = true;
-        (useMutation as jest.Mock).mockReturnValue([createUserTokenMutation, { data, error, loading }]);
-        component = shallow(<Form formClassname="form" submitButtonClassname="submit" />);
+        },
+        result: {
+          data: {
+            createUserToken: {
+              token,
+            },
+          },
+        },
+      },
+    ];
+    const reload = jest.fn();
+
+    beforeEach(async () => {
+      const user = userEvent.setup();
+      Object.defineProperty(window, 'location', {
+        configurable: true,
+        value: { reload },
       });
 
-      it('sets the user token', () => {
-        expect(setUserToken).toHaveBeenCalledWith(token);
-      });
+      render(
+        <MockedProvider mocks={mocks}>
+          <Form formClassname="form" submitButtonClassname="submit" />
+        </MockedProvider>
+      );
 
-      it('reloads the page', () => {
-        expect(window.location.reload).toHaveBeenCalled();
-      });
+      await user.type(screen.getByRole('textbox', { name: 'Username' }), username);
+      await user.type(screen.getByTestId('password-textbox'), password);
+      await user.click(screen.getByRole('button', { name: 'Sign in' }));
     });
 
-    it('creates the user token', () => {
-      expect(createUserTokenMutation).toHaveBeenCalledWith({ variables: { username: 'foo', password: 'foo' } });
+    afterAll(() => {
+      Object.defineProperty(window, 'location', { configurable: true, value: originalWindowLocation });
     });
-  });
 
-  it('renders as expected', () => {
-    expect(component).toMatchSnapshot();
+    it('sets the user token', () => {
+      expect(setUserToken).toHaveBeenCalledWith(token);
+    });
+
+    it('reloads the page', () => {
+      expect(reload).toHaveBeenCalled();
+    });
   });
 });

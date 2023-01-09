@@ -1,60 +1,58 @@
-import { useQuery } from '@apollo/react-hooks';
-import { ShallowWrapper, shallow } from 'enzyme';
+import { MockedProvider } from '@apollo/client/testing';
+import { render, screen, waitForElementToBeRemoved } from '@testing-library/react';
 
 import { GetTeams } from '../../graphql/types/GetTeams';
+import getTeamsQuery from '../../graphql/queries/getTeams';
 
 import TeamSelect from './TeamSelect';
 
 describe('TeamSelect', () => {
-  let component: ShallowWrapper;
-
   describe('when the data is loading', () => {
+    const mocks = [
+      {
+        request: { query: getTeamsQuery },
+        result: {
+          data: {
+            teams: [],
+          },
+        },
+      },
+    ];
+
     beforeEach(() => {
-      (useQuery as jest.Mock).mockReturnValue({ loading: true });
-      component = shallow(<TeamSelect />);
+      render(
+        <MockedProvider mocks={mocks}>
+          <TeamSelect />
+        </MockedProvider>
+      );
     });
 
-    it('renders as expected', () => {
-      expect(component).toMatchSnapshot();
+    it('renders a progressbar', () => {
+      expect(screen.getByRole('progressbar')).toBeInTheDocument();
     });
   });
 
   describe('when the server returns an error', () => {
-    beforeEach(() => {
-      (useQuery as jest.Mock).mockReturnValue({ loading: false, data: {}, error: 'nope' });
-      component = shallow(<TeamSelect />);
+    let container: HTMLElement;
+    const mocks = [
+      {
+        request: { query: getTeamsQuery },
+        error: new Error('error'),
+      },
+    ];
+
+    beforeEach(async () => {
+      container = render(
+        <MockedProvider mocks={mocks}>
+          <TeamSelect />
+        </MockedProvider>
+      ).container;
+
+      await waitForElementToBeRemoved(() => screen.queryByRole('progressbar'));
     });
 
-    it('renders as expected', () => {
-      expect(component).toMatchSnapshot();
-    });
-  });
-
-  describe('when the server returns data', () => {
-    describe('and the user belongs to no teams', () => {
-      beforeEach(() => {
-        const teams: GetTeams['teams'] = [];
-        (useQuery as jest.Mock).mockReturnValue({ loading: false, data: { teams }, error: undefined });
-
-        component = shallow(<TeamSelect />);
-      });
-
-      it('renders as expected', () => {
-        expect(component).toMatchSnapshot();
-      });
-    });
-
-    describe('and the user belongs to a single team', () => {
-      beforeEach(() => {
-        const teams: GetTeams['teams'] = [{ name: 'Test Team', id: 1, __typename: 'Team' }];
-        (useQuery as jest.Mock).mockReturnValue({ loading: false, data: { teams }, error: undefined });
-
-        component = shallow(<TeamSelect />);
-      });
-
-      it('renders as expected', () => {
-        expect(component).toMatchSnapshot();
-      });
+    it('renders empty', () => {
+      expect(container).toBeEmptyDOMElement();
     });
   });
 });

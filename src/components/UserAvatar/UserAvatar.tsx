@@ -1,4 +1,4 @@
-import { useQuery } from '@apollo/react-hooks';
+import { useQuery } from '@apollo/client';
 import { Avatar, CircularProgress, WithStyles, createStyles, withStyles } from '@material-ui/core';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import { FC } from 'react';
@@ -20,10 +20,12 @@ const UserAvatar: FC<UserAvatarProps> = ({ classes }) => {
   if (loading) {
     return <CircularProgress color="secondary" />;
   }
+
   if (data && data.currentUser) {
     return <Avatar src={data.currentUser.profilePhotoThumbnailUrl} className={classes.avatar} />;
   }
-  return <AccountCircle />;
+
+  return <AccountCircle data-testid="avatar-placeholder" />;
 };
 
 export default withStyles(styles)(UserAvatar);

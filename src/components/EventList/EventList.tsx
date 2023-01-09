@@ -1,4 +1,4 @@
-import { useQuery } from '@apollo/react-hooks';
+import { useQuery } from '@apollo/client';
 import { Grid } from '@material-ui/core';
 import { FC } from 'react';
 
@@ -17,7 +17,7 @@ const EventList: FC = () => {
   if (loading) {
     return (
       <>
-        <Grid item xs={4}>
+        <Grid item xs={4} data-testid="skeleton-event-1">
           <SkeletonEvent />
         </Grid>
         <Grid item xs={4}>
@@ -46,18 +46,20 @@ const EventList: FC = () => {
     return (
       <>
         {events.map((e) => (
-          <Grid item xs={6} key={e.id} style={{ display: 'flex' }}>
-            <Event
-              eventId={e.id}
-              teamId={e.team.id}
-              title={e.title}
-              teamPhotoUrl={e.team.photoThumbnailUrl}
-              location={e.location ? e.location.name : ''}
-              locationMapsUrl={e.location?.googleMapsUrl ?? undefined}
-              startTime={e.startTimestamp ?? undefined}
-              rsvpStatus={e.viewerRsvpStatus}
-            />
-          </Grid>
+          <article key={e.id}>
+            <Grid item xs={6} style={{ display: 'flex' }}>
+              <Event
+                eventId={e.id}
+                teamId={e.team.id}
+                title={e.title}
+                teamPhotoUrl={e.team.photoThumbnailUrl}
+                location={e.location ? e.location.name : ''}
+                locationMapsUrl={e.location?.googleMapsUrl ?? undefined}
+                startTime={e.startTimestamp ?? undefined}
+                rsvpStatus={e.viewerRsvpStatus}
+              />
+            </Grid>
+          </article>
         ))}
       </>
     );

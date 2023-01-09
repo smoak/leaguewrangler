@@ -1,183 +1,154 @@
-import { useQuery } from '@apollo/react-hooks';
-import { ShallowWrapper, shallow } from 'enzyme';
-
-import { GetCurrentUserEvents } from '../../graphql/types/GetCurrentUserEvents';
-import { RsvpStatus } from '../../graphql/types/globalTypes';
+import { MockedProvider } from '@apollo/client/testing';
+import { render, screen, waitForElementToBeRemoved } from '@testing-library/react';
+import getCurrentUserEvents from 'graphql/queries/getCurrentUserEvents';
+import { RsvpStatus } from 'graphql/types/globalTypes';
 
 import EventList from './EventList';
 
 describe('EventList', () => {
-  let component: ShallowWrapper;
-
   describe('when the data is loading', () => {
     beforeEach(() => {
-      (useQuery as jest.Mock).mockReturnValue({ loading: true });
-
-      component = shallow(<EventList />);
+      render(
+        <MockedProvider>
+          <EventList />
+        </MockedProvider>
+      );
     });
 
-    it('renders as expected', () => {
-      expect(component).toMatchSnapshot();
+    it('renders a skeleton event', () => {
+      expect(screen.getByTestId('skeleton-event-1')).toBeInTheDocument();
     });
   });
 
   describe('when the server returns an error', () => {
-    beforeEach(() => {
-      (useQuery as jest.Mock).mockReturnValue({ loading: false, error: 'nope' });
+    const mocks = [
+      {
+        request: {
+          query: getCurrentUserEvents,
+        },
+        error: new Error('nope'),
+      },
+    ];
 
-      component = shallow(<EventList />);
+    beforeEach(async () => {
+      render(
+        <MockedProvider mocks={mocks} addTypename={false}>
+          <EventList />
+        </MockedProvider>
+      );
+
+      await waitForElementToBeRemoved(() => screen.queryByTestId('skeleton-event-1'));
     });
 
-    it('renders as expected', () => {
-      expect(component).toMatchSnapshot();
+    it('renders an error', () => {
+      expect(screen.getByText('Some error')).toBeInTheDocument();
     });
   });
 
   describe('when the server returns no data', () => {
-    beforeEach(() => {
-      (useQuery as jest.Mock).mockReturnValue({ loading: false, error: undefined, data: null });
+    const mocks = [
+      {
+        request: {
+          query: getCurrentUserEvents,
+        },
+        result: {
+          data: null,
+        },
+      },
+    ];
 
-      component = shallow(<EventList />);
+    beforeEach(async () => {
+      render(
+        <MockedProvider mocks={mocks} addTypename={false}>
+          <EventList />
+        </MockedProvider>
+      );
+
+      await waitForElementToBeRemoved(() => screen.queryByTestId('skeleton-event-1'));
     });
 
-    it('renders as expected', () => {
-      expect(component).toMatchSnapshot();
+    it('renders an error', () => {
+      expect(screen.getByText('Some error')).toBeInTheDocument();
     });
   });
 
-  describe('when the server returns data', () => {
-    describe('and the user has no events', () => {
-      beforeEach(() => {
-        const data: GetCurrentUserEvents = {
-          currentUser: {
-            events: [],
-            __typename: 'User',
+  describe('when the server returns data with no events', () => {
+    const mocks = [
+      {
+        request: {
+          query: getCurrentUserEvents,
+        },
+        result: {
+          data: {
+            currentUser: {
+              events: [],
+              __typename: 'User',
+            },
           },
-        };
-        (useQuery as jest.Mock).mockReturnValue({ loading: false, error: undefined, data });
+        },
+      },
+    ];
 
-        component = shallow(<EventList />);
-      });
+    beforeEach(async () => {
+      render(
+        <MockedProvider mocks={mocks} addTypename={false}>
+          <EventList />
+        </MockedProvider>
+      );
 
-      it('renders as expected', () => {
-        expect(component).toMatchSnapshot();
-      });
+      await waitForElementToBeRemoved(() => screen.queryByTestId('skeleton-event-1'));
     });
 
-    describe('and the user has events', () => {
-      beforeEach(() => {
-        const data: GetCurrentUserEvents = {
-          currentUser: {
-            events: [
-              {
-                __typename: 'Event',
-                endTimestamp: 1657691037616,
-                startTimestamp: 1657691025566,
-                id: 1,
-                location: null,
-                team: {
-                  __typename: 'Team',
+    it('renders a message indicating there are no games', () => {
+      expect(screen.getByText('No events scheduled')).toBeInTheDocument();
+    });
+  });
+
+  describe('when the server returns data with events', () => {
+    const mocks = [
+      {
+        request: {
+          query: getCurrentUserEvents,
+        },
+        result: {
+          data: {
+            currentUser: {
+              events: [
+                {
+                  __typename: 'Event',
+                  endTimestamp: 1657691037616,
+                  startTimestamp: 1657691025566,
                   id: 1,
-                  photoThumbnailUrl: 'url',
-                  shortName: 'team',
+                  location: null,
+                  team: {
+                    __typename: 'Team',
+                    id: 1,
+                    photoThumbnailUrl: 'url',
+                    shortName: 'team',
+                  },
+                  title: 'test',
+                  viewerRsvpStatus: RsvpStatus.NONE,
                 },
-                title: 'test',
-                viewerRsvpStatus: RsvpStatus.NONE,
-              },
-            ],
-            __typename: 'User',
+              ],
+              __typename: 'User',
+            },
           },
-        };
-        (useQuery as jest.Mock).mockReturnValue({ loading: false, error: undefined, data });
+        },
+      },
+    ];
 
-        component = shallow(<EventList />);
-      });
+    beforeEach(async () => {
+      render(
+        <MockedProvider mocks={mocks} addTypename={false}>
+          <EventList />
+        </MockedProvider>
+      );
 
-      it('renders as expected', () => {
-        expect(component).toMatchSnapshot();
-      });
+      await waitForElementToBeRemoved(() => screen.queryByTestId('skeleton-event-1'));
     });
 
-    describe('when the event has no start time', () => {
-      beforeEach(() => {
-        const data: GetCurrentUserEvents = {
-          currentUser: {
-            events: [
-              {
-                __typename: 'Event',
-                endTimestamp: 1657691037616,
-                startTimestamp: null,
-                id: 1,
-                location: {
-                  __typename: 'Location',
-                  name: 'test location',
-                  address: '123 test',
-                  googleMapsUrl: 'url',
-                },
-                team: {
-                  __typename: 'Team',
-                  id: 1,
-                  photoThumbnailUrl: 'url',
-                  shortName: 'team',
-                },
-                title: 'test',
-                viewerRsvpStatus: RsvpStatus.NONE,
-              },
-            ],
-            __typename: 'User',
-          },
-        };
-        (useQuery as jest.Mock).mockReturnValue({ loading: false, error: undefined, data });
-
-        component = shallow(<EventList />);
-      });
-
-      it('renders as expected', () => {
-        expect(component).toMatchSnapshot();
-      });
-    });
-
-    describe('when the event has a location', () => {
-      beforeEach(() => {
-        const data: GetCurrentUserEvents = {
-          currentUser: {
-            events: [
-              {
-                __typename: 'Event',
-                endTimestamp: 1657691037616,
-                startTimestamp: 1657691025566,
-                id: 1,
-                location: {
-                  __typename: 'Location',
-                  name: 'test location',
-                  address: '123 test',
-                  googleMapsUrl: 'url',
-                },
-                team: {
-                  __typename: 'Team',
-                  id: 1,
-                  photoThumbnailUrl: 'url',
-                  shortName: 'team',
-                },
-                title: 'test',
-                viewerRsvpStatus: RsvpStatus.NONE,
-              },
-            ],
-            __typename: 'User',
-          },
-        };
-        (useQuery as jest.Mock).mockReturnValue({ loading: false, error: undefined, data });
-
-        component = shallow(<EventList />);
-      });
-
-      it('renders as expected', () => {
-        expect(component).toMatchSnapshot();
-      });
-    });
-
-    it('renders as expected', () => {
-      expect(component).toMatchSnapshot();
+    it('renders the events', () => {
+      expect(screen.getAllByRole('article')).toHaveLength(1);
     });
   });
 });

@@ -1,4 +1,4 @@
-import { useQuery } from '@apollo/react-hooks';
+import { useQuery } from '@apollo/client';
 import { CircularProgress, FormControl, MenuItem, Select } from '@material-ui/core';
 import { FC } from 'react';
 

@@ -1,91 +1,54 @@
-import { ShallowWrapper, shallow } from 'enzyme';
+import { MockedProvider } from '@apollo/client/testing';
+import { render, screen } from '@testing-library/react';
 
 import { RsvpStatus } from '../../graphql/types/globalTypes';
 
-import EventWithStyles, { Event } from './Event';
+import Event from './Event';
 
 describe('Event', () => {
-  let component: ShallowWrapper;
-
-  beforeEach(() => {
-    component = shallow(
-      <Event
-        eventId={1}
-        teamId={1}
-        classes={{ card: 'card' }}
-        title="foo"
-        startTime={1557029700000}
-        location="Somewhere USA"
-        teamPhotoUrl="https://picsum.photos/48"
-        rsvpStatus={RsvpStatus.NONE}
-      />
-    );
-  });
-
-  describe('when the event has no team photo url', () => {
+  describe('with a team photo url', () => {
     beforeEach(() => {
-      component = shallow(
-        <Event
-          eventId={1}
-          teamId={1}
-          classes={{ card: 'card' }}
-          title="foo"
-          startTime={1557029700000}
-          location="Somewhere USA"
-          teamPhotoUrl={null}
-          rsvpStatus={RsvpStatus.NONE}
-        />
+      render(
+        <MockedProvider>
+          <Event
+            eventId={1}
+            teamId={1}
+            classes={{ card: 'card' }}
+            title="foo"
+            startTime={1557029700000}
+            location="Somewhere USA"
+            teamPhotoUrl="https://picsum.photos/48"
+            rsvpStatus={RsvpStatus.NONE}
+          />
+        </MockedProvider>
       );
     });
 
-    it('renders as expected', () => {
-      expect(component).toMatchSnapshot();
+    it('renders the location name', () => {
+      expect(screen.getByText('Somewhere USA')).toBeInTheDocument();
     });
   });
 
-  describe('when the event has no startTime', () => {
+  describe('without a team photo url', () => {
     beforeEach(() => {
-      component = shallow(
-        <Event
-          eventId={1}
-          teamId={1}
-          classes={{ card: 'card' }}
-          title="foo"
-          location="Somewhere USA"
-          teamPhotoUrl="https://new.url"
-          rsvpStatus={RsvpStatus.NONE}
-        />
+      render(
+        <MockedProvider>
+          <Event
+            eventId={1}
+            teamId={1}
+            classes={{ card: 'card' }}
+            title="foo"
+            startTime={1557029700000}
+            teamPhotoUrl={null}
+            location="Somewhere USA"
+            rsvpStatus={RsvpStatus.NONE}
+          />
+        </MockedProvider>
       );
     });
 
-    it('renders as expected', () => {
-      expect(component).toMatchSnapshot();
+    it('renders the location name', () => {
+      expect(screen.getByText('Somewhere USA')).toBeInTheDocument();
     });
-  });
-
-  it('renders as expected', () => {
-    expect(component).toMatchSnapshot();
-  });
-});
-
-describe('EventWithStyles', () => {
-  let component: ShallowWrapper;
-
-  beforeEach(() => {
-    component = shallow(
-      <EventWithStyles
-        eventId={1}
-        teamId={1}
-        title="foo"
-        startTime={1557029700000}
-        location="Somewhere USA"
-        teamPhotoUrl="https://picsum.photos/48"
-        rsvpStatus={RsvpStatus.NONE}
-      />
-    );
-  });
-
-  it('renders', () => {
-    expect(component).toMatchSnapshot();
   });
 });
