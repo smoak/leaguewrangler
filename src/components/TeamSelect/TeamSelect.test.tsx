@@ -1,4 +1,4 @@
-import { useQuery } from '@apollo/react-hooks';
+import { useQuery } from '@apollo/client';
 import { ShallowWrapper, shallow } from 'enzyme';
 
 import { GetTeams } from '../../graphql/types/GetTeams';

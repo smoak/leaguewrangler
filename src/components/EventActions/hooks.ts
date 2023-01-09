@@ -1,9 +1,9 @@
 import { useCallback } from 'react';
-import { useMutation } from 'react-apollo';
 
 import saveEventRsvp from '../../graphql/mutations/saveRsvp';
 import { SaveEventRsvp, SaveEventRsvpVariables } from '../../graphql/types/SaveEventRsvp';
 import { RsvpStatus } from '../../graphql/types/globalTypes';
+import { useMutation } from '@apollo/client';
 
 type SaveRsvpCallback = (rsvpStatus: RsvpStatus) => void;
 

@@ -1,4 +1,4 @@
-import { MockedProvider, MockedResponse } from '@apollo/react-testing';
+import { MockedProvider, MockedResponse } from '@apollo/client/testing';
 import { storiesOf } from '@storybook/react';
 
 import getTeams from '../../graphql/queries/getTeams';

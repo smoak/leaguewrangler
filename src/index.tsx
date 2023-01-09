@@ -1,9 +1,5 @@
+import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client';
 import { MuiThemeProvider } from '@material-ui/core/styles';
-import { InMemoryCache } from 'apollo-cache-inmemory';
-import { ApolloClient } from 'apollo-client';
-import { setContext } from 'apollo-link-context';
-import { createHttpLink } from 'apollo-link-http';
-import { ApolloProvider } from 'react-apollo';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import theme from 'support/theme';
@@ -17,21 +13,11 @@ import { getUserToken } from './support/auth';
 const store = createStore();
 const userToken = getUserToken();
 
-const httpLink = createHttpLink({
-  uri: process.env.REACT_APP_GRAPHQL_ENDPOINT,
-});
-
-const authLink = setContext((_, { headers }) => {
-  return {
-    headers: {
-      ...headers,
-      authorization: userToken ? `Bearer ${userToken}` : '',
-    },
-  };
-});
-
 const client = new ApolloClient({
-  link: authLink.concat(httpLink),
+  uri: process.env.REACT_APP_GRAPHQL_ENDPOINT,
+  headers: {
+    authorization: userToken ? `Bearer ${userToken}` : '',
+  },
   cache: new InMemoryCache(),
 });
 

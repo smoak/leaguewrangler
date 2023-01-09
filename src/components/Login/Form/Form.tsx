@@ -1,4 +1,4 @@
-import { useMutation } from '@apollo/react-hooks';
+import { useMutation } from '@apollo/client';
 import { Checkbox, CircularProgress, FormControl, FormControlLabel, Input, InputLabel } from '@material-ui/core';
 import { FC, useCallback } from 'react';
 import { setUserToken } from 'support/auth';
