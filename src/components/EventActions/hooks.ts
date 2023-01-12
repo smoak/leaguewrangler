@@ -1,7 +1,7 @@
 import { useCallback } from 'react';
 
 import saveEventRsvp from '../../graphql/mutations/saveRsvp';
-import { SaveEventRsvp, SaveEventRsvpVariables } from '../../graphql/types/SaveEventRsvp';
+import { SaveEventRsvpMutation, SaveEventRsvpMutationVariables } from '../../graphql/types/saveRsvp';
 import { RsvpStatus } from '../../graphql/types/globalTypes';
 import { useMutation } from '@apollo/client';
 
@@ -19,7 +19,7 @@ interface UseSaveRsvpMutationOptions {
 
 type UseSaveRsvpMutation = (options: UseSaveRsvpMutationOptions) => SaveRsvpMutation;
 export const useSaveRsvpMutation: UseSaveRsvpMutation = ({ eventId, teamId }) => {
-  const [saveRsvp, { loading }] = useMutation<SaveEventRsvp, SaveEventRsvpVariables>(saveEventRsvp);
+  const [saveRsvp, { loading }] = useMutation<SaveEventRsvpMutation, SaveEventRsvpMutationVariables>(saveEventRsvp);
   const saveRsvpCallback = useCallback(
     (rsvpStatus) => {
       saveRsvp({ variables: { eventId, teamId, rsvpStatus } });

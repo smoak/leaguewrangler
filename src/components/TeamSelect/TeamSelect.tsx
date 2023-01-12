@@ -3,14 +3,14 @@ import { CircularProgress, FormControl, MenuItem, Select } from '@material-ui/co
 import { FC } from 'react';
 
 import getTeamsQuery from '../../graphql/queries/getTeams';
-import { GetTeams } from '../../graphql/types/GetTeams';
+import { GetTeamsQuery } from '../../graphql/types/getTeams';
 
 function notEmpty<TValue>(value: TValue | null | undefined): value is TValue {
   return value !== null && value !== undefined;
 }
 
 const TeamSelect: FC = () => {
-  const { loading, data, error } = useQuery<GetTeams>(getTeamsQuery);
+  const { loading, data, error } = useQuery<GetTeamsQuery>(getTeamsQuery);
 
   if (loading) {
     return <CircularProgress color="secondary" />;

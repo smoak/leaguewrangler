@@ -4,7 +4,7 @@ import { FC, useCallback } from 'react';
 import { setUserToken } from 'support/auth';
 
 import CREATE_USER_TOKEN from '../../../graphql/mutations/createUserToken';
-import { CreateUserToken, CreateUserTokenVariables } from '../../../graphql/types/CreateUserToken';
+import { CreateUserTokenMutation, CreateUserTokenMutationVariables } from '../../../graphql/types/createUserToken';
 
 import SignInButton from './SignInButton';
 import { useControlledInput } from './hooks';
@@ -17,9 +17,10 @@ export interface FormProps {
 const Form: FC<FormProps> = ({ submitButtonClassname, formClassname }) => {
   const { value: username, onChange: onUsernameChange } = useControlledInput('');
   const { value: password, onChange: onPasswordChange } = useControlledInput('');
-  const [createUserToken, { data, error, loading }] = useMutation<CreateUserToken, CreateUserTokenVariables>(
-    CREATE_USER_TOKEN
-  );
+  const [createUserToken, { data, error, loading }] = useMutation<
+    CreateUserTokenMutation,
+    CreateUserTokenMutationVariables
+  >(CREATE_USER_TOKEN);
 
   const onSignInClicked = useCallback(() => {
     createUserToken({ variables: { username, password } });

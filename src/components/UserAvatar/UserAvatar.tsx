@@ -4,7 +4,7 @@ import AccountCircle from '@material-ui/icons/AccountCircle';
 import { FC } from 'react';
 
 import getUserAvatarQuery from '../../graphql/queries/getUserAvatar';
-import { GetUserAvatar } from '../../graphql/types/GetUserAvatar';
+import { GetUserAvatarQuery } from '../../graphql/types/getUserAvatar';
 
 const styles = createStyles({
   avatar: {
@@ -15,7 +15,7 @@ const styles = createStyles({
 export type UserAvatarProps = WithStyles<typeof styles>;
 
 const UserAvatar: FC<UserAvatarProps> = ({ classes }) => {
-  const { loading, data } = useQuery<GetUserAvatar>(getUserAvatarQuery);
+  const { loading, data } = useQuery<GetUserAvatarQuery>(getUserAvatarQuery);
 
   if (loading) {
     return <CircularProgress color="secondary" />;

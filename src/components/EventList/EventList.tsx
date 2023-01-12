@@ -3,7 +3,7 @@ import { Grid } from '@material-ui/core';
 import { FC } from 'react';
 
 import getCurrentUserEvents from '../../graphql/queries/getCurrentUserEvents';
-import { GetCurrentUserEvents } from '../../graphql/types/GetCurrentUserEvents';
+import { GetCurrentUserEventsQuery } from '../../graphql/types/getCurrentUserEvents';
 import Event from '../Event';
 import SkeletonEvent from '../SkeletonEvent';
 
@@ -12,7 +12,7 @@ function notEmpty<TValue>(value: TValue | null | undefined): value is TValue {
 }
 
 const EventList: FC = () => {
-  const { loading, data, error } = useQuery<GetCurrentUserEvents>(getCurrentUserEvents);
+  const { loading, data, error } = useQuery<GetCurrentUserEventsQuery>(getCurrentUserEvents);
 
   if (loading) {
     return (
@@ -52,7 +52,7 @@ const EventList: FC = () => {
                 eventId={e.id}
                 teamId={e.team.id}
                 title={e.title}
-                teamPhotoUrl={e.team.photoThumbnailUrl}
+                teamPhotoUrl={e.team.photoThumbnailUrl ?? null}
                 location={e.location ? e.location.name : ''}
                 locationMapsUrl={e.location?.googleMapsUrl ?? undefined}
                 startTime={e.startTimestamp ?? undefined}
