@@ -1,15 +1,18 @@
-import { ShallowWrapper, shallow } from 'enzyme';
+import { MockedProvider } from '@apollo/client/testing';
+import { render, screen } from '@testing-library/react';
 
 import { AppHeader } from './AppHeader';
 
 describe('AppHeader', () => {
-  let component: ShallowWrapper;
-
   beforeEach(() => {
-    component = shallow(<AppHeader classes={{ menuButton: 'styles', grow: 'grow' }} />);
+    render(
+      <MockedProvider>
+        <AppHeader classes={{ menuButton: 'styles', grow: 'grow' }} />
+      </MockedProvider>
+    );
   });
 
   it('renders', () => {
-    expect(component).toMatchSnapshot();
+    expect(screen.getByRole('banner')).toBeInTheDocument();
   });
 });

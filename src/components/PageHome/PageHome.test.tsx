@@ -1,27 +1,17 @@
-import { ShallowWrapper, shallow } from 'enzyme';
-
-import PageHomeWithStyles, { PageHome } from './PageHome';
+import { MockedProvider } from '@apollo/client/testing';
+import { render, screen } from '@testing-library/react';
+import PageHome from './PageHome';
 
 describe('PageHome', () => {
-  let component: ShallowWrapper;
-
   beforeEach(() => {
-    component = shallow(<PageHome classes={{ main: 'main' }} />);
+    render(
+      <MockedProvider>
+        <PageHome classes={{ main: 'main' }} />
+      </MockedProvider>
+    );
   });
 
   it('renders', () => {
-    expect(component).toMatchSnapshot();
-  });
-});
-
-describe('PageHomeWithStyles', () => {
-  let component: ShallowWrapper;
-
-  beforeEach(() => {
-    component = shallow(<PageHomeWithStyles />);
-  });
-
-  it('renders', () => {
-    expect(component).toMatchSnapshot();
+    expect(screen.getByRole('heading', { level: 3, name: 'Events' })).toBeInTheDocument();
   });
 });

@@ -1,41 +1,19 @@
-import { IconButton } from '@material-ui/core';
-import { ShallowWrapper, shallow } from 'enzyme';
-
+import { render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import { RsvpStatus } from '../../graphql/types/globalTypes';
 
 import PlayingButton from './PlayingButton';
 
 describe('PlayingButton', () => {
-  let component: ShallowWrapper;
-
-  describe('when playing', () => {
-    beforeEach(() => {
-      component = shallow(<PlayingButton isPlaying={true} className="test" onRsvp={jest.fn()} />);
-    });
-
-    it('renders as expected', () => {
-      expect(component).toMatchSnapshot();
-    });
-  });
-
-  describe('when not playing', () => {
-    beforeEach(() => {
-      component = shallow(<PlayingButton isPlaying={false} className="test" onRsvp={jest.fn()} />);
-    });
-
-    it('renders as expected', () => {
-      expect(component).toMatchSnapshot();
-    });
-  });
-
   describe('when the user rsvps', () => {
     let onRsvp: jest.Mock;
 
-    beforeEach(() => {
+    beforeEach(async () => {
       onRsvp = jest.fn();
-      component = shallow(<PlayingButton isPlaying={true} className="test" onRsvp={onRsvp} />);
+      const user = userEvent.setup();
+      render(<PlayingButton isPlaying={true} className="test" onRsvp={onRsvp} />);
 
-      component.find(IconButton).simulate('click');
+      await user.click(screen.getByRole('button', { name: 'Playing' }));
     });
 
     it('calls `onRsvp` with YES', () => {

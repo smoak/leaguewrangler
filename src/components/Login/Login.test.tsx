@@ -1,16 +1,17 @@
-import { ShallowWrapper, shallow } from 'enzyme';
+import { MockedProvider } from '@apollo/client/testing';
+import { render, screen } from '@testing-library/react';
 import { Login } from './Login';
 
 describe('Login', () => {
-  let component: ShallowWrapper;
-
   beforeEach(() => {
-    component = shallow(
-      <Login classes={{ main: 'main', avatar: 'avatar', form: 'form', submit: 'submit', paper: 'paper' }} />
+    render(
+      <MockedProvider>
+        <Login classes={{ main: 'main', avatar: 'avatar', form: 'form', submit: 'submit', paper: 'paper' }} />
+      </MockedProvider>
     );
   });
 
   it('renders', () => {
-    expect(component).toMatchSnapshot();
+    expect(screen.getByRole('heading', { level: 1, name: 'Sign in' })).toBeInTheDocument();
   });
 });

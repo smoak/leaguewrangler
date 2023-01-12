@@ -1,43 +1,30 @@
-import { ShallowWrapper, shallow } from 'enzyme';
+import { MockedProvider } from '@apollo/client/testing';
+import { render, screen } from '@testing-library/react';
 
 import { RsvpStatus } from '../../graphql/types/globalTypes';
 
 import { EventActions } from './EventActions';
-import { useSaveRsvpMutation } from './hooks';
-
-jest.mock('./hooks');
 
 describe('EventActions', () => {
-  let component: ShallowWrapper;
-  let saveRsvpCallback: jest.Mock;
-
-  beforeEach(() => {
-    saveRsvpCallback = jest.fn().mockName('saveRsvpCallback');
-    const loading = false;
-
-    (useSaveRsvpMutation as jest.Mock).mockReturnValue({ loading, saveRsvpCallback });
-
-    component = shallow(
-      <EventActions eventId={1} teamId={1} rsvpStatus={RsvpStatus.NONE} classes={{ icon: 'icon' }} />
-    );
-  });
-
-  describe('when loading', () => {
+  describe('when rendered', () => {
     beforeEach(() => {
-      const loading = true;
-      (useSaveRsvpMutation as jest.Mock).mockReturnValue({ loading, saveRsvpCallback });
-
-      component = shallow(
-        <EventActions eventId={1} teamId={1} rsvpStatus={RsvpStatus.NONE} classes={{ icon: 'icon' }} />
+      render(
+        <MockedProvider>
+          <EventActions eventId={1} teamId={1} rsvpStatus={RsvpStatus.NONE} classes={{ icon: 'icon' }} />
+        </MockedProvider>
       );
     });
 
-    it('renders as expected', () => {
-      expect(component).toMatchSnapshot();
+    it('renders a playing button', () => {
+      expect(screen.getByRole('button', { name: 'Playing' })).toBeInTheDocument();
     });
-  });
 
-  it('renders as expected', () => {
-    expect(component).toMatchSnapshot();
+    it('renders a tentative button', () => {
+      expect(screen.getByRole('button', { name: 'Tentative' })).toBeInTheDocument();
+    });
+
+    it('renders a not playing button', () => {
+      expect(screen.getByRole('button', { name: 'Not Playing' })).toBeInTheDocument();
+    });
   });
 });

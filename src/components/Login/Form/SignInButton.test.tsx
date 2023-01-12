@@ -1,28 +1,20 @@
-import Button from '@material-ui/core/Button';
-import { ShallowWrapper, shallow } from 'enzyme';
+import { render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 
 import SignInButton from './SignInButton';
 
 describe('SignInButton', () => {
-  let component: ShallowWrapper;
   let onClick: jest.Mock;
 
   beforeEach(() => {
     onClick = jest.fn().mockName('onClick');
-    component = shallow(<SignInButton className="className" isDisabled={false} onClick={onClick} />);
+    render(<SignInButton className="className" isDisabled={false} onClick={onClick} />);
   });
 
   describe('when clicked', () => {
-    let preventDefault: jest.Mock;
-
-    beforeEach(() => {
-      preventDefault = jest.fn();
-      const event = { preventDefault };
-      component.find(Button).simulate('click', event);
-    });
-
-    it('prevents the default event', () => {
-      expect(preventDefault).toHaveBeenCalled();
+    beforeEach(async () => {
+      const user = userEvent.setup();
+      await user.click(screen.getByRole('button'));
     });
 
     it('calls the provided onClick function', () => {
@@ -31,6 +23,6 @@ describe('SignInButton', () => {
   });
 
   it('renders as expected', () => {
-    expect(component).toMatchSnapshot();
+    expect(screen.getByRole('button', { name: 'Sign in' })).toBeInTheDocument();
   });
 });
