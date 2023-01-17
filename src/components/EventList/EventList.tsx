@@ -1,5 +1,5 @@
 import { useQuery } from '@apollo/client';
-import { Grid } from '@material-ui/core';
+import { Grid } from '@mui/material';
 import { FC } from 'react';
 
 import getCurrentUserEvents from '../../graphql/queries/getCurrentUserEvents';

@@ -1,4 +1,4 @@
-import { createStyles } from '@material-ui/core/styles';
+import createStyles from '@mui/styles/createStyles';
 
 const styles = (): ReturnType<typeof createStyles> =>
   createStyles({

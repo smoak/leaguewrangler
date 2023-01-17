@@ -1,5 +1,7 @@
-import { Avatar, CardActions, CardContent, CardHeader, WithStyles, withStyles } from '@material-ui/core';
-import Card from '@material-ui/core/Card';
+import { Avatar, CardActions, CardContent, CardHeader } from '@mui/material';
+import { WithStyles } from '@mui/styles';
+import withStyles from '@mui/styles/withStyles';
+import Card from '@mui/material/Card';
 import { FC } from 'react';
 
 import { RsvpStatus } from '../../graphql/types/globalTypes';

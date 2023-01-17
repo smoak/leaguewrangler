@@ -1,10 +1,11 @@
-import Card from '@material-ui/core/Card';
-import CardActions from '@material-ui/core/CardActions';
-import CardContent from '@material-ui/core/CardContent';
-import CardHeader from '@material-ui/core/CardHeader';
-import IconButton from '@material-ui/core/IconButton';
-import { WithStyles, withStyles } from '@material-ui/core/styles';
-import Skeleton from '@material-ui/lab/Skeleton';
+import Card from '@mui/material/Card';
+import CardActions from '@mui/material/CardActions';
+import CardContent from '@mui/material/CardContent';
+import CardHeader from '@mui/material/CardHeader';
+import IconButton from '@mui/material/IconButton';
+import { WithStyles } from '@mui/styles';
+import withStyles from '@mui/styles/withStyles';
+import Skeleton from '@mui/material/Skeleton';
 import { FC } from 'react';
 
 import styles from './styles';
@@ -20,16 +21,16 @@ export const SkeletonEvent: FC<SkeletonEventProps> = ({ classes }) => {
   return (
     <Card className={card}>
       <CardHeader
-        avatar={<Skeleton variant="circle" width={40} height={40} />}
+        avatar={<Skeleton variant="circular" width={40} height={40} />}
         title={skeletonTitle}
         subheader={skeletonSubheader}
       />
       <CardContent>
-        <Skeleton variant="rect" height={50} />
+        <Skeleton variant="rectangular" height={50} />
       </CardContent>
       <CardActions>
-        <IconButton>
-          <Skeleton variant="rect" />
+        <IconButton size="large">
+          <Skeleton variant="rectangular" />
         </IconButton>
       </CardActions>
     </Card>

@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react';
+import { render, screen } from 'support/test-utils';
 import { Subheader } from './Subheader';
 
 describe('Subheader', () => {

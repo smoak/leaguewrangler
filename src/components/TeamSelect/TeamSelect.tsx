@@ -1,5 +1,5 @@
 import { useQuery } from '@apollo/client';
-import { CircularProgress, FormControl, MenuItem, Select } from '@material-ui/core';
+import { CircularProgress, FormControl, MenuItem, Select } from '@mui/material';
 import { FC } from 'react';
 
 import getTeamsQuery from '../../graphql/queries/getTeams';

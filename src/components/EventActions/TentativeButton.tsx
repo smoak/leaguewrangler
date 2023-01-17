@@ -1,6 +1,6 @@
-import { IconButton } from '@material-ui/core';
-import TentativeIcon from '@material-ui/icons/HelpOutlineOutlined';
-import RsvpedTentativeIcon from '@material-ui/icons/HelpTwoTone';
+import { IconButton } from '@mui/material';
+import TentativeIcon from '@mui/icons-material/HelpOutlineOutlined';
+import RsvpedTentativeIcon from '@mui/icons-material/HelpTwoTone';
 import { FC, useCallback } from 'react';
 
 import { RsvpStatus } from '../../graphql/types/globalTypes';
@@ -22,7 +22,7 @@ const TentativeButton: FC<TentativeButtonProps> = ({ onRsvp, className, isTentat
     <TentativeIcon className={className} />
   );
   return (
-    <IconButton aria-label="Tentative" onClick={rsvpCallback}>
+    <IconButton aria-label="Tentative" onClick={rsvpCallback} size="large">
       {icon}
     </IconButton>
   );

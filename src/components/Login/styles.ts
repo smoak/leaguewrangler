@@ -1,4 +1,6 @@
-import { Theme, createStyles } from '@material-ui/core';
+import { Theme } from '@mui/material';
+
+import createStyles from '@mui/styles/createStyles';
 
 const styles = (theme: Theme): ReturnType<typeof createStyles> =>
   createStyles({
@@ -7,8 +9,8 @@ const styles = (theme: Theme): ReturnType<typeof createStyles> =>
       display: 'block', // Fix IE 11 issue.
       marginLeft: theme.spacing(3),
       marginRight: theme.spacing(3),
-      [theme.breakpoints.up(400 + theme.spacing(6))]: {
-        width: 400,
+      [theme.breakpoints.up('sm')]: {
+        width: 552,
         marginLeft: 'auto',
         marginRight: 'auto',
       },
@@ -18,7 +20,7 @@ const styles = (theme: Theme): ReturnType<typeof createStyles> =>
       display: 'flex',
       flexDirection: 'column',
       alignItems: 'center',
-      padding: `${theme.spacing(2)}px ${theme.spacing(3)}px ${theme.spacing(3)}px`,
+      padding: `${theme.spacing(2)} ${theme.spacing(3)} ${theme.spacing(3)}`,
     },
     avatar: {
       margin: theme.spacing(),

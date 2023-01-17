@@ -1,4 +1,7 @@
-import { CircularProgress, WithStyles, createStyles, withStyles } from '@material-ui/core';
+import { CircularProgress } from '@mui/material';
+import { WithStyles } from '@mui/styles';
+import createStyles from '@mui/styles/createStyles';
+import withStyles from '@mui/styles/withStyles';
 import { FC } from 'react';
 
 import { RsvpStatus } from '../../graphql/types/globalTypes';

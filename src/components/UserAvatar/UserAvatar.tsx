@@ -1,6 +1,9 @@
 import { useQuery } from '@apollo/client';
-import { Avatar, CircularProgress, WithStyles, createStyles, withStyles } from '@material-ui/core';
-import AccountCircle from '@material-ui/icons/AccountCircle';
+import { Avatar, CircularProgress } from '@mui/material';
+import { WithStyles } from '@mui/styles';
+import createStyles from '@mui/styles/createStyles';
+import withStyles from '@mui/styles/withStyles';
+import AccountCircle from '@mui/icons-material/AccountCircle';
 import { FC } from 'react';
 
 import getUserAvatarQuery from '../../graphql/queries/getUserAvatar';

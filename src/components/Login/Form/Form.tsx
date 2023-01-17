@@ -1,5 +1,5 @@
 import { useMutation } from '@apollo/client';
-import { Checkbox, CircularProgress, FormControl, FormControlLabel, Input, InputLabel } from '@material-ui/core';
+import { Checkbox, CircularProgress, FormControl, FormControlLabel, Input, InputLabel } from '@mui/material';
 import { FC, useCallback } from 'react';
 import { setUserToken } from 'support/auth';
 

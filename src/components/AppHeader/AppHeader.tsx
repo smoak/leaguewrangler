@@ -1,9 +1,11 @@
-import { Typography } from '@material-ui/core';
-import AppBar from '@material-ui/core/AppBar';
-import IconButton from '@material-ui/core/IconButton';
-import Toolbar from '@material-ui/core/Toolbar';
-import { WithStyles, createStyles, withStyles } from '@material-ui/core/styles';
-import MenuIcon from '@material-ui/icons/Menu';
+import { Typography } from '@mui/material';
+import AppBar from '@mui/material/AppBar';
+import IconButton from '@mui/material/IconButton';
+import Toolbar from '@mui/material/Toolbar';
+import { WithStyles } from '@mui/styles';
+import createStyles from '@mui/styles/createStyles';
+import withStyles from '@mui/styles/withStyles';
+import MenuIcon from '@mui/icons-material/Menu';
 import { FC } from 'react';
 
 import UserAvatar from '../UserAvatar';
@@ -22,7 +24,11 @@ export const AppHeader: FC<WithStyles<typeof styles>> = ({ classes }) => {
   return (
     <AppBar position="static">
       <Toolbar>
-        <IconButton className={classes.menuButton} color="inherit" aria-label="Menu">
+        <IconButton
+          className={classes.menuButton}
+          color="inherit"
+          aria-label="Menu"
+          size="large">
           <MenuIcon />
         </IconButton>
         <Typography variant="h6" color="inherit" className={classes.grow}>

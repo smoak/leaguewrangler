@@ -1,5 +1,5 @@
 import { MockedProvider } from '@apollo/client/testing';
-import { render, screen, waitForElementToBeRemoved } from '@testing-library/react';
+import { render, screen, waitForElementToBeRemoved } from 'support/test-utils';
 
 import getTeamsQuery from '../../graphql/queries/getTeams';
 

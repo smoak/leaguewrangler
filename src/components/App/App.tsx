@@ -1,4 +1,4 @@
-import CssBaseline from '@material-ui/core/CssBaseline';
+import CssBaseline from '@mui/material/CssBaseline';
 import { FC } from 'react';
 
 import AppBody from '../AppBody';
