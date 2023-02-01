@@ -1,31 +1,16 @@
-import { Theme, WithStyles, createStyles, withStyles, Grid, Typography, Container } from '@material-ui/core';
-import { FC } from 'react';
+import { Container, Typography } from '@mui/material';
 
 import EventList from '../EventList';
 
-const styles = (theme: Theme) =>
-  createStyles({
-    main: {
-      display: 'flex',
-      justifyContent: 'center',
-      alignItems: 'center',
-      margin: theme.spacing(2),
-    },
-  });
-
-export type PageHomeProps = WithStyles<typeof styles>;
-
-export const PageHome: FC<PageHomeProps> = ({ classes }) => {
+export const PageHome = () => {
   return (
-    <Container maxWidth="md">
-      <Typography variant="h3" className={classes.main}>
+    <>
+      <Typography variant="h3" align="center" gutterBottom>
         Events
       </Typography>
-      <Grid container spacing={2}>
+      <Container maxWidth="md">
         <EventList />
-      </Grid>
-    </Container>
+      </Container>
+    </>
   );
 };
-
-export default withStyles(styles)(PageHome);

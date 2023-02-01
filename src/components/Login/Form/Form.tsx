@@ -1,70 +1,66 @@
 import { useMutation } from '@apollo/client';
-import { Checkbox, CircularProgress, FormControl, FormControlLabel, Input, InputLabel } from '@material-ui/core';
-import { FC, useCallback } from 'react';
+import { Checkbox, CircularProgress, FormControlLabel, TextField } from '@mui/material';
+import { Box } from '@mui/system';
+import { CreateUserTokenMutation, CreateUserTokenMutationVariables } from 'graphql/types/createUserToken';
+import { useEffect } from 'react';
 import { setUserToken } from 'support/auth';
-
-import CREATE_USER_TOKEN from '../../../graphql/mutations/createUserToken';
-import { CreateUserTokenMutation, CreateUserTokenMutationVariables } from '../../../graphql/types/createUserToken';
-
-import SignInButton from './SignInButton';
 import { useControlledInput } from './hooks';
+import CREATE_USER_TOKEN from '../../../graphql/mutations/createUserToken';
+import SignInButton from './SignInButton';
 
-export interface FormProps {
-  readonly formClassname: string;
-  readonly submitButtonClassname: string;
-}
-
-const Form: FC<FormProps> = ({ submitButtonClassname, formClassname }) => {
+const Form = () => {
   const { value: username, onChange: onUsernameChange } = useControlledInput('');
   const { value: password, onChange: onPasswordChange } = useControlledInput('');
-  const [createUserToken, { data, error, loading }] = useMutation<
-    CreateUserTokenMutation,
-    CreateUserTokenMutationVariables
-  >(CREATE_USER_TOKEN);
+  const [createUserToken, { data, loading }] = useMutation<CreateUserTokenMutation, CreateUserTokenMutationVariables>(
+    CREATE_USER_TOKEN
+  );
 
-  const onSignInClicked = useCallback(() => {
+  const onSignInClicked = () => {
     createUserToken({ variables: { username, password } });
-  }, [createUserToken, username, password]);
+  };
 
-  if (data && data.createUserToken) {
-    setUserToken(data.createUserToken.token);
-    window.location.reload();
-  }
+  useEffect(() => {
+    if (data && data.createUserToken) {
+      setUserToken(data.createUserToken.token);
+      window.location.reload();
+    }
+  }, [data]);
 
   const button = loading ? (
     <CircularProgress color="secondary" />
   ) : (
-    <SignInButton onClick={onSignInClicked} isDisabled={!username || !password} className={submitButtonClassname} />
+    <SignInButton onClick={onSignInClicked} isDisabled={false} />
   );
 
   return (
-    <div className={formClassname}>
-      <FormControl margin="normal" required fullWidth error={!!error}>
-        <InputLabel htmlFor="username">Username</InputLabel>
-        <Input
-          id="username"
-          name="username"
-          autoComplete="username"
-          autoFocus={true}
-          value={username}
-          onChange={onUsernameChange}
-        />
-      </FormControl>
-      <FormControl margin="normal" required fullWidth error={!!error}>
-        <InputLabel htmlFor="password">Password</InputLabel>
-        <Input
-          name="password"
-          type="password"
-          id="password"
-          autoComplete="current-password"
-          value={password}
-          onChange={onPasswordChange}
-          data-testid="password-textbox"
-        />
-      </FormControl>
+    <Box component="form" noValidate sx={{ mt: 1 }}>
+      <TextField
+        margin="normal"
+        required
+        fullWidth
+        id="username"
+        label="Username"
+        name="username"
+        autoComplete="username"
+        autoFocus
+        onChange={onUsernameChange}
+        value={username}
+      />
+      <TextField
+        margin="normal"
+        required
+        fullWidth
+        name="password"
+        label="Password"
+        type="password"
+        id="password"
+        autoComplete="current-password"
+        onChange={onPasswordChange}
+        value={password}
+      />
       <FormControlLabel control={<Checkbox value="remember" color="primary" />} label="Remember me" />
       {button}
-    </div>
+    </Box>
   );
 };
 

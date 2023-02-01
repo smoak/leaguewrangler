@@ -8,7 +8,7 @@ describe('SignInButton', () => {
 
   beforeEach(() => {
     onClick = jest.fn().mockName('onClick');
-    render(<SignInButton className="className" isDisabled={false} onClick={onClick} />);
+    render(<SignInButton isDisabled={false} onClick={onClick} />);
   });
 
   describe('when clicked', () => {

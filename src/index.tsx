@@ -1,5 +1,5 @@
 import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client';
-import { MuiThemeProvider } from '@material-ui/core/styles';
+import { ThemeProvider, StyledEngineProvider } from '@mui/material/styles';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import theme from 'support/theme';
@@ -27,11 +27,13 @@ if (userToken) {
 
 ReactDOM.render(
   <ApolloProvider client={client}>
-    <MuiThemeProvider theme={theme}>
-      <Provider store={store}>
-        <App />
-      </Provider>
-    </MuiThemeProvider>
+    <StyledEngineProvider injectFirst>
+      <ThemeProvider theme={theme}>
+        <Provider store={store}>
+          <App />
+        </Provider>
+      </ThemeProvider>
+    </StyledEngineProvider>
   </ApolloProvider>,
   document.getElementById('root') as HTMLElement
 );

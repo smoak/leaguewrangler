@@ -1,39 +1,29 @@
-import Card from '@material-ui/core/Card';
-import CardActions from '@material-ui/core/CardActions';
-import CardContent from '@material-ui/core/CardContent';
-import CardHeader from '@material-ui/core/CardHeader';
-import IconButton from '@material-ui/core/IconButton';
-import { WithStyles, withStyles } from '@material-ui/core/styles';
-import Skeleton from '@material-ui/lab/Skeleton';
-import { FC } from 'react';
+import Card from '@mui/material/Card';
+import CardActions from '@mui/material/CardActions';
+import CardContent from '@mui/material/CardContent';
+import CardHeader from '@mui/material/CardHeader';
+import IconButton from '@mui/material/IconButton';
+import Skeleton from '@mui/material/Skeleton';
 
-import styles from './styles';
-
-type SkeletonEventProps = WithStyles<typeof styles>;
-
-export const SkeletonEvent: FC<SkeletonEventProps> = ({ classes }) => {
-  const { card } = classes;
-
-  const skeletonTitle = <Skeleton height={6} />;
-  const skeletonSubheader = <Skeleton height={6} width="80%" />;
-
+export const SkeletonEvent = () => {
   return (
-    <Card className={card}>
+    <Card sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}>
       <CardHeader
-        avatar={<Skeleton variant="circle" width={40} height={40} />}
-        title={skeletonTitle}
-        subheader={skeletonSubheader}
+        avatar={<Skeleton animation="wave" variant="circular" width={40} height={40} />}
+        title={<Skeleton animation="wave" height={10} width="100%" style={{ marginBottom: 6 }} />}
+        subheader={<Skeleton height={10} width="50%" animation="wave" />}
+        action={null}
       />
-      <CardContent>
-        <Skeleton variant="rect" height={50} />
+      <CardContent sx={{ flexGrow: 1 }}>
+        <Skeleton variant="rectangular" height={50} />
       </CardContent>
       <CardActions>
-        <IconButton>
-          <Skeleton variant="rect" />
+        <IconButton size="large">
+          <Skeleton variant="rectangular" />
         </IconButton>
       </CardActions>
     </Card>
   );
 };
 
-export default withStyles(styles)(SkeletonEvent);
+export default SkeletonEvent;

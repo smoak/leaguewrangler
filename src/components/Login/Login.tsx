@@ -1,25 +1,21 @@
-import { Avatar, Paper, Typography } from '@material-ui/core';
-import withStyles, { WithStyles } from '@material-ui/core/styles/withStyles';
-import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
-import { FC } from 'react';
+import { Avatar, Typography } from '@mui/material';
+import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 
 import Form from './Form';
-import styles from './styles';
+import { Box } from '@mui/system';
 
-export const Login: FC<WithStyles<typeof styles>> = ({ classes }) => {
+const Login = () => {
   return (
-    <div className={classes.main}>
-      <Paper className={classes.paper}>
-        <Avatar className={classes.avatar}>
-          <LockOutlinedIcon />
-        </Avatar>
-        <Typography component="h1" variant="h5">
-          Sign in
-        </Typography>
-        <Form formClassname={classes.form} submitButtonClassname={classes.submit} />
-      </Paper>
-    </div>
+    <Box sx={{ marginTop: 8, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+      <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
+        <LockOutlinedIcon />
+      </Avatar>
+      <Typography component="h1" variant="h5">
+        Sign in
+      </Typography>
+      <Form />
+    </Box>
   );
 };
 
-export default withStyles(styles)(Login);
+export default Login;

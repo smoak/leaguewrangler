@@ -1,6 +1,6 @@
-import { IconButton } from '@material-ui/core';
-import NotPlayingIcon from '@material-ui/icons/HighlightOff';
-import RsvpedNotPlayingIcon from '@material-ui/icons/HighlightOffTwoTone';
+import { IconButton } from '@mui/material';
+import NotPlayingIcon from '@mui/icons-material/HighlightOff';
+import RsvpedNotPlayingIcon from '@mui/icons-material/HighlightOffTwoTone';
 import { FC, useCallback } from 'react';
 
 import { RsvpStatus } from '../../graphql/types/globalTypes';
@@ -23,7 +23,7 @@ const NotPlayingButton: FC<NotPlayingButtonProps> = ({ className, isNotPlaying, 
   );
 
   return (
-    <IconButton aria-label="Not Playing" onClick={rsvpCallback}>
+    <IconButton aria-label="Not Playing" onClick={rsvpCallback} size="large">
       {icon}
     </IconButton>
   );

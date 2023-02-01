@@ -1,12 +1,12 @@
 import { MockedProvider } from '@apollo/client/testing';
 import { render, screen } from '@testing-library/react';
-import PageHome from './PageHome';
+import { PageHome } from './PageHome';
 
 describe('PageHome', () => {
   beforeEach(() => {
     render(
       <MockedProvider>
-        <PageHome classes={{ main: 'main' }} />
+        <PageHome />
       </MockedProvider>
     );
   });

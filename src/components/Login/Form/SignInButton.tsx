@@ -1,24 +1,22 @@
-import { Button } from '@material-ui/core';
+import { Button } from '@mui/material';
 import { FC } from 'react';
 
 interface SignInButtonProps {
-  readonly className: string;
   readonly isDisabled: boolean;
   onClick(): void;
 }
 
-const SignInButton: FC<SignInButtonProps> = ({ className, isDisabled, onClick }) => {
+const SignInButton: FC<SignInButtonProps> = ({ isDisabled, onClick }) => {
   return (
     <Button
       type="submit"
       fullWidth
       variant="contained"
-      color="primary"
-      className={className}
       onClick={(e) => {
         e.preventDefault();
         onClick();
       }}
+      sx={{ mt: 3, mb: 2 }}
       disabled={isDisabled}
     >
       Sign in

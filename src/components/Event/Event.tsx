@@ -1,15 +1,14 @@
-import { Avatar, CardActions, CardContent, CardHeader, WithStyles, withStyles } from '@material-ui/core';
-import Card from '@material-ui/core/Card';
+import { Avatar, CardActions, CardContent, CardHeader } from '@mui/material';
+import Card from '@mui/material/Card';
 import { FC } from 'react';
 
 import { RsvpStatus } from '../../graphql/types/globalTypes';
 import EventActions from '../EventActions';
 
 import { Location } from './Location';
-import styles from './styles';
 import { Subheader } from './Subheader';
 
-export interface OwnProps {
+export interface EventProps {
   readonly eventId: number;
   readonly location: string;
   readonly locationMapsUrl?: string;
@@ -20,10 +19,7 @@ export interface OwnProps {
   readonly title: string;
 }
 
-export type EventProps = WithStyles<typeof styles> & OwnProps;
-
 export const Event: FC<EventProps> = ({
-  classes,
   eventId,
   location,
   locationMapsUrl,
@@ -34,13 +30,13 @@ export const Event: FC<EventProps> = ({
   title,
 }) => {
   return (
-    <Card className={classes.card}>
+    <Card component="article" sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}>
       <CardHeader
         avatar={<Avatar aria-label="teamPhoto" src={teamPhotoUrl ?? ''} />}
         title={title}
         subheader={<Subheader startTime={startTime} />}
       />
-      <CardContent>
+      <CardContent sx={{ flexGrow: 1 }}>
         <Location locationName={location} locationUrl={locationMapsUrl} />
       </CardContent>
       <CardActions disableSpacing>
@@ -50,4 +46,4 @@ export const Event: FC<EventProps> = ({
   );
 };
 
-export default withStyles(styles)(Event);
+export default Event;

@@ -1,5 +1,5 @@
 import userEvent from '@testing-library/user-event';
-import { render, screen, waitFor } from '@testing-library/react';
+import { render, screen } from '../../../support/test-utils';
 import { MockedProvider } from '@apollo/client/testing';
 
 import Form from './Form';
@@ -13,7 +13,7 @@ describe('Form', () => {
     beforeEach(() => {
       render(
         <MockedProvider>
-          <Form formClassname="form" submitButtonClassname="submit" />
+          <Form />
         </MockedProvider>
       );
     });
@@ -23,14 +23,14 @@ describe('Form', () => {
     });
 
     it('renders a password textbox', () => {
-      expect(screen.getByTestId('password-textbox')).toBeInTheDocument();
+      expect(screen.getByLabelText(/password/i)).toBeInTheDocument();
     });
   });
 
   describe('when the user types in their username and password and submits the form', () => {
     const originalWindowLocation = window.location;
     const username = 'username';
-    const password = 'password';
+    const password = 'thepassword';
     const token = 'token';
     const mocks = [
       {
@@ -52,21 +52,24 @@ describe('Form', () => {
     ];
     const reload = jest.fn();
 
-    beforeEach(async () => {
-      const user = userEvent.setup();
+    beforeAll(() => {
       Object.defineProperty(window, 'location', {
         configurable: true,
         value: { reload },
       });
+    });
+
+    beforeEach(async () => {
+      const user = userEvent.setup();
 
       render(
         <MockedProvider mocks={mocks}>
-          <Form formClassname="form" submitButtonClassname="submit" />
+          <Form />
         </MockedProvider>
       );
 
       await user.type(screen.getByRole('textbox', { name: 'Username' }), username);
-      await user.type(screen.getByTestId('password-textbox'), password);
+      await user.type(screen.getByLabelText(/password/i), password);
       await user.click(screen.getByRole('button', { name: 'Sign in' }));
     });
 

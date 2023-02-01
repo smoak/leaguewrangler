@@ -1,5 +1,5 @@
 import { useQuery } from '@apollo/client';
-import { Grid } from '@material-ui/core';
+import { Grid } from '@mui/material';
 import { FC } from 'react';
 
 import getCurrentUserEvents from '../../graphql/queries/getCurrentUserEvents';
@@ -16,24 +16,26 @@ const EventList: FC = () => {
 
   if (loading) {
     return (
-      <>
-        <Grid item xs={4} data-testid="skeleton-event-1">
+      <Grid container spacing={4}>
+        <Grid item xs={12} sm={6} md={4} data-testid="skeleton-event-1">
           <SkeletonEvent />
         </Grid>
-        <Grid item xs={4}>
+        <Grid item xs={12} sm={6} md={4}>
           <SkeletonEvent />
         </Grid>
-        <Grid item xs={4}>
+        <Grid item xs={12} sm={6} md={4}>
           <SkeletonEvent />
         </Grid>
-      </>
+      </Grid>
     );
   }
 
   if (error || !data) {
     return (
-      <Grid item xs={8}>
-        Some error
+      <Grid container spacing={4}>
+        <Grid item xs={12} sm={6} md={4}>
+          Some error
+        </Grid>
       </Grid>
     );
   }
@@ -44,24 +46,22 @@ const EventList: FC = () => {
 
   if (events.length > 0) {
     return (
-      <>
+      <Grid container spacing={4}>
         {events.map((e) => (
-          <article key={e.id}>
-            <Grid item xs={6} style={{ display: 'flex' }}>
-              <Event
-                eventId={e.id}
-                teamId={e.team.id}
-                title={e.title}
-                teamPhotoUrl={e.team.photoThumbnailUrl ?? null}
-                location={e.location ? e.location.name : ''}
-                locationMapsUrl={e.location?.googleMapsUrl ?? undefined}
-                startTime={e.startTimestamp ?? undefined}
-                rsvpStatus={e.viewerRsvpStatus}
-              />
-            </Grid>
-          </article>
+          <Grid item xs={12} sm={6} md={4} key={e.id}>
+            <Event
+              eventId={e.id}
+              teamId={e.team.id}
+              title={e.title}
+              teamPhotoUrl={e.team.photoThumbnailUrl ?? null}
+              location={e.location ? e.location.name : ''}
+              locationMapsUrl={e.location?.googleMapsUrl ?? undefined}
+              startTime={e.startTimestamp ?? undefined}
+              rsvpStatus={e.viewerRsvpStatus}
+            />
+          </Grid>
         ))}
-      </>
+      </Grid>
     );
   }
 
