@@ -13,7 +13,6 @@ describe('Event', () => {
           <Event
             eventId={1}
             teamId={1}
-            classes={{ card: 'card' }}
             title="foo"
             startTime={1557029700000}
             location="Somewhere USA"
@@ -36,7 +35,6 @@ describe('Event', () => {
           <Event
             eventId={1}
             teamId={1}
-            classes={{ card: 'card' }}
             title="foo"
             startTime={1557029700000}
             teamPhotoUrl={null}

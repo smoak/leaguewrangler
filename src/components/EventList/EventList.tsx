@@ -46,20 +46,18 @@ const EventList: FC = () => {
     return (
       <>
         {events.map((e) => (
-          <article key={e.id}>
-            <Grid item xs={6} style={{ display: 'flex' }}>
-              <Event
-                eventId={e.id}
-                teamId={e.team.id}
-                title={e.title}
-                teamPhotoUrl={e.team.photoThumbnailUrl ?? null}
-                location={e.location ? e.location.name : ''}
-                locationMapsUrl={e.location?.googleMapsUrl ?? undefined}
-                startTime={e.startTimestamp ?? undefined}
-                rsvpStatus={e.viewerRsvpStatus}
-              />
-            </Grid>
-          </article>
+          <Grid item xs={12} sm={6} md={4} key={e.id}>
+            <Event
+              eventId={e.id}
+              teamId={e.team.id}
+              title={e.title}
+              teamPhotoUrl={e.team.photoThumbnailUrl ?? null}
+              location={e.location ? e.location.name : ''}
+              locationMapsUrl={e.location?.googleMapsUrl ?? undefined}
+              startTime={e.startTimestamp ?? undefined}
+              rsvpStatus={e.viewerRsvpStatus}
+            />
+          </Grid>
         ))}
       </>
     );
