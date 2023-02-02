@@ -15,13 +15,16 @@ jobs:
         run: npm test
         env:
           CI: true
+      - name: Prepare version
+        id: vars
+        run: echo "version=$(date '+%Y%m%d%H%M%S')-$(git rev-parse --short HEAD)" >> $GITHUB_OUTPUT
       - name: Build
         if: success()
         run:
           npm run build
         env:
           REACT_APP_GRAPHQL_ENDPOINT: "/graphql"
-          REACT_APP_VERSION: ${{ GITHUB_SHA }}
+          REACT_APP_VERSION: ${{ steps.vars.outputs.version }}
       - name: Deploy
         if: success()
         uses: crazy-max/ghaction-github-pages@v1
