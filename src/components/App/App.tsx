@@ -24,7 +24,7 @@ const App: FC<AppProps> = ({ isAuthenticated }) => {
             pb: 6,
           }}
         >
-          <Container maxWidth="md">{isAuthenticated ? <AppBody /> : <Login />}</Container>
+          <Container maxWidth="lg">{isAuthenticated ? <AppBody /> : <Login />}</Container>
         </Box>
       </main>
     </>
