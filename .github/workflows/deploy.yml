@@ -27,7 +27,7 @@ jobs:
           REACT_APP_VERSION: ${{ steps.vars.outputs.version }}
       - name: Push build directory to production branch
         if: success()
-        uses: crazy-max/ghaction-github-pages@v1
+        uses: crazy-max/ghaction-github-pages@v3
         with:
           target_branch: production
           build_dir: build
