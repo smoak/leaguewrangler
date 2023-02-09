@@ -1,4 +1,4 @@
-import { Theme, Grid, Typography, Container } from '@mui/material';
+import { Theme, Typography, Container } from '@mui/material';
 import { WithStyles } from '@mui/styles';
 import createStyles from '@mui/styles/createStyles';
 import withStyles from '@mui/styles/withStyles';
@@ -24,9 +24,7 @@ export const PageHome: FC<PageHomeProps> = ({ classes }) => {
       <Typography variant="h3" className={classes.main}>
         Events
       </Typography>
-      <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }} justifyContent="center">
-        <EventList />
-      </Grid>
+      <EventList />
     </Container>
   );
 };
